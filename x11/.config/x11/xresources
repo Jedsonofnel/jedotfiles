@@ -1,0 +1,63 @@
+! Zenbu Controlled XResources
+
+! General
+*.scrollBar: false
+*.saveLines: 8192
+*.internalBorder: 10
+*.cursorUnderline: true
+*.cursorBlink: true
+*.dynamicColors: on
+*.letterSpace: 2
+
+Xft.autohint: 0
+Xft.dpi: 192
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.antialias: 1
+Xft.rgba: rgb
+
+! ST
+st.alpha: 1
+st.font: monospace:size=10
+st.termname: st-256color
+st.borderpx: 50
+
+
+! Colors
+*.borderColor:  #282a36
+*.background:   #282a36
+*.foreground:   #f8f8f2
+*.cursorColor:  #f8f8f2
+
+! Blacko
+*.color0:       #000000
+*.color8:       #4d4d4d
+
+! Red
+*.color1:       #ff5555
+*.color9:       #ff6e67
+
+! Green
+*.color2:       #50fa7b
+*.color10:      #5af78e
+
+! Yellow
+*.color3:       #f1fa8c
+*.color11:      #f4f99d
+
+! Blue
+*.color4:       #bd93f9
+*.color12:      #caa9fa
+
+! Magenta
+*.color5:       #ff79c6
+*.color13:      #ff92d0
+
+! Cyan
+*.color6:       #8be9fd
+*.color14:      #9aedfe
+
+! White
+*.color7:       #bfbfbf
+*.color15:      #e6e6e6

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Merge xresources before i3 starts
+xrdb ~/.config/x11/xresources
+
+# Set english layout for better tilde placement etc
+setxkbmap -layout gb
+
+# Get pulse working
+start-pulseaudio-x11
+
+# i3 is kept as default
+session=${1:-dwm}
+
+case $session in
+	i3|i3wm						) exec i3;;
+	sowm							) exec sowm;;
+	dwm								) exec dwm;;
+	# No known session, try to run it as command
+	* 								) exec $1;;
+esac
