@@ -1,0 +1,134 @@
+# Window Settings (Padding)
+
+term: alacritty
+
+window:
+  padding:
+    x: 20
+    y: 20
+
+font:
+  size: 10
+  # Normal Font Face
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+
+  # Bold Font Face
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+
+  # Italic Font Face
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+  offset:
+    y: 0
+    x: 0
+
+draw_bold_text_with_bright_colors: true
+
+# Background Opacity
+background_opacity: 1.0
+
+# Cursor stuff
+cursor:
+  style:
+    shape: Beam
+    blinking: on
+  thickness: 0.25
+# Color Schemes
+schemes:
+  # srcery theme
+  srcery: &srcery
+    primary:
+      background: '#1c1b19'
+      foreground: '#fce8c3'
+    cursor:
+      text: CellBackground
+      cursor: '#fbb829'
+    normal:
+      black:  '#1c1b19'
+      red:    '#ef2f27'
+      green:  '#519f50'
+      yellow: '#fbb829'
+      blue:   '#2c78bf'
+      magenta:  '#e02c6d'
+      cyan:   '#0aaeb3'
+      white:  '#baa67f'
+    bright:
+      black:  '#918175'
+      red:    '#f75341'
+      green:  '#98bc37'
+      yellow: '#fed06e'
+      blue:   '#68a8e4'
+      magenta:  '#ff5c8f'
+      cyan:   '#2be4d0'
+      white:  '#fce8c3'
+
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+colors: *tokyo-night-storm

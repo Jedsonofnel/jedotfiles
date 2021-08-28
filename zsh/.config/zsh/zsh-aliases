@@ -1,0 +1,8 @@
+#
+# my zsh aliases
+#
+
+# config files
+alias nvimrc='cd ~/.config/nvim'
+alias zshrc='cd ~/.config/zsh'
+alias alacrittyrc='nvim ~/.config/alacritty/alacritty.yml'
