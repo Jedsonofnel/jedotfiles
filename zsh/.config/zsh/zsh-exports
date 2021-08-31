@@ -1,3 +1,15 @@
 #!/bin/sh
 export PATH="$HOME/.local/bin/fnm":$PATH
 eval "$(fnm env)"
+
+# Use $XINITRC variable if file exists
+# This variable is declared in 'profile' and allows me to put xinitrc outside
+# of ~/
+[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# Colorise commands when possible
+alias \
+    ls="ls -hN --color=auto --group-directories-first" \
+    grep="grep --color=auto" \
+    diff="diff --color=auto" \
+    ccat="highlight --out-format=ansi"

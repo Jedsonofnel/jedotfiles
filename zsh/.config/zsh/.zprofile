@@ -2,9 +2,6 @@
 
 # Profile file.  Runs on login.  Environmental variables are set here.
 
-# If I feel I won't switch back to bash I can just use this file instead of the
-# symlink in home that points to this file.
-
 # Adds '~/.local/bin' to $PATH so that the scripts in there can be run
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
@@ -31,11 +28,5 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 # Config file cleanup:
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export NODE_REPL_HISTORY=""
 export GTK_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
-
-# Start graphical server if one is not already running.
-# if pacman -Qs libxft-bgra >/dev/null 2>&1; then
-#     [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-# fi

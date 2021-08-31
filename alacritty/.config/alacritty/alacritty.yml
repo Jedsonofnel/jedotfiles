@@ -4,11 +4,11 @@ term: alacritty
 
 window:
   padding:
-    x: 20
-    y: 20
+    x: 10
+    y: 10
 
 font:
-  size: 10
+  size: 8
   # Normal Font Face
   normal:
     family: JetBrainsMono Nerd Font

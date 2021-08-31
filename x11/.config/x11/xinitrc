@@ -7,15 +7,13 @@ xrdb ~/.config/x11/xresources
 setxkbmap -layout gb
 
 # Get pulse working
-start-pulseaudio-x11
+# start-pulseaudio-x11
 
 # i3 is kept as default
-session=${1:-dwm}
+session=${1:-qtile}
 
 case $session in
-	i3|i3wm						) exec i3;;
-	sowm							) exec sowm;;
-	dwm								) exec dwm;;
+	qtile								) exec qtile start;;
 	# No known session, try to run it as command
 	* 								) exec $1;;
 esac
