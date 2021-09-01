@@ -9,7 +9,7 @@ setxkbmap -layout gb
 # Get pulse working
 # start-pulseaudio-x11
 
-# i3 is kept as default
+# qtile is kept as default
 session=${1:-qtile}
 
 case $session in
