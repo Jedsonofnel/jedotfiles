@@ -7,13 +7,20 @@ xrdb ~/.config/x11/xresources
 setxkbmap -layout gb
 
 # Get pulse working
-# start-pulseaudio-x11
+start-pulseaudio-x11
+
+# Set wallpaper
+fehbg
+
+# Start picom
+picom -b --experimental-backend
 
 # qtile is kept as default
-session=${1:-qtile}
+session=${1:-awesome}
 
 case $session in
-	qtile								) exec qtile start;;
+ qtile							) exec qtile start;;
+  awesome           ) exec awesome;;
 	# No known session, try to run it as command
 	* 								) exec $1;;
 esac

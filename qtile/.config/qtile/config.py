@@ -83,6 +83,11 @@ keys = [
     # Launching things
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "f", lazy.spawn("firefox")),
+
+    # Volume control
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer -i 5")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer -d 5")),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
 ]
 
 groups = [Group(i) for i in "123456789"]
