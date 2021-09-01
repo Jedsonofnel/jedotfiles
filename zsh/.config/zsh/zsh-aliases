@@ -6,3 +6,4 @@
 alias nvimrc='cd ~/.config/nvim'
 alias zshrc='cd ~/.config/zsh'
 alias alacrittyrc='nvim ~/.config/alacritty/alacritty.yml'
+alias qtilerc='nvim ~/.config/qtile/config.py'
