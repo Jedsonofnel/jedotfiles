@@ -13,7 +13,7 @@ start-pulseaudio-x11
 fehbg
 
 # Start picom
-picom -b --experimental-backend
+picom -b
 
 # qtile is kept as default
 session=${1:-awesome}

@@ -26,8 +26,12 @@ require("config.rules")
 require("config.tags")
 require("config.keys")
 
+-- Daemons
+require("evil")
+
 -- Widgets
 require("widgets.topbar")
+require("widgets.popup")
 
 require("awful.autofocus")
 

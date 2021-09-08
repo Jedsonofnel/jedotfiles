@@ -56,6 +56,8 @@ keys.globalkeys = gears.table.join(
             {description = "reload awesome", group = "awesome"}),
   awful.key({ modkey, "Shift"   }, "c", awesome.quit,
             {description = "quit awesome", group = "awesome"}),
+  awful.key({ modkey,           }, "f", function () awful.spawn(apps.browser) end,
+            {description = "open firefox", group = "launcher"}),
 
   -- Master height & width
   awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
@@ -93,11 +95,30 @@ keys.globalkeys = gears.table.join(
 
   -- Menubar
   awful.key({ modkey }, "p", function() menubar.show() end,
-            {description = "show the menubar", group = "launcher"})
+            {description = "show the menubar", group = "launcher"}),
+
+  -- Media controls
+  awful.key({}, "XF86AudioLowerVolume", function ()
+    awful.spawn.easy_async_with_shell("pamixer -d 5", function(stdout)
+      awesome.emit_signal("popup::volume", -5)
+    end)
+  end),
+
+  awful.key({}, "XF86AudioRaiseVolume", function ()
+    awful.spawn.easy_async_with_shell("pamixer -i 5", function(stdout)
+      awesome.emit_signal("popup::volume", 5)
+    end)
+  end),
+
+  awful.key({}, "XF86AudioMute", function ()
+    awful.spawn.easy_async_with_shell("pamixer -t", function(stdout)
+      awesome.emit_signal("popup::volume")
+    end)
+  end)
 )
 
 keys.clientkeys = gears.table.join(
-  awful.key({ modkey,           }, "f",
+  awful.key({ modkey,           }, "m",
       function (c)
           c.fullscreen = not c.fullscreen
           c:raise()
@@ -112,32 +133,7 @@ keys.clientkeys = gears.table.join(
   awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
             {description = "move to screen", group = "client"}),
   awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-            {description = "toggle keep on top", group = "client"}),
-  awful.key({ modkey,           }, "n",
-      function (c)
-          -- The client currently has the input focus, so it cannot be
-          -- minimized, since minimized clients can't have the focus.
-          c.minimized = true
-      end ,
-      {description = "minimize", group = "client"}),
-  awful.key({ modkey,           }, "m",
-      function (c)
-          c.maximized = not c.maximized
-          c:raise()
-      end ,
-      {description = "(un)maximize", group = "client"}),
-  awful.key({ modkey, "Control" }, "m",
-      function (c)
-          c.maximized_vertical = not c.maximized_vertical
-          c:raise()
-      end ,
-      {description = "(un)maximize vertically", group = "client"}),
-  awful.key({ modkey, "Shift"   }, "m",
-      function (c)
-          c.maximized_horizontal = not c.maximized_horizontal
-          c:raise()
-      end ,
-      {description = "(un)maximize horizontally", group = "client"})
+            {description = "toggle keep on top", group = "client"})
 )
 
 -- Bind all key numbers to tags.

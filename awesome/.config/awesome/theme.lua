@@ -25,11 +25,16 @@ theme.fg_focus      = "#ffffff"
 theme.fg_urgent     = "#ffffff"
 theme.fg_minimize   = "#ffffff"
 
+-- misc
+theme.misc1 = "#6C6F93"
+theme.misc2 = "#2f3240"
+
 theme.useless_gap   = dpi(20)
 theme.border_width  = dpi(1)
 theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
+theme.border_radius = dpi(6)
 
 -- bar config
 theme.bar_position = "top"

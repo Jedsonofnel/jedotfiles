@@ -13,6 +13,8 @@ o.completeopt = "menuone,noselect" -- better completion
 opt.showmode = false
 opt.shortmess = opt.shortmess + 'c'
 
+api.nvim_command("set clipboard+=unnamedplus")
+
 -- split right and bottom instead of left and top
 opt.splitbelow = true
 opt.splitright = true
