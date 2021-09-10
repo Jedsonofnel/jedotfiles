@@ -22,6 +22,8 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-fugitive'
   use 'folke/tokyonight.nvim'
+  use 'srcery-colors/srcery-vim'
+  use 'ayu-theme/ayu-vim'
   use 'ygm2/rooter.nvim'
 
   use {

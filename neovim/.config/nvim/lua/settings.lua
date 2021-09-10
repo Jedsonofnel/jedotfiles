@@ -35,7 +35,7 @@ opt.cursorline = true
 -- colorscheme
 opt.termguicolors = true
 opt.background = 'dark'
-cmd [[colorscheme tokyonight]]
+cmd [[colorscheme ayu]]
 
 -- highlight on yank
 api.nvim_exec(

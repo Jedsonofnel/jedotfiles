@@ -43,92 +43,89 @@ cursor:
     shape: Beam
     blinking: on
   thickness: 0.25
+
 # Color Schemes
 schemes:
-  # srcery theme
-  srcery: &srcery
+  ayu-light: &ayu-light
     primary:
-      background: '#1c1b19'
-      foreground: '#fce8c3'
-    cursor:
-      text: CellBackground
-      cursor: '#fbb829'
-    normal:
-      black:  '#1c1b19'
-      red:    '#ef2f27'
-      green:  '#519f50'
-      yellow: '#fbb829'
-      blue:   '#2c78bf'
-      magenta:  '#e02c6d'
-      cyan:   '#0aaeb3'
-      white:  '#baa67f'
-    bright:
-      black:  '#918175'
-      red:    '#f75341'
-      green:  '#98bc37'
-      yellow: '#fed06e'
-      blue:   '#68a8e4'
-      magenta:  '#ff5c8f'
-      cyan:   '#2be4d0'
-      white:  '#fce8c3'
-
-  # Tokyo Night theme, based on both:
-  #   https://github.com/ghifarit53/tokyonight-vim
-  #   https://github.com/enkia/tokyo-night-vscode-theme
-  tokyo-night: &tokyo-night
-    # Default colors
-    primary:
-      background: '0x1a1b26'
-      foreground: '0xa9b1d6'
+      background: '0xfafafa'
+      foreground: '0x5b6672'
 
     # Normal colors
     normal:
-      black:   '0x32344a'
-      red:     '0xf7768e'
-      green:   '0x9ece6a'
-      yellow:  '0xe0af68'
-      blue:    '0x7aa2f7'
-      magenta: '0xad8ee6'
-      cyan:    '0x449dab'
-      white:   '0x787c99'
+      black: '0x000000' #0
+      red: '0xf2590b' #1
+      green: '0x76cc00' #2
+      yellow: '0xf29717' #3
+      blue: '0x41a5d9' #4
+      magenta: '0x9965cc' #5
+      cyan: '0x4dbf98' #6
+      white: '0xc7c7c7' #7
 
     # Bright colors
     bright:
-      black:   '0x444b6a'
-      red:     '0xff7a93'
-      green:   '0xb9f27c'
-      yellow:  '0xff9e64'
-      blue:    '0x7da6ff'
-      magenta: '0xbb9af7'
-      cyan:    '0x0db9d7'
-      white:   '0xacb0d0'
+      black: '0x676767'
+      red: '0xd6646a' #9
+      green: '0xa3d900' #10
+      yellow: '0xe7c446' #11
+      blue: '0x6871ff' #12
+      magenta: '0xa37acc' #13
+      cyan: '0x56d9ad' #14
+      white: '0xfeffff' #15
 
-  tokyo-night-storm: &tokyo-night-storm
-    # Default colors
+  ayu-dark: &ayu-dark
     primary:
-      background: '#24283b'
-      foreground: '#a9b1d6'
+      background: '#0f1419'
+      foreground: '#e6e1cf'
 
     # Normal colors
     normal:
-      black:   '#32344a'
-      red:     '#f7768e'
-      green:   '#9ece6a'
-      yellow:  '#e0af68'
-      blue:    '#7aa2f7'
-      magenta: '#ad8ee6'
-      cyan:    '#449dab'
-      white:   '#9699a8'
+      black:   '#000000'
+      red:     '#f34a4a'
+      green:   '#bae67e'
+      yellow:  '#ffee99'
+      blue:    '#73d0ff'
+      magenta: '#d4bfff'
+      cyan:    '#83CEC6'
+      white:   '#f2f2f2'
 
     # Bright colors
     bright:
-      black:   '#444b6a'
-      red:     '#ff7a93'
-      green:   '#b9f27c'
-      yellow:  '#ff9e64'
-      blue:    '#7da6ff'
-      magenta: '0xbb9af7'
-      cyan:    '0x0db9d7'
-      white:   '0xacb0d0'
+      black:   '#737d87'
+      red:     '#ff3333'
+      green:   '#c2d94c'
+      yellow:  '#e7c547'
+      blue:    '#59c2ff'
+      magenta: '#b77ee0'
+      cyan:    '#5ccfe6'
+      white:   '#ffffff'
 
-colors: *tokyo-night-storm
+  ayu-mirage: &ayu-mirage
+    primary:
+      background: '#1f2430'
+      foreground: '#cbccc6'
+      bright_foreground: '#f28779'
+
+    # Normal colors
+    normal:
+      black:   '#212733'
+      red:     '#f08778'
+      green:   '#53bf97'
+      yellow:  '#fdcc60'
+      blue:    '#60b8d6'
+      magenta: '#ec7171'
+      cyan:    '#98e6ca'
+      white:   '#fafafa'
+
+    # Brightened
+    bright:
+      black:   '#686868'
+      red:     '#f58c7d'
+      green:   '#58c49c'
+      yellow:  '#ffd165'
+      blue:    '#65bddb'
+      magenta: '#f17676'
+      cyan:    '#9debcf'
+      white:   '#ffffff'
+
+colors: *ayu-dark
