@@ -1,3 +1,8 @@
+--
+-- jedn awesomerc
+-- popup.lua, handles widgetry behind vol/bri popups
+--
+
 local awful = require("awful")
 local beautiful = require("beautiful")
 local wibox = require("wibox")
@@ -90,14 +95,6 @@ local createPopup = function(color)
     popup.update = function(value, image)
         icon.markup = "<span foreground='"..beautiful.fg_normal.."'>"..image.."</span>"
         progressbar.value = value / 100
-        latest_value = value / 100
-    end
-
-    popup.updateValue = function(value)
-      if value == nil then return end
-
-      latest_value = latest_value + (value / 100)
-      progressbar.value = latest_value
     end
 
     return popup

@@ -1,19 +1,15 @@
 --
 -- jedn awesomerc
--- watches volume, functions as a "Daemon"
+-- volume.lua, volume "daemon"
 --
 
 local awful = require("awful")
 local watch = require("awful.widget.watch")
 
--- Function that returns volume icom & level
--- Putting this in a separate file means I can use it for other things
-local fetchVolume = require("lib.volume-fetch")
+local fetchVolume = require("lib.fetch-volume")
 
-local GET_VOLUME_CMD = 'amixer -D pulse sget Master'
-
-local handleVolume = function(stdout)
-  local volume_info = fetchVolume(stdout)
+local handleVolume = function()
+  local volume_info = fetchVolume()
   local volume = volume_info.volume
   local icon = volume_info.icon
 
@@ -23,6 +19,6 @@ local handleVolume = function(stdout)
   })
 end
 
-watch(GET_VOLUME_CMD, 1, function(_, stdout, _, _, _)
-    handleVolume(stdout)
+watch(GET_VOLUME_CMD, 1, function(_, _, _, _, _)
+  handleVolume()
 end, nil)

@@ -1,6 +1,6 @@
 --
 -- jedn awesome config
--- keys.lua -> sourced in rc.lua
+-- keys.lua, handles keybindings
 --
 
 local awful = require("awful")
@@ -100,19 +100,32 @@ keys.globalkeys = gears.table.join(
   -- Media controls
   awful.key({}, "XF86AudioLowerVolume", function ()
     awful.spawn.easy_async_with_shell("pamixer -d 5", function(stdout)
-      awesome.emit_signal("popup::volume", -5)
+      awesome.emit_signal("popup::volume")
     end)
   end),
 
   awful.key({}, "XF86AudioRaiseVolume", function ()
     awful.spawn.easy_async_with_shell("pamixer -i 5", function(stdout)
-      awesome.emit_signal("popup::volume", 5)
+      awesome.emit_signal("popup::volume")
     end)
   end),
 
   awful.key({}, "XF86AudioMute", function ()
     awful.spawn.easy_async_with_shell("pamixer -t", function(stdout)
       awesome.emit_signal("popup::volume")
+    end)
+  end),
+
+  -- Brightness controls
+  awful.key({}, "XF86MonBrightnessDown", function ()
+    awful.spawn.easy_async_with_shell("brightnessctl set 5%- > /dev/null", function(stdout)
+      awesome.emit_signal("popup::brightness", -5)
+    end)
+  end),
+
+  awful.key({}, "XF86MonBrightnessUp", function ()
+    awful.spawn.easy_async_with_shell("brightnessctl set 5%+ > /dev/null", function(stdout)
+      awesome.emit_signal("popup::brightness", 5)
     end)
   end)
 )
