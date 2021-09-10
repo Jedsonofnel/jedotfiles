@@ -3,14 +3,7 @@
 -- volume-popup.lua, handles signals for volume popup
 --
 
-local awful = require("awful")
 local beautiful = require("beautiful")
-local wibox = require("wibox")
-local gears = require("gears")
-local dpi = require("beautiful").xresources.apply_dpi
-
-local naughty = require("naughty")
-
 local createPopup = require("widgets.popup.popup")
 
 local fetchVolume = require("lib.fetch-volume")
