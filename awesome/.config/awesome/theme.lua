@@ -11,7 +11,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "sans 8"
+theme.font          = "sans 10"
+theme.monospace     = "monospace 10"
 
 theme.bg_normal     = "#1C1E26"
 theme.bg_focus      = theme.bg_normal
@@ -53,6 +54,12 @@ theme.purple = ""
 theme.purple_light = ""
 theme.red = "#f7768e"
 theme.red_light = "#ff7a93"
+
+-- icons
+local icon_path = "/home/jedn/Images/Icons/"
+
+theme.home_icon = icon_path.."Cottage/cottage_blue.png"
+theme.home_icon_hi = icon_path.."Cottage/cottage_blue_hi.png"
 
 -- Generate taglist squares:
 -- local taglist_square_size = dpi(4)
@@ -135,7 +142,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = Papirus
 
 return theme
 

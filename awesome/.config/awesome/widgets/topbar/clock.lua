@@ -6,7 +6,7 @@ local dpi = beautiful.xresources.apply_dpi
 local clock_format = "%A %B %d, %H:%M"
 
 local clock = wibox.widget.textclock()
-clock.font = "Roboto Bold 10"
+clock.font = beautiful.font
 clock.format = "<span foreground='"..beautiful.fg_dark.."'>"..clock_format.."</span>"
 
 return clock

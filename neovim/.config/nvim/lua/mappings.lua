@@ -32,3 +32,6 @@ map('n', 'k', 'gk', { noremap = true })
 
 -- remove search highlight
 map('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true })
+
+-- close buffer
+map('n', '<Leader>c', ':bd<CR>', { noremap = true })
