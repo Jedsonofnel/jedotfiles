@@ -33,6 +33,7 @@ end
 local session = require("widgets.topbar.session")
 local taglist = require("widgets.topbar.taglist")
 local clock = require("widgets.topbar.clock")
+local battery = require("widgets.topbar.battery")
 
 beautiful.systray_icon_spacing = dpi(12)
 local systray = wibox.widget.systray()
@@ -63,6 +64,7 @@ awful.screen.connect_for_each_screen(function(s)
       layout = wibox.layout.fixed.horizontal,
     },
     {   -- Right
+      widget(battery),
       widget(wibox.widget {
         widget = wibox.container.margin,
         top = dpi(1),

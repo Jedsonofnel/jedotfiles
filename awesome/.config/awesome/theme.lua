@@ -61,15 +61,6 @@ local icon_path = "/home/jedn/Images/Icons/"
 theme.home_icon = icon_path.."Cottage/cottage_blue.png"
 theme.home_icon_hi = icon_path.."Cottage/cottage_blue_hi.png"
 
--- Generate taglist squares:
--- local taglist_square_size = dpi(4)
--- theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
---     taglist_square_size, theme.fg_normal
--- )
--- theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
---     taglist_square_size, theme.fg_normal
--- )
-
 -- Variables set for theming notifications:
 -- notification_font
 -- notification_[bg|fg]
