@@ -24,8 +24,8 @@ battery_widget = wibox.widget {
 }
 
 awesome.connect_signal("evil::battery", function(battery)
-    icon_widget.markup = "<span foreground='"..beautiful.fg_dark.."'>"..battery.image.."</span>"
-    level_widget.markup = "<span foreground='"..beautiful.fg_dark.."'>"..battery.value.."%</span>"
+    icon_widget.markup = "<span foreground='"..beautiful.fg_normal.."'>"..battery.image.."</span>"
+    level_widget.markup = "<span foreground='"..beautiful.fg_normal.."'>"..battery.value.."%</span>"
 end)
 
 return battery_widget

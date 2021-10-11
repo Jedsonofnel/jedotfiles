@@ -7,6 +7,6 @@ local clock_format = "%A %B %d, %H:%M"
 
 local clock = wibox.widget.textclock()
 clock.font = beautiful.font
-clock.format = "<span foreground='"..beautiful.fg_dark.."'>"..clock_format.."</span>"
+clock.format = "<span foreground='"..beautiful.fg_normal.."'>"..clock_format.."</span>"
 
 return clock

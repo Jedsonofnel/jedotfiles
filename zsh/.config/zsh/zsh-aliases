@@ -9,3 +9,6 @@ alias alacrittyrc='nvim ~/.config/alacritty/alacritty.yml'
 alias qtilerc='nvim ~/.config/qtile/config.py'
 alias xrc='cd ~/.config/x11'
 alias awesomerc='cd ~/.config/awesome/'
+
+# useful aliases
+alias hut='cd ~/jedcave/jedn.xyz'

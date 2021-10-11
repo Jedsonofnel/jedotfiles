@@ -66,5 +66,4 @@ require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.solargraph.setup{}
 require'lspconfig'.tsserver.setup{}

@@ -64,7 +64,7 @@ taglist.init = function(s)
         {
           {
             wibox.widget.base.make_widget(),
-            bg = beautiful.red,
+            bg = beautiful.system_red_dark,
             id = "selected_indicator",
             widget = wibox.container.background
           },
@@ -99,7 +99,7 @@ taglist.init = function(s)
 
   local container = wibox.widget {
     taglist,
-    button.create_text(beautiful.fg_dark, beautiful.fg_normal, "", "Fira Mono 12", function()
+    button.create_text(beautiful.fg_normal, beautiful.fg_normal, "", "Fira Mono 12", function()
       for _, tag in pairs(root.tags()) do
         if #tag:clients() == 0 then
           tag:view_only()

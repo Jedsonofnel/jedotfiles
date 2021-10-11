@@ -38,7 +38,7 @@ local createPopup = function(color)
         layout        = wibox.container.rotate,
     }
 
-    local widget = apply_borders({
+    local widget = {
         {
             {
                 nil,
@@ -55,7 +55,7 @@ local createPopup = function(color)
         left = dpi(8),
         right = dpi(8),
         widget  = wibox.container.margin
-    }, 30, 176, 6)
+    }
 
     local popup = awful.popup {
         widget = widget,
