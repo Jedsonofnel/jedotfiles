@@ -5,8 +5,8 @@ local map = vim.api.nvim_set_keymap
 require('compe').setup {
   source = {
     path = true,
-    nvim_lsp = true,
-    buffer = true,
+    nvim_lsp = false,
+    buffer = false,
     calc = false,
     nvim_lua = false,
   },

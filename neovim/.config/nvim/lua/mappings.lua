@@ -8,6 +8,8 @@ g.mapleader = ','
 -- jk or kj to escape
 map('i', 'jk', '<esc>', { noremap = true })
 map('i', 'kj', '<esc>', { noremap = true })
+map('t', 'jk', '<C-\\><C-n>', { noremap = true })
+map('t', 'kj', '<C-\\><C-n>', { noremap = true })
 
 -- window navigation
 map('n', '<c-h>', '<c-w>h', { noremap = true })
@@ -18,6 +20,8 @@ map('n', '<c-l>', '<c-w>l', { noremap = true })
 -- buffer navigation
 map('n', '<C-n>', ':bnext<CR>', { noremap = true })
 map('n', '<C-p>', ':bprev<CR>', { noremap = true })
+map('t', '<C-n>', '<C-\\><C-n> :bnext<CR>', { noremap = true })
+map('t', '<C-p>', '<C-\\><C-n> :bprev<CR>', { noremap = true })
 
 -- copy, paste using system clipboard
 map('v', '<C-c>', '"+y',    { noremap = true })
@@ -34,4 +38,7 @@ map('n', 'k', 'gk', { noremap = true })
 map('n', '<Leader><Space>', ':set hlsearch!<CR>', { noremap = true })
 
 -- close buffer
-map('n', '<Leader>c', ':bd<CR>', { noremap = true })
+map('n', '<Leader>c', ':bd!<CR>', { noremap = true })
+
+-- open terminal window
+map('n', '<Leader>t', ':enew | term<CR>A', { noremap = true })

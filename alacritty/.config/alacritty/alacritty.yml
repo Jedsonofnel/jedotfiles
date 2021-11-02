@@ -4,11 +4,11 @@ term: alacritty
 
 window:
   padding:
-    x: 10
-    y: 10
+    x: 0
+    y: 0
 
 font:
-  size: 8
+  size: 10
   # Normal Font Face
   normal:
     family: JetBrainsMono Nerd Font
@@ -102,7 +102,7 @@ schemes:
 
   ayu-mirage: &ayu-mirage
     primary:
-      background: '#1f2430'
+      background: '#212733'
       foreground: '#cbccc6'
       bright_foreground: '#f28779'
 

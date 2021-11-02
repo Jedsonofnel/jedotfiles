@@ -15,12 +15,13 @@ fehbg
 # Start picom
 picom -b
 
-# qtile is kept as default
-session=${1:-awesome}
+# dwm is kept as default
+session=${1:-dwm}
 
 case $session in
   qtile							) exec qtile start;;
   awesome           ) exec awesome;;
+  dwm               ) exec dwm;;
 	# No known session, try to run it as command
 	* 								) exec $1;;
 esac

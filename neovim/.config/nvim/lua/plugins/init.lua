@@ -52,6 +52,7 @@ require('packer').startup(function()
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
+      require'nvim-tree'.setup {}
       require('plugins.filetree')
     end
   }
@@ -85,7 +86,31 @@ require('packer').startup(function()
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup()
+      require('colorizer').setup {
+        'css';
+        'javascript';
+        'html';
+        'yaml';
+      }
+    end
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require("bufferline").setup{
+        options = { offsets = {
+          {
+            filetype = "NvimTree",
+            text = function()
+              return vim.fn.getcwd()
+            end,
+            highlight = "Directory",
+            text_align = "left"
+          }
+        }}
+      }
     end
   }
 end)

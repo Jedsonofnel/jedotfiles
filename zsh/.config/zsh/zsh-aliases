@@ -1,5 +1,6 @@
 #
-# my zsh aliases
+# jedn's zsh aliai
+# (plural of alias = aliai)
 #
 
 # config files
@@ -9,6 +10,10 @@ alias alacrittyrc='nvim ~/.config/alacritty/alacritty.yml'
 alias qtilerc='nvim ~/.config/qtile/config.py'
 alias xrc='cd ~/.config/x11'
 alias awesomerc='cd ~/.config/awesome/'
+alias dwmrc='cd ~/Repos/dwm/'
 
-# useful aliases
+# directory aliai
 alias hut='cd ~/jedcave/jedn.xyz'
+
+# cmd navigation aliai
+alias la="ls -a"

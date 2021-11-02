@@ -48,7 +48,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-local servers = { 'tsserver' }
+local servers = { 'html', 'cssls' }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach
@@ -58,12 +58,5 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-require'lspconfig'.html.setup {
-  capabilities = capabilities,
-}
-
-require'lspconfig'.cssls.setup {
-  capabilities = capabilities,
-}
-
-require'lspconfig'.tsserver.setup{}
+require'lspconfig'.html.setup {}
+require'lspconfig'.cssls.setup {}
