@@ -26,6 +26,7 @@ opt.softtabstop = 2
 opt.expandtab = true
 opt.textwidth = 0
 opt.wrap = false
+opt.smartindent = true
 
 -- lines and line numbers
 opt.number = true

@@ -2,6 +2,9 @@
 export PATH="$HOME/.local/bin/fnm":$PATH
 eval "$(fnm env)"
 
+# Go stuff
+export PATH=$PATH:/usr/local/go/bin
+
 # Use $XINITRC variable if file exists
 # This variable is declared in 'profile' and allows me to put xinitrc outside
 # of ~/

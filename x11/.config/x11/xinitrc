@@ -15,6 +15,9 @@ fehbg
 # Start picom
 picom -b
 
+# Start redshift
+redshift &
+
 # dwm is kept as default
 session=${1:-dwm}
 
