@@ -11,6 +11,8 @@ alias qtilerc='nvim ~/.config/qtile/config.py'
 alias xrc='cd ~/.config/x11'
 alias awesomerc='cd ~/.config/awesome/'
 alias dwmrc='cd ~/Repos/dwm/'
+alias starshiprc='nvim ~/.config/starship.toml'
+alias kittyrc='nvim ~/.config/kitty/kitty.conf'
 
 # directory aliai
 alias hut='cd ~/jedcave/jedn.xyz'

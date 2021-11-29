@@ -1,6 +1,7 @@
 local api = vim.api
 local fn = vim.fn
 local g = vim.g
+local opt = vim.opt
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
@@ -22,9 +23,14 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-fugitive'
   use 'folke/tokyonight.nvim'
-  use 'srcery-colors/srcery-vim'
-  use 'ayu-theme/ayu-vim'
   use 'ygm2/rooter.nvim'
+
+  use {
+    'shaunsingh/nord.nvim',
+    config = function()
+      require('plugins.colorscheme')
+    end
+  }
 
   use {
     'neovim/nvim-lspconfig',
@@ -91,6 +97,7 @@ require('packer').startup(function()
         'javascript';
         'html';
         'yaml';
+        'lua';
       }
     end
   }
@@ -111,6 +118,13 @@ require('packer').startup(function()
           }
         }}
       }
+    end
+  }
+
+  use {
+    'lukas-reineke/indent-blankline.nvim',
+    config = function()
+      require('plugins.indentline')
     end
   }
 end)

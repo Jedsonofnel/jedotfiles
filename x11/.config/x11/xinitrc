@@ -18,6 +18,9 @@ picom -b
 # Start redshift
 redshift &
 
+# Start bluetooth babes
+blueman-applet &
+
 # dwm is kept as default
 session=${1:-dwm}
 

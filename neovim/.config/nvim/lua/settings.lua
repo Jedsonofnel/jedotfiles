@@ -36,8 +36,6 @@ opt.cursorline = true
 -- colorscheme
 opt.termguicolors = true
 opt.background = 'dark'
-cmd [[let ayucolor="dark"]]
-cmd [[colorscheme ayu]]
 
 -- custom filetype settings
 cmd [[filetype plugin on]]
