@@ -26,9 +26,10 @@ require('packer').startup(function()
   use 'ygm2/rooter.nvim'
 
   use {
-    'shaunsingh/nord.nvim',
+    'rose-pine/neovim',
+    as = 'rose-pine',
     config = function()
-      require('plugins.colorscheme')
+      vim.cmd('colorscheme rose-pine')
     end
   }
 

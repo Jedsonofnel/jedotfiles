@@ -1,26 +1,26 @@
 require('lualine').setup({
-    options = {
-      icons_enabled = true,
-      theme = 'nord',
-      component_separators = { '', ''},
-      section_separators = { '', '' },
-    },
-    sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch' },
-      lualine_c = { 'filename' },
-      lualine_x = {
-        {
-          'diagnostics',
-          sources = { 'nvim_lsp' },
-          symbols = {
-            hint = '  ',
-          },
-          sections = { 'error', 'warn', 'info', 'hint' },
+  options = {
+    icons_enabled = true,
+    theme = 'rose-pine',
+    component_separators = { '', ''},
+    section_separators = { '', '' },
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = { 'filename' },
+    lualine_x = {
+      {
+        'diagnostics',
+        sources = {'nvim_diagnostic'},
+        symbols = {
+          hint = '  ',
         },
-        'progress',
+        sections = { 'error', 'warn', 'info', 'hint' },
       },
-      lualine_y = { 'filetype' },
-      lualine_z = { 'location' }
-    }
-  })
+      'progress',
+    },
+    lualine_y = { 'filetype' },
+    lualine_z = { 'location' }
+  }
+})
