@@ -98,6 +98,7 @@ require('packer').startup(function()
         'html';
         'yaml';
         'lua';
+        'scss';
       }
     end
   }
