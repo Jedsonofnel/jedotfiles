@@ -100,6 +100,7 @@ require('packer').startup(function()
         'yaml';
         'lua';
         'scss';
+        'svelte';
       }
     end
   }

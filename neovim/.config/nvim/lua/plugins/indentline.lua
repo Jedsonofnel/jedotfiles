@@ -3,7 +3,7 @@ require("indent_blankline").setup {
   show_current_context = true,
   show_current_context_start = true,
   use_treesitter = true,
-  show_first_indent_level = false,
+  show_first_indent_level = true,
   filetype_exclude = {'help'},
   buftype_exclude = {'terminal'}
 }
