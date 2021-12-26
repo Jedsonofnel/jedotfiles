@@ -27,28 +27,30 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
-local icons = {
+local signs = {
   Error = '',
-  Warning = '',
+  Warn = '',
   Hint = '',
-  Information = ''
+  Info = ''
 }
 
-for type, icon in pairs(icons) do
-    local hl = 'LspDiagnosticsSign' .. type
-    fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
-  end
+for type, icon in pairs(signs) do
+  local hl = 'DiagnosticSign' .. type
+  fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    underline = true,
-    virtual_text = {
-      prefix = ''
-    }
-  }
-)
+vim.diagnostic.config({
+  virtual_text = true,
+  virtual_text = {
+    prefix = '●',
+  },
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
 
-local servers = { 'html', 'cssls' }
+local servers = { 'html', 'cssls', 'gopls'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach

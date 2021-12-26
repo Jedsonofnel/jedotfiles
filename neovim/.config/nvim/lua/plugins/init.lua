@@ -24,6 +24,7 @@ require('packer').startup(function()
   use 'tpope/vim-fugitive'
   use 'folke/tokyonight.nvim'
   use 'ygm2/rooter.nvim'
+  use 'jiangmiao/auto-pairs'
 
   use {
     'rose-pine/neovim',
@@ -45,13 +46,6 @@ require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt=true },
     config = function()
       require('plugins.lualine')
-    end
-  }
-
-  use {
-    'hrsh7th/nvim-compe',
-    config = function()
-      require('plugins.completion')
     end
   }
 

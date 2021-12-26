@@ -9,9 +9,10 @@ opt.smartcase = true -- case sensitive when uppercase
 opt.undofile = true -- enable undo file
 opt.swapfile = false -- disable swap file
 opt.hidden = true -- don't save on buffer change
-o.completeopt = "menuone,noselect" -- better completion
+o.completeopt = "menu,menuone,noselect" -- better completion
 opt.showmode = false
 opt.shortmess = opt.shortmess + 'c'
+opt.scrolloff = 8
 
 api.nvim_command("set clipboard+=unnamedplus")
 

@@ -5,6 +5,9 @@
 # Adds '~/.local/bin' to $PATH so that the scripts in there can be run
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
+# Adds GOBIN to path
+export PATH="$HOME/go/bin:$PATH"
+
 # Add bin/doom to PATH
 export PATH="$HOME/.emacs.d/bin:$PATH"
 
