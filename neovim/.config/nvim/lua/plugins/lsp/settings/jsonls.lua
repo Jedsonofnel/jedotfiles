@@ -134,7 +134,7 @@ local schemas = {
     fileMatch = {
       "feed.json",
     },
-    url = "https://json.schemastore.org/feed.json,
+    url = "https://json.schemastore.org/feed.json",
     versions = {
       ["1"] = "https://json.schemastore.org/feed-1.json",
       ["1.1"] = "https://json.schemastore.org/feed.json",
@@ -194,4 +194,4 @@ local opts = {
   },
 }
 
-return opts"
+return opts
