@@ -24,7 +24,7 @@ end
 vim.cmd [[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
   augroup end
 ]]
 
@@ -60,13 +60,14 @@ return require('packer').startup(function(use)
     end
   }
 
-  -- nvim inbuilt lsp config
+  -- nvim inbuilt lsp config + lsp-installer
   use {
     'neovim/nvim-lspconfig',
     config = function()
       require('plugins.lspconfig')
     end
   }
+  use 'williamboman/nvim-lsp-installer'
 
   -- statusline
   use {
@@ -142,10 +143,11 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/cmp-nvim-lsp'
 
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-  use 'rafamadriz/friendly-snippets'
+  -- use 'rafamadriz/friendly-snippets'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()
