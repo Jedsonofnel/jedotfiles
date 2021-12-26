@@ -1,3 +1,8 @@
+--
+-- jedn nvim config
+-- telescope plugin settings
+--
+
 local map = vim.api.nvim_set_keymap
 
 map('n', '<leader>b', '<cmd>Telescope buffers<cr>', { noremap = true })

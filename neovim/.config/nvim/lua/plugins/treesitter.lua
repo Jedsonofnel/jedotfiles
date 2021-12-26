@@ -1,3 +1,8 @@
+--
+-- jedn nvim config
+-- treesitter plugin settings
+--
+
 require('nvim-treesitter.configs').setup {
   highlight = {
     enable = true,

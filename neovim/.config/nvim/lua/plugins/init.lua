@@ -1,49 +1,66 @@
-local api = vim.api
-local fn = vim.fn
-local g = vim.g
-local opt = vim.opt
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+--
+-- jedn nvim config
+-- plugin management with packer
+--
 
+local fn = vim.fn
+
+-- automatically install packer
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd 'packadd packer.nvim'
+  PACKER_BOOTSTRAP = fn.system {
+    "git",
+    "clone",
+    "--depth",
+    "1",
+    "https://github.com/wbthomason/packer.nvim",
+    install_path,
+  }
+  print "Installing packer close and reopen Neovim..."
+  vim.cmd [[packadd packer.nvim]]
 end
 
-api.nvim_exec(
-  [[
-  augroup Packer
+-- autocommand that reloads neovim whenever you save this file
+vim.cmd [[
+  augroup packer_user_config
     autocmd!
-    autocmd BufWritePost init.lua PackerCompile
+    autocmd BufWritePost init.lua source <afile> | PackerSync
   augroup end
-]],
-  false
-)
+]]
 
-require('packer').startup(function()
+-- use a protected call so we don't error out on first use
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  return
+end
+
+-- have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
+
+return require('packer').startup(function(use)
+  -- packer itself and basic required plugins
   use 'wbthomason/packer.nvim'
-  use 'tpope/vim-fugitive'
-  use 'ygm2/rooter.nvim'
+  use 'nvim-lua/plenary.nvim'
+  use 'nvim-lua/popup.nvim'
+
   use 'jiangmiao/auto-pairs'
 
-  -- Snippets and completion
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
-
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
-
-  -- Colorscheme
+  -- colorscheme
   use {
     'rose-pine/neovim',
     as = 'rose-pine',
     config = function()
-      vim.cmd('colorscheme rose-pine')
+      require('plugins.colorscheme')
     end
   }
 
+  -- nvim inbuilt lsp config
   use {
     'neovim/nvim-lspconfig',
     config = function()
@@ -51,6 +68,7 @@ require('packer').startup(function()
     end
   }
 
+  -- statusline
   use {
     'hoob3rt/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt=true },
@@ -59,15 +77,16 @@ require('packer').startup(function()
     end
   }
 
+  -- file explorer
   use {
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require'nvim-tree'.setup {}
       require('plugins.filetree')
     end
   }
 
+  -- syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -76,6 +95,7 @@ require('packer').startup(function()
     end
   }
 
+  -- fuzzy file finder and much more
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -87,44 +107,47 @@ require('packer').startup(function()
     end
   }
 
+  -- makes rgb codes colorer
   use {
     'norcalli/nvim-colorizer.lua',
     config = function()
-      require('colorizer').setup {
-        'css';
-        'javascript';
-        'html';
-        'yaml';
-        'lua';
-        'scss';
-        'svelte';
-      }
+      require('colorizer').setup()
     end
   }
 
+  -- displays open buffers above
   use {
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require("bufferline").setup{
-        options = { offsets = {
-          {
-            filetype = "NvimTree",
-            text = function()
-              return vim.fn.getcwd()
-            end,
-            highlight = "Directory",
-            text_align = "left"
-          }
-        }}
-      }
+      require('plugins.bufferline')
     end
   }
 
+  -- makes tabs more visible
   use {
     'lukas-reineke/indent-blankline.nvim',
     config = function()
       require('plugins.indentline')
     end
   }
+
+  -- snippets and completion
+  use {
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('plugins.completion')
+    end
+  }
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'rafamadriz/friendly-snippets'
+
+  if PACKER_BOOTSTRAP then
+    require('packer').sync()
+  end
 end)

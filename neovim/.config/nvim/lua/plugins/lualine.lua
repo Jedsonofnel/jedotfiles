@@ -1,3 +1,8 @@
+--
+-- jedn nvim config
+-- lualine config
+--
+
 require('lualine').setup({
   options = {
     icons_enabled = true,

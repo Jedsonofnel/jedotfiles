@@ -1,3 +1,8 @@
+--
+-- jedn nvim config
+-- lspconfig settings
+--
+
 local api = vim.api
 local fn = vim.fn
 local g = vim.g
