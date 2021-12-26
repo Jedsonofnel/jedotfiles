@@ -22,10 +22,20 @@ api.nvim_exec(
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use 'tpope/vim-fugitive'
-  use 'folke/tokyonight.nvim'
   use 'ygm2/rooter.nvim'
   use 'jiangmiao/auto-pairs'
 
+  -- Snippets and completion
+  use 'L3MON4D3/LuaSnip'
+  use 'rafamadriz/friendly-snippets'
+
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'saadparwaiz1/cmp_luasnip'
+
+  -- Colorscheme
   use {
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -55,13 +65,6 @@ require('packer').startup(function()
     config = function()
       require'nvim-tree'.setup {}
       require('plugins.filetree')
-    end
-  }
-
-  use {
-    'onsails/lspkind-nvim',
-    config = function()
-      require('plugins.lspkind')
     end
   }
 
