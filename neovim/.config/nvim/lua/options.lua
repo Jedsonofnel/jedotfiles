@@ -4,17 +4,18 @@ local g = vim.g
 local o = vim.o
 local opt = vim.opt
 
+-- Basic options
 opt.ignorecase = true -- case insensitive search
 opt.smartcase = true -- case sensitive when uppercase
 opt.undofile = true -- enable undo file
 opt.swapfile = false -- disable swap file
 opt.hidden = true -- don't save on buffer change
-o.completeopt = "menu,menuone,noselect" -- better completion
-opt.showmode = false
-opt.shortmess = opt.shortmess + 'c'
-opt.scrolloff = 8
-
-api.nvim_command("set clipboard+=unnamedplus")
+opt.completeopt = "menu,menuone,noselect" -- better completion
+opt.showmode = false -- don't display --insert-- or something
+opt.scrolloff = 8 -- keep cursor 8 lines away from bottom
+opt.clipboard = "unnamedplus" -- use system keyboard
+opt.shortmess = opt.shortmess + 'c' -- TODO find out what this does
+opt.pumheight = 10 -- popup menu height
 
 -- split right and bottom instead of left and top
 opt.splitbelow = true
@@ -33,6 +34,7 @@ opt.smartindent = true
 opt.number = true
 opt.relativenumber = false
 opt.cursorline = true
+opt.signcolumn = "yes" -- always show gutter
 
 -- colorscheme
 opt.termguicolors = true
