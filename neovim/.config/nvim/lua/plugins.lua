@@ -149,6 +149,14 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   -- use 'rafamadriz/friendly-snippets'
 
+  -- gitsigns
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('plugins.gitsigns')
+    end
+  }
+
   if PACKER_BOOTSTRAP then
     require('packer').sync()
   end
