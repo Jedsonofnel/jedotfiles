@@ -13,8 +13,9 @@ alias awesomerc='cd ~/.config/awesome/'
 alias dwmrc='cd ~/Repos/dwm/'
 alias starshiprc='nvim ~/.config/starship.toml'
 alias kittyrc='nvim ~/.config/kitty/kitty.conf'
+alias spectrc='nvim ~/.config/spectrwm/spectrwm.conf'
 
-# directory aliai
+# directory alias
 alias hut='cd ~/jedcave/jedn.xyz'
 
 # cmd navigation aliai

@@ -49,8 +49,6 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
 
-  use 'jiangmiao/auto-pairs'
-
   -- colorscheme
   use {
     'rose-pine/neovim',
@@ -154,6 +152,14 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim',
     config = function()
       require('plugins.gitsigns')
+    end
+  }
+
+  -- autopair
+  use {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('plugins.autopairs')
     end
   }
 
