@@ -4,11 +4,13 @@
 --
 
 -- settings
-vim.g.rose_pine_bold_vertical_split_line = false
-vim.g.rose_pine_disable_float_background = true
-vim.g.rose_pine_inactive_background = false
-vim.g.rose_pine_disable_background = false
-vim.g.rose_pine_disable_italics = false
+require('rose-pine').setup({
+  dark_variant = 'main',
+  bold_vert_split = false,
+  dim_nc_background = false,
+  disable_background = false,
+  disable_italics = false,
+})
 
 -- this needs to be last
 vim.cmd('colorscheme rose-pine')

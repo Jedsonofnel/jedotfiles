@@ -60,3 +60,6 @@ cmd [[au BufEnter * set fo-=c fo-=r fo-=o]]
 -- remove all spaces and lines at the end of the file on save
 cmd [[au BufWritePre * %s/\s\+$//e]]
 cmd [[au BufWritePre * %s/\n\+\%$//e]]
+
+-- can't thing of anywhere better:
+g.svelte_indent_script = 0

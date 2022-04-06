@@ -22,7 +22,7 @@ redshift &
 blueman-applet &
 
 # dwm is kept as default
-session=${1:-spectrwm}
+session=${1:-dwm}
 
 case $session in
   qtile							) exec qtile start;;

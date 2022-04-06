@@ -49,10 +49,15 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
 
+  -- svelte syntax highlighting
+  use 'pangloss/vim-javascript'
+  use 'evanleck/vim-svelte'
+
   -- colorscheme
   use {
     'rose-pine/neovim',
     as = 'rose-pine',
+    tag = 'v1.*',
     config = function()
       require('plugins.colorscheme')
     end
@@ -162,6 +167,21 @@ return require('packer').startup(function(use)
       require('plugins.autopairs')
     end
   }
+
+  -- null ls
+  use {
+    'jose-elias-alvarez/null-ls.nvim'
+  }
+
+  use {
+    'akinsho/toggleterm.nvim',
+    config = function()
+      require('plugins.toggleterm')
+    end
+  }
+
+  -- project
+  use 'ahmedkhalf/project.nvim'
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

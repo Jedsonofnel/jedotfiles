@@ -1,6 +1,6 @@
 --
 -- jedn nvim config
--- indent blanline plugin settings
+-- indent blankline plugin settings
 --
 
 require("indent_blankline").setup {
