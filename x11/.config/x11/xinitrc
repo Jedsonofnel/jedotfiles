@@ -21,14 +21,18 @@ redshift &
 # Start bluetooth babes
 blueman-applet &
 
+# sxhkd stuff
+sxhkd -c $HOME/.config/berry/sxhkdrc &
+
 # dwm is kept as default
-session=${1:-dwm}
+session=${1:-berry}
 
 case $session in
   qtile							) exec qtile start;;
   awesome           ) exec awesome;;
   dwm               ) exec dwm;;
   spectrwm          ) exec spectrwm;;
+  berry             ) exec berry;;
 	# No known session, try to run it as command
 	* 								) exec $1;;
 esac
