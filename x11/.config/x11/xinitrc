@@ -12,9 +12,6 @@ start-pulseaudio-x11
 # Set wallpaper
 fehbg
 
-# Start picom
-picom -b
-
 # Start redshift
 redshift &
 
