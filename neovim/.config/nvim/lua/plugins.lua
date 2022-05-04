@@ -93,6 +93,7 @@ return require('packer').startup(function(use)
   -- syntax highlighting
   use {
     'nvim-treesitter/nvim-treesitter',
+    requires = { 'nvim-treesitter/playground'},
     run = ':TSUpdate',
     config = function()
       require('plugins.treesitter')
@@ -121,7 +122,7 @@ return require('packer').startup(function(use)
 
   -- displays open buffers above
   use {
-    'akinsho/bufferline.nvim',
+    'romgrk/barbar.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
       require('plugins.bufferline')
@@ -153,12 +154,12 @@ return require('packer').startup(function(use)
   -- use 'rafamadriz/friendly-snippets'
 
   -- gitsigns
-  use {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('plugins.gitsigns')
-    end
-  }
+  -- use {
+  --   'lewis6991/gitsigns.nvim',
+  --   config = function()
+  --     require('plugins.gitsigns')
+  --   end
+  -- }
 
   -- autopair
   use {
@@ -182,6 +183,9 @@ return require('packer').startup(function(use)
 
   -- project
   use 'ahmedkhalf/project.nvim'
+
+  -- for highlighting
+  use "RRethy/vim-illuminate"
 
   if PACKER_BOOTSTRAP then
     require('packer').sync()

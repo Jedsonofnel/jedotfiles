@@ -5,12 +5,16 @@ xrdb ~/.config/x11/xresources
 
 # Set english layout for better tilde placement etc
 setxkbmap -layout gb
+setxkbmap -option caps:escape
 
 # Get pulse working
 start-pulseaudio-x11
 
 # Set wallpaper
 fehbg
+
+# picom
+picom -b
 
 # Start redshift
 redshift &
@@ -20,6 +24,9 @@ blueman-applet &
 
 # sxhkd stuff
 sxhkd -c $HOME/.config/berry/sxhkdrc &
+
+# lemonbar
+bar | lemonbar -B#00000000 -b -p -f "VictorMono Nerd Font:size=18" -u 18 -n Bar &
 
 # dwm is kept as default
 session=${1:-berry}

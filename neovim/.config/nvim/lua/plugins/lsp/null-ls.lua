@@ -13,9 +13,6 @@ null_ls.setup({
       extra_filetypes = { "svelte" },
       prefer_local = "node_modules/.bin",
     }),
-    diagnostics.eslint.with({
-      extra_filetypes = { "svelte" },
-      prefer_local = "node_modules/.bin",
-    }),
+    formatting.black,
   },
 })

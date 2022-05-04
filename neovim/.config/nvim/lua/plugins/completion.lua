@@ -111,19 +111,20 @@ cmp.setup {
   },
   sources = {
     { name = "nvim_lsp" },
-    { name = "path" },
-    { name = "buffer" },
     { name = "luasnip" },
+    { name = "buffer" },
+    { name = "path" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  documentation = {
-    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   experimental = {
     ghost_text = false,
     native_menu = false,
-  },
+  }
 }

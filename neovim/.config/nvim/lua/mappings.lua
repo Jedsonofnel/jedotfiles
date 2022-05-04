@@ -5,12 +5,6 @@ local map = vim.api.nvim_set_keymap
 -- comma is the leader
 g.mapleader = ','
 
--- jk or kj to escape
-map('i', 'jk', '<esc>', { noremap = true })
-map('i', 'kj', '<esc>', { noremap = true })
-map('t', 'jk', '<C-\\><C-n>', { noremap = true })
-map('t', 'kj', '<C-\\><C-n>', { noremap = true })
-
 -- window navigation
 map('n', '<c-h>', '<c-w>h', { noremap = true })
 map('n', '<c-j>', '<c-w>j', { noremap = true })
@@ -21,7 +15,7 @@ map('n', '<c-l>', '<c-w>l', { noremap = true })
 map('n', '<C-n>', ':bnext<CR>', { noremap = true })
 map('n', '<C-p>', ':bprev<CR>', { noremap = true })
 
--- split navigation
+-- term navigation
 map('t', '<C-h>', '<C-\\><C-n><C-W>h', { noremap = true })
 map('t', '<C-j>', '<C-\\><C-n><C-W>j', { noremap = true })
 map('t', '<C-k>', '<C-\\><C-n><C-W>k', { noremap = true })
@@ -46,3 +40,10 @@ map('n', '<Leader>c', ':bd!<CR>', { noremap = true })
 
 -- format
 map('n', '<Leader>F', '<cmd>lua vim.lsp.buf.formatting()<cr>', { noremap = true })
+
+-- toggleterm
+map('n', '<Leader>t', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true})
+map('t', '<Leader>t', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true})
+
+-- leave term
+map('t', '<Esc>', '<C-\\><C-n>', { noremap = true } )

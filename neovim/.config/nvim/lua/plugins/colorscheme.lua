@@ -12,5 +12,7 @@ require('rose-pine').setup({
   disable_italics = false,
 })
 
+vim.cmd("set background=light")
+
 -- this needs to be last
 vim.cmd('colorscheme rose-pine')

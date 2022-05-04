@@ -8,6 +8,10 @@ require('nvim-treesitter.configs').setup {
     enable = true,
     additional_vim_regex_highlighting = true,
   },
+  indent = {
+    enable = true,
+    disable = { "yaml" },
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -28,6 +32,10 @@ require('nvim-treesitter.configs').setup {
     'scss',
     'typescript',
     'ruby',
-    'go'
+    'go',
+    'svelte',
+  },
+  playground = {
+    enable = true,
   },
 }
