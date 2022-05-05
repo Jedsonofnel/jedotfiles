@@ -16,10 +16,6 @@ if test -f $XINITRC
   alias startx "startx $XINITRC"
 end
 
-# ruby
-fish_add_path ~/.rbenv/bin
-rbenv init - | source
-
 # go
 set -g GOPATH $HOME/go
 fish_add_path $GOPATH/bin
