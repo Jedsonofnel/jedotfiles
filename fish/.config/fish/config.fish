@@ -1,20 +1,13 @@
 set fish_greeting ""
 
 # aliai (plural of alias)
-alias nvimrc "cd ~/.config/nvim"
 alias fishrc "cd ~/.config/fish"
 alias la "ls -a"
 
 # variables
 set -g XDG_CONFIG_HOME $HOME/.config
 set -g XINITRC $XDG_CONFIG_HOME/x11/xinitrc
-set -gx EDITOR nvim
 set -gx BROWSER firefox
-
-# xinit stuff
-if test -f $XINITRC
-  alias startx "startx $XINITRC"
-end
 
 # go
 set -g GOPATH $HOME/go
@@ -30,6 +23,7 @@ set -gx FNM_ARCH "x64";
 
 # other path
 fish_add_path ~/.local/bin
+fish_add_path ~/.emacs.d/bin
 
 # shell
 starship init fish | source
