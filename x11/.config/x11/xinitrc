@@ -1,42 +1,6 @@
 #!/bin/sh
 
-# Merge xresources before i3 starts
-xrdb ~/.config/x11/xresources
-
 # Set english layout for better tilde placement etc
 setxkbmap -layout gb
 setxkbmap -option caps:escape
 
-# Get pulse working
-start-pulseaudio-x11
-
-# Set wallpaper
-fehbg
-
-# picom
-picom -b
-
-# Start redshift
-redshift &
-
-# Start bluetooth babes
-blueman-applet &
-
-# sxhkd stuff
-sxhkd -c $HOME/.config/berry/sxhkdrc &
-
-# lemonbar
-bar | lemonbar -B#00000000 -b -p -f "VictorMono Nerd Font:size=18" -u 18 -n Bar &
-
-# dwm is kept as default
-session=${1:-berry}
-
-case $session in
-  qtile							) exec qtile start;;
-  awesome           ) exec awesome;;
-  dwm               ) exec dwm;;
-  spectrwm          ) exec spectrwm;;
-  berry             ) exec berry;;
-	# No known session, try to run it as command
-	* 								) exec $1;;
-esac
