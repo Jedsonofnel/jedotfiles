@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Set english layout for better tilde placement etc
-setxkbmap -layout gb
-setxkbmap -option caps:escape
-
