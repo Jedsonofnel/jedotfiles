@@ -7,11 +7,21 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   -- Colourscheme
-  use 'shaunsingh/nord.nvim'
+  use 'folke/tokyonight.nvim'
 
   -- Treesitter for syntax highlighting goodness!
   use {
       'nvim-treesitter/nvim-treesitter',
       run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
   }
+
+  -- statusline
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+  }
+
+  -- utility
+  use 'ahmedkhalf/project.nvim'
+  use 'windwp/nvim-autopairs'
 end)

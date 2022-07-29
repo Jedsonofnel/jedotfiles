@@ -1,3 +1,3 @@
-vim.g.nord_italic = false
+vim.g.tokyonight_style = "night"
 
-require('nord').set()
+vim.cmd[[colorscheme tokyonight]]
