@@ -6,4 +6,5 @@ local tnoremap = require("jedn.utils").tnoremap
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
 -- terminal stuff
+nnoremap("<leader>t", "<cmd>term<CR>")
 tnoremap("<Esc>", "<c-\\><c-n>")
