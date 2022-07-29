@@ -1,6 +1,8 @@
 local options = {
     termguicolors = true,
 
+    hidden = true,
+
     clipboard = "unnamedplus",
     cmdheight = 1,
 
