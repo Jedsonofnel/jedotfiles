@@ -1,5 +1,7 @@
 -- telescope config
 
+local actions = require("telescope.actions")
+
 require('telescope').setup {
     defaults = {
         vimgrep_arguments = {
@@ -11,7 +13,14 @@ require('telescope').setup {
             '--line-number',
             '--column',
             '--smart-case',
-        }
+        },
+        mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+                ["<c-j>"] = actions.move_selection_next,
+                ["<c-k>"] = actions.move_selection_previous,
+            },
+        },
     },
     extensions = {
         fzf = {
@@ -19,8 +28,8 @@ require('telescope').setup {
             override_generic_sorter = true,
             override_file_sorter = true,
             case_mode = "smart_case",
-        }
-    }
+        },
+    },
 }
 
 -- for blazingly fast sorting!
