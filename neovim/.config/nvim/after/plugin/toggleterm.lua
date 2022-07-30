@@ -10,7 +10,7 @@ require("toggleterm").setup{
     open_mapping = "<leader>tt",
     start_in_insert = true,
     insert_mappings =  false,
-    terminal_mappings = true,
+    terminal_mappings = false,
 
     close_on_exit = true,
 }
