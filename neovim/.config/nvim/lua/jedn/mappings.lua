@@ -2,6 +2,7 @@
 
 local nnoremap = require("jedn.utils").nnoremap
 local tnoremap = require("jedn.utils").tnoremap
+local lsp_formatting = require("jedn.lsp.handlers").lsp_formatting
 
 -- netrw
 nnoremap("<leader>pv", "<cmd>Ex<CR>")

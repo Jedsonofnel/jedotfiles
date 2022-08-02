@@ -16,6 +16,7 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
+	"jsonls",
 	"sumneko_lua",
 }
 
@@ -42,18 +43,18 @@ if not ok3 then
 	return
 end
 
-local opts = {}
+-- on_attach for all!
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
+	on_attach = require("jedn.lsp.handlers").on_attach,
+})
 
+-- specific setup stuff
 for _, server in pairs(servers) do
-	opts = {
-		on_attach = require("jedn.lsp.handlers").on_attach,
-		capabilities = require("jedn.lsp.handlers").capabilities,
-	}
+	local opts = {}
 
 	-- lsp specific settings found in jedn/lsp/settings/*
 	if server == "sumneko_lua" then
-		local sumneko_opts = require("jedn.lsp.settings.sumneko_lua")
-		opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
+		opts = require("jedn.lsp.settings.sumneko_lua")
 	end
 
 	lspconfig[server].setup(opts)

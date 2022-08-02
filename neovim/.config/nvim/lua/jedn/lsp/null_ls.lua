@@ -12,7 +12,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		formatting.prettier.with({
-			extra_filetypes = { "svelte" },
+			extra_filetypes = { "svelte", "json" },
 		}),
 		formatting.stylua,
 		diagnostics.eslint,
