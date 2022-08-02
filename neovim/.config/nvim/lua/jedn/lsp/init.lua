@@ -5,3 +5,4 @@
 require("jedn.lsp.mason")
 
 require("jedn.lsp.handlers").setup()
+require("jedn.lsp.null_ls")
