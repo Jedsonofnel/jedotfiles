@@ -19,14 +19,15 @@ M.xnoremap = bind("x")
 M.inoremap = bind("i")
 M.tnoremap = bind("t")
 
+-- bind to a specific buffer
 local function bind_bufnr(op, outer_opts)
     outer_opts = outer_opts or { noremap = true, silent = true }
-    return function(bufnr, lhs, rhs, opts)
+    return function(buffer, lhs, rhs, opts)
         opts = vim.tbl_extend("force",
             outer_opts,
             opts or {}
         )
-        vim.api.nvim_buf_set_keymap(bufnr, op, lhs, rhs, opts)
+        vim.api.nvim_buf_set_keymap(buffer, op, lhs, rhs, opts)
     end
 end
 

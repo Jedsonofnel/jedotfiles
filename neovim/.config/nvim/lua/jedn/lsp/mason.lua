@@ -41,12 +41,11 @@ end
 
 local opts = {}
 
-for _, server in ipairs(servers) do
+for _, server in pairs(servers) do
     opts = {
         on_attach = require("jedn.lsp.handlers").on_attach,
+        capabilities = require("jedn.lsp.handlers").capabilities,
     }
-
-    server = vim.split(server, "@")[1]
 
     -- lsp specific settings found in jedn/lsp/settings/*
     if server == "sumneko_lua" then
