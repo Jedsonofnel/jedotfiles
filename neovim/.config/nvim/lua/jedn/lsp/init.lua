@@ -1,0 +1,1 @@
+require("jedn.lsp.mason")

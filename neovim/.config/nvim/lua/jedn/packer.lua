@@ -14,14 +14,14 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function()
             require('nvim-treesitter.install').update({ with_sync = true })
-        end, 
+        end,
     }
 
     -- statusline
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
-            'kyazdani42/nvim-web-devicons', opt = true 
+            'kyazdani42/nvim-web-devicons', opt = true
         },
     }
 
@@ -42,8 +42,14 @@ return require('packer').startup(function(use)
         run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
     }
 
+    -- all things lsp!
+    use 'neovim/nvim-lspconfig'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
+
     -- utility
     use 'ahmedkhalf/project.nvim'
-    use 'windwp/nvim-autopairs' 
+    use 'windwp/nvim-autopairs'
     use 'nvim-lua/plenary.nvim'
+    use 'nvim-lua/popup.nvim'
 end)

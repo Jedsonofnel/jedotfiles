@@ -17,5 +17,4 @@ nnoremap("<leader>ws", "<cmd>split<CR>")
 nnoremap("<leader>wq", "<cmd>close<CR>")
 
 -- terminal stuff
-nnoremap("<leader>t", "<cmd>term<CR>")
 tnoremap("<Esc>", "<c-\\><c-n>")

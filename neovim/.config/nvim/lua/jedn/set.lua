@@ -1,7 +1,7 @@
 local options = {
     termguicolors = true,
-    hidden = true,
     clipboard = "unnamedplus",
+    hidden = true,
     cmdheight = 1,
     nu = true,
     relativenumber = true,
@@ -31,6 +31,11 @@ local options = {
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
+end
+
+-- this option doesn't work super friendly-y withe neovide
+if vim.g.neovide then
+    vim.opt.clipboard = ""
 end
 
 -- leader key
