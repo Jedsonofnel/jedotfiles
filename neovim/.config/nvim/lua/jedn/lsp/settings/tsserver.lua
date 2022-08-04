@@ -1,7 +1,8 @@
 return {
 	init_options = {
-		preferences = {
-			disableSuggestions = true,
-		},
+		-- preferences = {
+		--     disableSuggestions = true,
+		-- },
+		hostInfo = "neovim",
 	},
 }
