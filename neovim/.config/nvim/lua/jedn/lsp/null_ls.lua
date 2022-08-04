@@ -11,10 +11,10 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({
+		formatting.prettierd.with({
 			extra_filetypes = { "svelte", "json" },
 		}),
 		formatting.stylua,
-		diagnostics.eslint,
+		diagnostics.eslint_d,
 	},
 })
