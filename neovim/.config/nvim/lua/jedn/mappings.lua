@@ -19,3 +19,12 @@ nnoremap("<leader>wq", "<cmd>close<CR>")
 
 -- terminal stuff
 tnoremap("<Esc>", "<c-\\><c-n>")
+
+-- lazygit
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, direction = "float" })
+
+local lazygit_toggle = function()
+	lazygit:toggle()
+end
+nnoremap("<leader>g", lazygit_toggle, { silent = true, buffer = 0 })
