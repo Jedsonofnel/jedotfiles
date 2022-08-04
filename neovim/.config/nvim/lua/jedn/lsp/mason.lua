@@ -57,5 +57,9 @@ for _, server in pairs(servers) do
 		opts = require("jedn.lsp.settings.sumneko_lua")
 	end
 
+	if server == "tsserver" then
+		opts = require("jedn.lsp.settings.tsserver")
+	end
+
 	lspconfig[server].setup(opts)
 end
