@@ -13,7 +13,7 @@ end
 require("jedn.options")
 
 -- keymaps
-require("jedn.mappings")
+require("jedn.keymaps")
 
 -- lsp
 require("jedn.lsp")
