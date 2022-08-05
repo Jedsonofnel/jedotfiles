@@ -1,10 +1,10 @@
 -- treesitter config
 
-require'nvim-treesitter.configs'.setup {
-    highlight = {
-        enable = true,
-    },
-    indent = {
-        enable = false,
-    },
-}
+require("nvim-treesitter.configs").setup({
+	highlight = {
+		enable = true,
+	},
+	indent = {
+		enable = false,
+	},
+})
