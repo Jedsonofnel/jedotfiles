@@ -22,15 +22,16 @@ opt.scrolloff = 8
 -- only have it in the active buffer
 -- copied from: https://github.com/tjdevries/config_manager/
 opt.cursorline = true
-local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+local group =
+  vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)
-	vim.api.nvim_create_autocmd(event, {
-		group = group,
-		pattern = pattern,
-		callback = function()
-			vim.opt_local.cursorline = value
-		end,
-	})
+  vim.api.nvim_create_autocmd(event, {
+    group = group,
+    pattern = pattern,
+    callback = function()
+      vim.opt_local.cursorline = value
+    end,
+  })
 end
 -- when event, show cursor?
 set_cursorline("WinLeave", false)
@@ -72,24 +73,24 @@ opt.shada = { "!", "'1000", "<50", "s10" }
 opt.mouse = "n"
 
 opt.formatoptions = opt.formatoptions
-	- "a" -- autoformatting of paragraphs NO
-	- "t" -- autowrap using textwidth NO
-	+ "c" -- autowrap comments
-	+ "q" -- allow formatting of comments with "gq"
-	- "o" -- automatically insert comment leader after "o" NO
-	+ "r" -- automatically continue comment with <enter> tho
-	+ "n" -- formats numbered lists with good indentation
-	+ "j" -- auto-remove comments when joining lines
-	- "2" -- uses 2nd line of paragraph for indentation!?!?
+  - "a" -- autoformatting of paragraphs NO
+  - "t" -- autowrap using textwidth NO
+  + "c" -- autowrap comments
+  + "q" -- allow formatting of comments with "gq"
+  - "o" -- automatically insert comment leader after "o" NO
+  + "r" -- automatically continue comment with <enter> tho
+  + "n" -- formats numbered lists with good indentation
+  + "j" -- auto-remove comments when joining lines
+  - "2" -- uses 2nd line of paragraph for indentation!?!?
 
 opt.joinspaces = false -- this option makes a . insert two spaces
 
 opt.fillchars = { eob = "~" }
 
 opt.diffopt = {
-	"internal",
-	"filler",
-	"closeoff",
-	"hiddenoff",
-	"algorithm:minimal",
+  "internal",
+  "filler",
+  "closeoff",
+  "hiddenoff",
+  "algorithm:minimal",
 }

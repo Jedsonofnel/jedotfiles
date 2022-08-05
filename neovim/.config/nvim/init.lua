@@ -5,10 +5,17 @@ vim.g.mapleader = " "
 
 -- Neovide specific stuff (how I mostly use neovim)
 if vim.g.neovide then
-	vim.opt.clipboard = "" -- breaks linewise pasting :(
-	vim.opt.guifont = "FiraCode NF"
+  vim.opt.clipboard = "" -- breaks linewise pasting :(
+  vim.opt.guifont = "FiraCode NF"
 end
 
+-- global options
+require("jedn.options")
+
+-- keymaps
 require("jedn.mappings")
-require("jedn.autocmds")
+
+-- lsp
 require("jedn.lsp")
+
+require("jedn.autocmds")
