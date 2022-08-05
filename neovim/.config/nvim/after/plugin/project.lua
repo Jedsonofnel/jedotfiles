@@ -1,7 +1,6 @@
 -- project config
 
 require("project_nvim").setup({
-	detection_methods = { "pattern" },
-	show_hidden = false,
-	silent_chdir = false,
+  detection_methods = { "pattern" },
+  show_hidden = false,
 })
