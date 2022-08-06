@@ -25,7 +25,7 @@ return require("packer").startup(function(use)
 
   -- statusline
   use({
-    "NTBBloodbath/galaxyline.nvim",
+    "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 

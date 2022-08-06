@@ -6,7 +6,7 @@ local opt = vim.opt
 
 opt.showmode = false
 opt.showcmd = true
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.incsearch = true -- makes search better ...?
 opt.showmatch = true -- show matching bracket
 opt.relativenumber = true -- show rel numbers
@@ -18,8 +18,9 @@ opt.equalalways = false
 opt.splitright = true
 opt.splitbelow = true
 opt.updatetime = 1000
-opt.hlsearch = true
+opt.hlsearch = false
 opt.scrolloff = 8
+opt.signcolumn = "yes" -- always show signcolumn
 
 -- only have it in the active buffer
 -- copied from: https://github.com/tjdevries/config_manager/
@@ -64,6 +65,7 @@ opt.clipboard = "unnamedplus"
 
 opt.inccommand = "split" -- todo with cmd previews
 opt.swapfile = false
+opt.undofile = true -- save undo history!
 
 -- shared data
 -- ! = save and restore global variables
@@ -86,7 +88,6 @@ opt.formatoptions = opt.formatoptions
   - "2" -- uses 2nd line of paragraph for indentation!?!?
 
 opt.joinspaces = false -- this option makes a . insert two spaces
-
 
 opt.diffopt = {
   "internal",
