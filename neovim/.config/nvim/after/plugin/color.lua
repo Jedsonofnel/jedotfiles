@@ -8,6 +8,12 @@ require("rose-pine").setup({
   disable_background = false,
   disable_float_background = false,
   disable_italics = true,
+
+  highlight_groups = {
+    NonText = { fg = "overlay" },
+    IndentBlanklineChar = { fg = "overlay" },
+    CursorLineNr = { fg = "rose" },
+  },
 })
 
 vim.cmd("colorscheme rose-pine")

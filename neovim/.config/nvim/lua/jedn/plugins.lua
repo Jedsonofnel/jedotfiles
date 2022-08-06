@@ -13,6 +13,8 @@ return require("packer").startup(function(use)
     as = "rose-pine",
   })
 
+  use("lukas-reineke/indent-blankline.nvim")
+
   -- Treesitter for syntax highlighting goodness!
   use({
     "nvim-treesitter/nvim-treesitter",

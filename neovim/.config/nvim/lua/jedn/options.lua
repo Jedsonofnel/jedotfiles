@@ -87,7 +87,6 @@ opt.formatoptions = opt.formatoptions
 
 opt.joinspaces = false -- this option makes a . insert two spaces
 
-opt.fillchars = { eob = "~" }
 
 opt.diffopt = {
   "internal",
