@@ -1,7 +1,7 @@
 -- jedn and his nvim config
 
 -- leader key
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 
 -- Neovide specific stuff (how I mostly use neovim)
 if vim.g.neovide then
