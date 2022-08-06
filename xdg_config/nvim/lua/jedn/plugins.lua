@@ -52,6 +52,17 @@ return require("packer").startup(function(use)
   use("williamboman/mason-lspconfig.nvim")
   use("jose-elias-alvarez/null-ls.nvim")
   use("nvim-lua/lsp_extensions.nvim")
+  use("onsails/lspkind.nvim")
+
+  -- completion
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-nvim-lua")
+
+  use("L3MON4D3/LuaSnip")
+  use("saadparwaiz1/cmp_luasnip")
 
   -- utility
   use("kyazdani42/nvim-web-devicons")
