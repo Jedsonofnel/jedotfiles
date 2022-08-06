@@ -6,7 +6,7 @@ local opt = vim.opt
 
 opt.showmode = false
 opt.showcmd = true
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.incsearch = true -- makes search better ...?
 opt.showmatch = true -- show matching bracket
 opt.relativenumber = true -- show rel numbers
