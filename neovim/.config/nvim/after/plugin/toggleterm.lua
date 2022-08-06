@@ -18,9 +18,3 @@ require("toggleterm").setup({
 
   close_on_exit = true,
 })
-
-nnoremap("<leader>g", function()
-  require("toggleterm.terminal").Terminal
-    :new({ cmd = "lazygit", hidden = true, direction = "float" })
-    :toggle()
-end, { silent = true })
