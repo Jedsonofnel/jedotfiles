@@ -6,7 +6,7 @@ vim.g.mapleader = " "
 -- Neovide specific stuff (how I mostly use neovim)
 if vim.g.neovide then
   vim.opt.clipboard = "" -- breaks linewise pasting :(
-  vim.opt.guifont = "JetBrainsMono NF"
+  vim.opt.guifont = "JetBrainsMono NF:h11.9"
 end
 
 -- global options
