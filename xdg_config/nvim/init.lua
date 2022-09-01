@@ -3,12 +3,6 @@
 -- leader key
 vim.g.mapleader = " "
 
--- Neovide specific stuff (how I mostly use neovim)
-if vim.g.neovide then
-  vim.opt.clipboard = "" -- breaks linewise pasting :(
-  vim.opt.guifont = "JetBrainsMono NF:h11.9"
-end
-
 -- global options
 require("jedn.options")
 
@@ -19,3 +13,10 @@ require("jedn.keymaps")
 require("jedn.lsp")
 
 require("jedn.autocmds")
+
+-- Neovide specific stuff (how I mostly use neovim)
+if vim.g.neovide then
+  vim.opt.mouse = ""
+  vim.opt.clipboard = ""
+  vim.opt.guifont = "JetBrainsMono NF:h11.9"
+end

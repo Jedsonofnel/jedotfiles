@@ -6,6 +6,9 @@ return require("packer").startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
 
+  -- required for a bunch
+  use("nvim-lua/plenary.nvim")
+
   -- Color stuff
   use("norcalli/nvim-colorizer.lua")
   use({
@@ -46,6 +49,9 @@ return require("packer").startup(function(use)
     run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   })
 
+  -- langauge plugins
+  use("leafOfTree/vim-svelte-plugin")
+
   -- all things lsp!
   use("neovim/nvim-lspconfig")
   use("williamboman/mason.nvim")
@@ -68,5 +74,4 @@ return require("packer").startup(function(use)
   use("kyazdani42/nvim-web-devicons")
   use("ahmedkhalf/project.nvim")
   use("windwp/nvim-autopairs")
-  use("nvim-lua/plenary.nvim")
 end)

@@ -14,17 +14,11 @@ M.setup = function()
     },
     signs = true,
     float = {
-      -- stole from teeeeej
-      show_header = true,
-      format = function(d)
-        local t = vim.deepcopy(d)
-        local code = d.code or d.user_data.lsp.code
-        if code then
-          t.message =
-            string.format("%s [%s]", t.message, code):gsub("1. ", "")
-        end
-        return t.message
-      end,
+      focusable = true,
+      style = "minimal",
+      source = "if_many",
+      header = "",
+      prefix = "",
     },
 
     severity_sort = true,
@@ -58,6 +52,7 @@ M.on_attach = function(client, bufnr)
   -- lsp stuff
   nnoremap("<leader>ld", vim.lsp.buf.definition, { buffer = bufnr })
   nnoremap("<leader>lD", vim.lsp.buf.declaration, { buffer = bufnr })
+  nnoremap("<leader>lr", vim.lsp.buf.references, { buffer = bufnr })
   nnoremap("<leader>lf", function()
     lsp_formatting(bufnr)
   end, { buffer = bufnr })

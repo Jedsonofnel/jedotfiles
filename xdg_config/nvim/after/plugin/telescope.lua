@@ -44,15 +44,28 @@ require("telescope").load_extension("projects")
 -- keybinds
 
 local nnoremap = require("jedn.utils").nnoremap
+local builtin = require("telescope.builtin")
 
-nnoremap(
-  "<leader>ff",
-  "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"
-)
-nnoremap(
-  "<leader><leader>",
-  "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>"
-)
+nnoremap("<leader><leader>", function()
+  builtin.find_files({
+    find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+  })
+end)
+
+nnoremap("<leader>ff", function()
+  builtin.find_files({
+    find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+  })
+end)
+
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fp", "<cmd>Telescope projects<cr>")
+
+local function lsp_references()
+  require("telescope.builtin").lsp_references({
+    ignore_filename = false,
+  })
+end
+
+nnoremap("<leader>flr", lsp_references)

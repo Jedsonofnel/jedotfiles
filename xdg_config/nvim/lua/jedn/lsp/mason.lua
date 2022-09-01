@@ -19,6 +19,7 @@ local servers = {
   "jsonls",
   "sumneko_lua",
   "volar",
+  "svelte",
 }
 
 -- mason config

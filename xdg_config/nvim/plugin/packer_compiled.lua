@@ -198,6 +198,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jedn/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["vim-svelte-plugin"] = {
+    loaded = true,
+    path = "/home/jedn/.local/share/nvim/site/pack/packer/start/vim-svelte-plugin",
+    url = "https://github.com/leafOfTree/vim-svelte-plugin"
   }
 }
 

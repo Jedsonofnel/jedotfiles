@@ -19,6 +19,10 @@ require("indent_blankline").setup({
     "man",
     "",
     "lua",
+    "javascript",
+    "svelte",
+    "html",
+    "css",
   },
 
   buftype_exclude = {
