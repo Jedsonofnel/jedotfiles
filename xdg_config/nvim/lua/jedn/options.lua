@@ -25,8 +25,7 @@ opt.signcolumn = "yes" -- always show signcolumn
 -- only have it in the active buffer
 -- copied from: https://github.com/tjdevries/config_manager/
 opt.cursorline = true
-local group =
-  vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
+local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)
   vim.api.nvim_create_autocmd(event, {
     group = group,
