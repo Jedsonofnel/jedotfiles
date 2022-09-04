@@ -13,6 +13,7 @@ require("rose-pine").setup({
     NonText = { fg = "overlay" },
     IndentBlanklineChar = { fg = "overlay" },
     CursorLineNr = { fg = "rose" },
+    IndentBlanklineContextChar = { fg = "gold" },
   },
 })
 

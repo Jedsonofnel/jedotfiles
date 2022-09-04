@@ -6,9 +6,13 @@ vim.opt.listchars = { eol = "↲" }
 vim.opt.fillchars = { eob = "~" }
 
 require("indent_blankline").setup({
-  char = "»",
-  use_treesitter = false,
+  char = "▏",
+  context_char = "▏",
+  use_treesitter = true,
   show_trailing_blankline_indent = false,
+  show_end_of_line = true,
+  show_current_context = true,
+  show_current_context_start = true,
 
   filetype_exclude = {
     "netrw",
@@ -18,11 +22,6 @@ require("indent_blankline").setup({
     "help",
     "man",
     "",
-    "lua",
-    "javascript",
-    "svelte",
-    "html",
-    "css",
   },
 
   buftype_exclude = {
