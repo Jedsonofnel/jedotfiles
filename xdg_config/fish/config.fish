@@ -8,21 +8,30 @@ alias nvimrc "cd ~/jedotfiles/xdg_config/nvim"
 set -gx XDG_CONFIG_HOME $HOME/.config
 
 # asdf (version manager for ruby and js)
-source ~/.asdf/asdf.fish
+if test -f ~/.asdf/asdf.fish
+    source ~/.asdf/asdf.fish
+end
 
 # rust
-fish_add_path ~/.cargo/bin
+if test -f ~/.cargo/bin
+    fish_add_path ~/.cargo/bin
+end
 
 # go
 set -gx GOPATH $HOME/go
 set -gx GOBIN $GOPATH/bin
-fish_add_path $GOPATH/bin
+
+if test -f ~/$GOPATH/bin
+    fish_add_path $GOPATH/bin
+end
 
 # js stuff
 set -gx PRETTIERD_DEFAULT_CONFIG $XDG_CONFIG_HOME/nvim/lua/jedn/lsp/settings/.prettierrc.json
 
 # misc path stuff
-fish_add_path ~/.local/bin
+if test -f ~/.local/bin
+    fish_add_path ~/.local/bin
+end
 
 # starship (prompt)
 starship init fish | source
