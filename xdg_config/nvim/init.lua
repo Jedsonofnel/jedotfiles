@@ -18,5 +18,5 @@ require("jedn.autocmds")
 if vim.g.neovide then
   vim.opt.mouse = ""
   vim.opt.clipboard = ""
-  vim.opt.guifont = "CaskaydiaCove NF:h12"
+  vim.opt.guifont = "CaskaydiaCove NF:h14"
 end
