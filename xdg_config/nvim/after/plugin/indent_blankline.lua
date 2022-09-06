@@ -6,7 +6,7 @@ vim.opt.listchars = { eol = "↲" }
 vim.opt.fillchars = { eob = "~" }
 
 require("indent_blankline").setup({
-  char = "▏",
+  char = "│",
   use_treesitter = true,
   show_trailing_blankline_indent = false,
   show_end_of_line = true,
