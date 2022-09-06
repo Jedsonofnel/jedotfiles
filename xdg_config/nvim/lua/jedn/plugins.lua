@@ -26,9 +26,6 @@ return require("packer").startup(function(use)
     end,
   })
 
-  -- Treesitter for context thing
-  use("nvim-treesitter/nvim-treesitter-context")
-
   -- statusline
   use({
     "nvim-lualine/lualine.nvim",
