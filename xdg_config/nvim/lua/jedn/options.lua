@@ -4,9 +4,12 @@ vim.g.loaded_matchparen = 1
 
 local opt = vim.opt
 
+opt.fileencoding = "utf-8"
+opt.title = true
 opt.showmode = false
 opt.showcmd = true
 opt.cmdheight = 1
+opt.laststatus = 2
 opt.incsearch = true -- makes search better ...?
 opt.showmatch = false -- show matching bracket
 opt.relativenumber = true -- show rel numbers

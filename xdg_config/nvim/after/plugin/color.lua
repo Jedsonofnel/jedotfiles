@@ -1,5 +1,6 @@
 -- colorscheme
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
 
 require("rose-pine").setup({
   dark_variant = "main",
