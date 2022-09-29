@@ -63,7 +63,8 @@ opt.modelines = 1
 
 opt.belloff = "all"
 
-opt.clipboard = "unnamedplus"
+-- clipboard
+vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
 
 opt.inccommand = "split" -- todo with cmd previews
 opt.swapfile = false
