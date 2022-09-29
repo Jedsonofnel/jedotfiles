@@ -1,8 +1,14 @@
+local status, packer = pcall(require, "packer")
+if not status then
+  print("Packer is not installed")
+  return
+end
+
 -- Plugins using packer!
 
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function(use)
+packer.startup(function(use)
   -- Packer can manage itself
   use("wbthomason/packer.nvim")
 
@@ -14,6 +20,11 @@ return require("packer").startup(function(use)
   use({
     "rose-pine/neovim",
     as = "rose-pine",
+  })
+
+  use({
+    "svrana/neosolarized.nvim",
+    requires = { "tjdevries/colorbuddy.nvim" },
   })
 
   use("lukas-reineke/indent-blankline.nvim")

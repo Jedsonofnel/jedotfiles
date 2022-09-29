@@ -9,6 +9,9 @@ require("jedn.options")
 -- keymaps
 require("jedn.keymaps")
 
+-- plugins
+require("jedn.plugins")
+
 -- lsp
 require("jedn.lsp")
 
