@@ -1,9 +1,17 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  local install_path = fn.stdpath("data")
+    .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({
+      "git",
+      "clone",
+      "--depth",
+      "1",
+      "https://github.com/wbthomason/packer.nvim",
+      install_path,
+    })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -26,6 +34,7 @@ packer.startup(function(use)
 
   -- Color stuff
   use("EdenEast/nightfox.nvim")
+  use("norcalli/nvim-colorizer.lua")
 
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -54,7 +63,7 @@ packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
   })
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- language plugins
   use("leafOfTree/vim-svelte-plugin")

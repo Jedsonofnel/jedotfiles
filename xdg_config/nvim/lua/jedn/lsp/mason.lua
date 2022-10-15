@@ -46,9 +46,10 @@ if not ok3 then
 end
 
 -- on_attach for all!
-lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
-  on_attach = require("jedn.lsp.handlers").on_attach,
-})
+lspconfig.util.default_config =
+  vim.tbl_extend("force", lspconfig.util.default_config, {
+    on_attach = require("jedn.lsp.handlers").on_attach,
+  })
 
 -- specific setup stuff
 for _, server in pairs(servers) do

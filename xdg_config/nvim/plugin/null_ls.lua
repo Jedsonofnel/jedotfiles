@@ -8,11 +8,10 @@ end
 null_ls.setup({
   sources = {
     null_ls.builtins.diagnostics.eslint_d.with({
-      diagnostics_format = "[eslint] #{m}\n(#{c})"
+      diagnostics_format = "[eslint] #{m}\n(#{c})",
     }),
     null_ls.builtins.formatting.prettierd.with({
       extra_filetypes = { "svelte", "json" },
     }),
-    -- null_ls.builtins.formatting.stylua,
   },
 })

@@ -11,10 +11,10 @@ require("nightfox").setup({
   },
   groups = {
     nightfox = {
-      IndentBlanklineChar = { fg = "bg3"},
+      IndentBlanklineChar = { fg = "bg3" },
       NonText = { fg = "bg3" },
-    }
-  }
+    },
+  },
 })
 
 vim.cmd("colorscheme nightfox")
