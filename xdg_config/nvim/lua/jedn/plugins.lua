@@ -90,6 +90,7 @@ packer.startup(function(use)
   use("kyazdani42/nvim-web-devicons")
   use("ahmedkhalf/project.nvim")
   use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
 
   if packer_bootstrap then
     packer.sync()
