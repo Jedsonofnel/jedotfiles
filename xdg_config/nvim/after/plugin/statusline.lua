@@ -1,9 +1,4 @@
-require("lualine").setup({
-  options = {
-    icons_enable = true,
-    theme = "rose-pine",
+local status, lualine = pcall(require, "lualine")
+if (not status) then return end
 
-    section_separators = { left = "", right = "" },
-    component_separators = { left = "|", right = "|" },
-  },
-})
+lualine.setup {}

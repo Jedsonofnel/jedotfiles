@@ -1,7 +1,6 @@
 -- toggleterm config
 
 local nnoremap = require("jedn.utils").nnoremap
-local highlights = require("rose-pine.plugins.toggleterm")
 
 require("toggleterm").setup({
   size = 15,

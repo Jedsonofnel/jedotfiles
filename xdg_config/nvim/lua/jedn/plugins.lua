@@ -1,12 +1,21 @@
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath("data").."/site/pack/packer/start/packer.nvim"
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
+end
+
+local packer_bootstrap = ensure_packer()
+
 local status, packer = pcall(require, "packer")
 if not status then
   print("Packer is not installed")
   return
 end
-
--- Plugins using packer!
-
-vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
   -- Packer can manage itself
@@ -16,16 +25,7 @@ packer.startup(function(use)
   use("nvim-lua/plenary.nvim")
 
   -- Color stuff
-  use("norcalli/nvim-colorizer.lua")
-  use({
-    "rose-pine/neovim",
-    as = "rose-pine",
-  })
-
-  use({
-    "svrana/neosolarized.nvim",
-    requires = { "tjdevries/colorbuddy.nvim" },
-  })
+  use("EdenEast/nightfox.nvim")
 
   use("lukas-reineke/indent-blankline.nvim")
 
@@ -54,13 +54,9 @@ packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
   })
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = "make" }
 
-  use({
-    "nvim-telescope/telescope-fzf-native.nvim",
-    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-  })
-
-  -- langauge plugins
+  -- language plugins
   use("leafOfTree/vim-svelte-plugin")
 
   -- all things lsp!
@@ -85,4 +81,8 @@ packer.startup(function(use)
   use("kyazdani42/nvim-web-devicons")
   use("ahmedkhalf/project.nvim")
   use("windwp/nvim-autopairs")
+
+  if packer_bootstrap then
+    packer.sync()
+  end
 end)

@@ -1,24 +1,20 @@
--- colorscheme
-vim.opt.termguicolors = true
-vim.opt.background = "dark"
-
-require("rose-pine").setup({
-  dark_variant = "main",
-  bold_vert_split = false,
-  dim_nc_background = false,
-  disable_background = false,
-  disable_float_background = false,
-  disable_italics = true,
-
-  highlight_groups = {
-    NonText = { fg = "overlay" },
-    IndentBlanklineChar = { fg = "overlay" },
-    CursorLineNr = { fg = "rose" },
-    IndentBlanklineContextChar = { fg = "gold" },
+-- colorscheme setup: NIGHTFOX
+require("nightfox").setup({
+  options = {
+    transparent = false,
+    terminal_colors = true,
+    dim_inactive = false,
+    styles = {
+      comments = "italic",
+      functions = "italic,bold",
+    },
   },
+  groups = {
+    nightfox = {
+      IndentBlanklineChar = { fg = "bg3"},
+      NonText = { fg = "bg3" },
+    }
+  }
 })
 
-vim.cmd("colorscheme rose-pine")
-
--- colorizer
-require("colorizer").setup()
+vim.cmd("colorscheme nightfox")
