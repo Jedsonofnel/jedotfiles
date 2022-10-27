@@ -37,7 +37,7 @@ end
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
   -- diagnostic stuff
   nnoremap("<leader>de", function()
     vim.diagnostic.open_float(0, { scope = "line" })

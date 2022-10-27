@@ -1,8 +1,12 @@
 -- telescope config
+local status, telescope = pcall(require, "telescope")
+if not status then
+  return
+end
 
 local actions = require("telescope.actions")
 
-require("telescope").setup({
+telescope.setup({
   defaults = {
     vimgrep_arguments = {
       "rg",
@@ -32,14 +36,18 @@ require("telescope").setup({
       override_file_sorter = true,
       case_mode = "smart_case",
     },
+    file_browser = {
+      theme = "dropdown",
+      hijack_netrw = true,
+    }
   },
 })
 
 -- for blazingly fast sorting!
-require("telescope").load_extension("fzf")
+telescope.load_extension("fzf")
 
 -- project integration
-require("telescope").load_extension("projects")
+telescope.load_extension("projects")
 
 -- keybinds
 
@@ -61,11 +69,3 @@ end)
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fp", "<cmd>Telescope projects<cr>")
-
-local function lsp_references()
-  require("telescope.builtin").lsp_references({
-    ignore_filename = false,
-  })
-end
-
-nnoremap("<leader>flr", lsp_references)

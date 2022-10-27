@@ -63,6 +63,7 @@ packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
   })
+  use({"nvim-telescope/telescope-file-browser.nvim"})
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- language plugins
@@ -75,6 +76,7 @@ packer.startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim")
   use("nvim-lua/lsp_extensions.nvim")
   use("onsails/lspkind.nvim")
+  use("glepnir/lspsaga.nvim")
 
   -- completion
   use("hrsh7th/nvim-cmp")
