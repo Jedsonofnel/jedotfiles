@@ -11,8 +11,3 @@ require("jedn.keymaps")
 
 -- plugins
 require("jedn.plugins")
-
--- lsp
-require("jedn.lsp")
-
-require("jedn.autocmds")
