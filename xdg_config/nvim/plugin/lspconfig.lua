@@ -8,20 +8,8 @@ end
 -- remapping util func
 local nnoremap = require("jedn.utils").nnoremap
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-  vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    group = augroup_format,
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format({ bufnr = bufnr })
-    end,
-  })
-end
-
 -- using on_attach function to only do the mappings after lsp attaches
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- keymaps
   nnoremap("<leader>de", function()
     vim.diagnostic.open_float(0, { scope = "line" })
@@ -66,15 +54,12 @@ protocol.CompletionItemKind = {
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 nvim_lsp.sumneko_lua.setup({
-  capabilites = capabilites,
-  on_attach = function(client, bufnr)
-    on_attach(client, bufnr)
-    enable_format_on_save(client, bufnr)
-  end,
+  capabilites = capabilities,
+  on_attach = on_attach,
   settings = {
     Lua = {
       runtime = {
@@ -93,27 +78,27 @@ nvim_lsp.sumneko_lua.setup({
 
 nvim_lsp.cssls.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 nvim_lsp.html.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 nvim_lsp.jsonls.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 nvim_lsp.svelte.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 nvim_lsp.pyright.setup({
   on_attach = on_attach,
-  capabilites = capabilites,
+  capabilites = capabilities,
 })
 
 -- config how diagnostics look

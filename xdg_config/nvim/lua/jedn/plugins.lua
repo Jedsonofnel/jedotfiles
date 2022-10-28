@@ -1,7 +1,7 @@
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath("data")
-    .. "/site/pack/packer/start/packer.nvim"
+      .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
       "git",
@@ -52,18 +52,12 @@ packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  -- toggleterm
-  use({
-    "akinsho/toggleterm.nvim",
-    tag = "v2.*",
-  })
-
   -- telescope
   use({
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
   })
-  use({"nvim-telescope/telescope-file-browser.nvim"})
+  use({ "nvim-telescope/telescope-file-browser.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- language plugins
@@ -73,9 +67,10 @@ packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
-  use("jose-elias-alvarez/null-ls.nvim")
   use("nvim-lua/lsp_extensions.nvim")
   use("onsails/lspkind.nvim")
+
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- completion
   use("hrsh7th/nvim-cmp")
