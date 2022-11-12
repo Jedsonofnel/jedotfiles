@@ -3,6 +3,7 @@ set fish_greeting ""
 # aliai (plural of alias)
 alias la "ls -a"
 alias nvimrc "cd ~/jedotfiles/xdg_config/nvim"
+alias icl "cd /mnt/c/Users/jed/OneDrive\ -\ Imperial\ College\ London/ME1MCP/test/"
 
 # misc env variables
 set -gx XDG_CONFIG_HOME $HOME/.config
