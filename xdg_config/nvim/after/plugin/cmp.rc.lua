@@ -15,7 +15,10 @@ end
 
 lspkind.init()
 
-local cmp = require("cmp")
+local ok2, cmp = pcall(require, "cmp")
+if not ok2 then
+  return
+end
 
 cmp.setup({
   mapping = {

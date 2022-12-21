@@ -1,7 +1,13 @@
 -- remaps using utility function defined in util.lua
 
-local nnoremap = require("jedn.utils").nnoremap
-local tnoremap = require("jedn.utils").tnoremap
+local ok, utils = pcall(require, "jedn.utils")
+if not ok then
+  return
+end
+
+local nnoremap = utils.nnoremap
+local vnoremap = utils.nnoremap
+local tnoremap = utils.tnoremap
 
 -- netrw
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
@@ -9,6 +15,8 @@ nnoremap("<leader>pv", "<cmd>Ex<CR>")
 -- for wraps
 nnoremap("j", "gj")
 nnoremap("k", "gk")
+vnoremap("j", "gj")
+vnoremap("k", "gk")
 
 -- do not yank with x
 nnoremap("x", '"_x')

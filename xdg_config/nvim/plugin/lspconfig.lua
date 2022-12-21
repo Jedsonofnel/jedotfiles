@@ -1,7 +1,7 @@
 -- lspconfig options (basically the backbone of all my lsp stuff)
 
-local status, nvim_lsp = pcall(require, "lspconfig")
-if not status then
+local ok, nvim_lsp = pcall(require, "lspconfig")
+if not ok then
   return
 end
 
@@ -24,34 +24,39 @@ end
 
 local protocol = require("vim.lsp.protocol")
 protocol.CompletionItemKind = {
-  '', -- Text
-  '', -- Method
-  '', -- Function
-  '', -- Constructor
-  '', -- Field
-  '', -- Variable
-  '', -- Class
-  'ﰮ', -- Interface
-  '', -- Module
-  '', -- Property
-  '', -- Unit
-  '', -- Value
-  '', -- Enum
-  '', -- Keyword
-  '﬌', -- Snippet
-  '', -- Color
-  '', -- File
-  '', -- Reference
-  '', -- Folder
-  '', -- EnumMember
-  '', -- Constant
-  '', -- Struct
-  '', -- Event
-  'ﬦ', -- Operator
-  '', -- TypeParameter
+  "", -- Text
+  "", -- Method
+  "", -- Function
+  "", -- Constructor
+  "", -- Field
+  "", -- Variable
+  "", -- Class
+  "ﰮ", -- Interface
+  "", -- Module
+  "", -- Property
+  "", -- Unit
+  "", -- Value
+  "", -- Enum
+  "", -- Keyword
+  "﬌", -- Snippet
+  "", -- Color
+  "", -- File
+  "", -- Reference
+  "", -- Folder
+  "", -- EnumMember
+  "", -- Constant
+  "", -- Struct
+  "", -- Event
+  "ﬦ", -- Operator
+  "", -- TypeParameter
 }
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local ok2, cmp = pcall(require, "cmp_nvim_lsp")
+if not ok2 then
+  return
+end
+
+local capabilities = cmp.default_capabilities()
 nvim_lsp.tsserver.setup({
   on_attach = on_attach,
   capabilites = capabilities,
@@ -73,7 +78,7 @@ nvim_lsp.sumneko_lua.setup({
         checkThirdParty = false,
       },
     },
-  }
+  },
 })
 
 nvim_lsp.cssls.setup({
