@@ -8,16 +8,6 @@ local actions = require("telescope.actions")
 
 telescope.setup({
   defaults = {
-    vimgrep_arguments = {
-      "rg",
-      "--hidden",
-      "--color-never",
-      "--no-heading",
-      "--with-filename",
-      "--line-number",
-      "--column",
-      "--smart-case",
-    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -39,7 +29,7 @@ telescope.setup({
     file_browser = {
       theme = "dropdown",
       hijack_netrw = true,
-    }
+    },
   },
 })
 
@@ -54,18 +44,9 @@ telescope.load_extension("projects")
 local nnoremap = require("jedn.utils").nnoremap
 local builtin = require("telescope.builtin")
 
-nnoremap("<leader><leader>", function()
-  builtin.find_files({
-    find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
-  })
-end)
+nnoremap("<leader><leader>", builtin.find_files)
+nnoremap("<leader>pf", builtin.find_files)
+nnoremap("<C-p>", builtin.git_files)
 
-nnoremap("<leader>ff", function()
-  builtin.find_files({
-    find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
-  })
-end)
-
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fp", "<cmd>Telescope projects<cr>")

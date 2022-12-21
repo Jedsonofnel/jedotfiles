@@ -60,6 +60,9 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope-file-browser.nvim" })
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
+  -- harpoon
+  use("theprimeagen/harpoon")
+
   -- language plugins
   use("leafOfTree/vim-svelte-plugin")
 

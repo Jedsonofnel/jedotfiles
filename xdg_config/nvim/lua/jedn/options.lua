@@ -7,6 +7,7 @@ local opt = vim.opt
 -- highlights
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
+vim.opt.colorcolumn = "80"
 vim.opt.winblend = 0
 vim.opt.wildoptions = "pum"
 vim.opt.pumblend = 5
