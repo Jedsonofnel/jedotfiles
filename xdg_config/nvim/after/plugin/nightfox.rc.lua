@@ -16,7 +16,7 @@ nightfox.setup({
   },
   groups = {
     nightfox = {
-      IndentBlanklineChar = { fg = "bg3" },
+      IndentBlanklineChar = { fg = "bg3", style = "nocombine" },
       NonText = { fg = "bg3" },
     },
   },
