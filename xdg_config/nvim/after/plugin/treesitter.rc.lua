@@ -13,7 +13,7 @@ require("nvim-treesitter.configs").setup({
     additional_vim_regex_highlighting = true,
   },
   indent = {
-    enable = true,
+    enable = false,
   },
   autotag = {
     enable = true,
