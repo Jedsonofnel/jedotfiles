@@ -89,6 +89,7 @@ packer.startup(function(use)
   use("ahmedkhalf/project.nvim")
   use("windwp/nvim-autopairs")
   use("windwp/nvim-ts-autotag")
+  use("folke/zen-mode.nvim")
 
   if packer_bootstrap then
     packer.sync()
