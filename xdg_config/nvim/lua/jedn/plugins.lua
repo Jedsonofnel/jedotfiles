@@ -34,6 +34,7 @@ packer.startup(function(use)
 
   -- Color stuff
   use("EdenEast/nightfox.nvim")
+  use("nyoom-engineering/oxocarbon.nvim")
   use("norcalli/nvim-colorizer.lua")
 
   use("lukas-reineke/indent-blankline.nvim")
