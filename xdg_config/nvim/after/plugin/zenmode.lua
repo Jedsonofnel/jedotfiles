@@ -5,7 +5,7 @@ end
 
 zenmode.setup({
   window = {
-    width = 90,
+    width = 72,
     options = {
       number = false,
       relativenumber = false,
