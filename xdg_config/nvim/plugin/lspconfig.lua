@@ -106,6 +106,11 @@ nvim_lsp.pyright.setup({
   capabilites = capabilities,
 })
 
+nvim_lsp.rust_analyzer.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
 -- config how diagnostics look
 vim.diagnostic.config({
   underline = true,
