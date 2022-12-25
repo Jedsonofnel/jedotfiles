@@ -14,6 +14,7 @@ if test -f ~/.asdf/asdf.fish
 end
 
 # rust
+set -gx CARGO_HOME $HOME/.cargo
 if test -f ~/.cargo/bin
     fish_add_path ~/.cargo/bin
 end
