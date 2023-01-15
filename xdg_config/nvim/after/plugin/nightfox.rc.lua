@@ -19,5 +19,9 @@ nightfox.setup({
       IndentBlanklineChar = { fg = "bg3", style = "nocombine" },
       NonText = { fg = "bg3" },
     },
+    carbonfox = {
+      IndentBlanklineChar = { fg = "bg3", style = "nocombine" },
+      NonText = { fg = "bg3" },
+    },
   },
 })
