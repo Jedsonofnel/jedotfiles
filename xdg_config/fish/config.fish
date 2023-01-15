@@ -13,6 +13,10 @@ if test -f ~/.asdf/asdf.fish
     source ~/.asdf/asdf.fish
 end
 
+# tmuxinator stuff
+set -gx EDITOR nvim
+set -gx SHELL fish
+
 # rust
 set -gx CARGO_HOME $HOME/.cargo
 if test -f ~/.cargo/bin
