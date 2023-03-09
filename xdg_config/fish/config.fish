@@ -3,10 +3,10 @@ set fish_greeting ""
 # aliai (plural of alias)
 alias la "ls -a"
 alias nvimrc "cd ~/jedotfiles/xdg_config/nvim"
-alias icl "cd /mnt/c/Users/jed/OneDrive\ -\ Imperial\ College\ London/"
 
 # misc env variables
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
 
 # asdf (version manager for ruby and js)
 if test -f ~/.asdf/asdf.fish
@@ -44,7 +44,9 @@ source ./tokyonight_storm.fish
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-eval /home/jedn/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+if test -f ~/home/jedn/miniconda3
+    eval /home/jedn/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
 # <<< conda initialize <<<
 
 # starship (prompt)
