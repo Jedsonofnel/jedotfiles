@@ -6,7 +6,6 @@ return {
 
   -- Aesthetics
   "EdenEast/nightfox.nvim",
-  "nyoom-engineering/oxocarbon.nvim",
   "norcalli/nvim-colorizer.lua",
   "rebelot/kanagawa.nvim",
   "folke/tokyonight.nvim",
