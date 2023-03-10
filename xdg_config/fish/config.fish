@@ -40,7 +40,7 @@ if test -f ~/.local/bin
 end
 
 # theme etc
-source ./tokyonight_storm.fish
+source ~/.config/fish/tokyonight_storm.fish
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
