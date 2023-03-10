@@ -27,6 +27,9 @@ nnoremap("<leader>wl", "<c-w>l")
 nnoremap("<leader>wk", "<c-w>k")
 nnoremap("<leader>wh", "<c-w>h")
 
+-- go to last window:
+nnoremap("<leader>wp", "<c-w>p")
+
 nnoremap("<leader>wv", "<cmd>vsplit<CR>")
 nnoremap("<leader>ws", "<cmd>split<CR>")
 nnoremap("<leader>wq", "<cmd>close<CR>")
