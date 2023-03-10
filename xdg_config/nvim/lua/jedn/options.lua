@@ -18,7 +18,7 @@ opt.title = true
 opt.showmode = false
 opt.showcmd = true
 opt.cmdheight = 1
-opt.laststatus = 2
+opt.laststatus = 3
 opt.incsearch = true -- makes search better ...?
 opt.showmatch = false -- show matching bracket
 opt.relativenumber = true -- show rel numbers
@@ -33,6 +33,9 @@ opt.updatetime = 1000
 opt.hlsearch = false
 opt.scrolloff = 8
 opt.signcolumn = "yes" -- always show signcolumn
+opt.conceallevel = 3 -- hide * markup
+opt.confirm = false
+opt.timeoutlen = 300
 
 -- only have it in the active buffer
 -- copied from: https://github.com/tjdevries/config_manager/
