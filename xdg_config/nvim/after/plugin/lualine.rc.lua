@@ -7,7 +7,7 @@ lualine.setup({
   options = {
     icons_enabled = true,
     disabled_filetypes = {},
-    theme = "auto",
+    theme = "tokyonight",
   },
   sections = {
     lualine_a = { "mode" },
