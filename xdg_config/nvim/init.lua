@@ -24,4 +24,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- plugins
-require("lazy").setup("jedn.plugins")
+require("lazy").setup("jedn.plugins", {
+  install = {
+    colorscheme = { "carbonfox" },
+  },
+  change_detection = {
+    notify = false,
+  },
+})
