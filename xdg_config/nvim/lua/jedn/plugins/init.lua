@@ -22,12 +22,6 @@ return {
     },
   },
 
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
-  },
-
   -- telescope
   {
     "nvim-telescope/telescope.nvim",
@@ -61,7 +55,6 @@ return {
   "saadparwaiz1/cmp_luasnip",
 
   -- utility
-  "kyazdani42/nvim-web-devicons",
   "ahmedkhalf/project.nvim",
   "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
