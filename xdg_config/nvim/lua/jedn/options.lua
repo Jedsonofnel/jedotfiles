@@ -4,110 +4,52 @@ vim.g.loaded_matchparen = 1
 
 local opt = vim.opt
 
--- highlights
-vim.opt.cursorline = true
-vim.opt.termguicolors = true
-vim.opt.winblend = 0
-vim.opt.wildoptions = "pum"
-vim.opt.pumblend = 5
-vim.opt.background = "dark"
-
--- basic stuff
-opt.fileencoding = "utf-8"
-opt.title = true
-opt.showmode = false
-opt.showcmd = true
-opt.cmdheight = 1
-opt.laststatus = 3
-opt.incsearch = true -- makes search better ...?
-opt.showmatch = false -- show matching bracket
-opt.relativenumber = true -- show rel numbers
-opt.number = true -- show actual number as well
-opt.ignorecase = true -- ignore case when searching
-opt.smartcase = true -- unless capital is used
-opt.hidden = true -- buffers stay when hidden
-opt.equalalways = false
-opt.splitright = true
-opt.splitbelow = true
-opt.updatetime = 1000
-opt.hlsearch = false
-opt.scrolloff = 8
-opt.signcolumn = "yes" -- always show signcolumn
-opt.conceallevel = 3 -- hide * markup
-opt.confirm = false
+opt.autowrite = true -- Enable auto write
+opt.clipboard = "unnamedplus" -- Sync with system clipboard
+opt.completeopt = "menu,menuone,noselect"
+opt.conceallevel = 3 -- Hide * markup for bold and italic
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.cursorline = true -- Enable highlighting of the current line
+opt.expandtab = true -- Use spaces instead of tabs
+opt.formatoptions = "jcroqlnt" -- tcqj
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.ignorecase = true -- Ignore case
+opt.inccommand = "nosplit" -- preview incremental substitute
+opt.laststatus = 0
+opt.list = true -- Show some invisible characters (tabs...
+opt.mouse = "a" -- Enable mouse mode
+opt.number = true -- Print line number
+opt.pumblend = 10 -- Popup blend
+opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.relativenumber = true -- Relative line numbers
+opt.scrolloff = 4 -- Lines of context
+opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 2 -- Size of an indent
+opt.shortmess:append({ W = true, I = true, c = true })
+opt.showmode = false -- Dont show mode since we have a statusline
+opt.sidescrolloff = 8 -- Columns of context
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+opt.smartcase = true -- Don't ignore case with capitals
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "en" }
+opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 2 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
 opt.timeoutlen = 300
+opt.undofile = true
+opt.undolevels = 10000
+opt.updatetime = 200 -- Save swap file and trigger CursorHold
+opt.wildmode = "longest:full,full" -- Command-line completion mode
+opt.winminwidth = 5 -- Minimum window width
+opt.wrap = false -- Disable line wrap
 
--- only have it in the active buffer
--- copied from: https://github.com/tjdevries/config_manager/
-opt.cursorline = true
-local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
-local set_cursorline = function(event, value, pattern)
-  vim.api.nvim_create_autocmd(event, {
-    group = group,
-    pattern = pattern,
-    callback = function()
-      vim.opt_local.cursorline = value
-    end,
-  })
+if vim.fn.has("nvim-0.9.0") == 1 then
+  opt.splitkeep = "screen"
+  opt.shortmess:append({ C = true })
 end
--- when event, show cursor?
-set_cursorline("WinLeave", false)
-set_cursorline("WinEnter", true)
-set_cursorline("FileType", false, "TelescopePrompt")
 
--- tabs!
-opt.autoindent = true
-opt.cindent = true -- indenting rules based on C, not really sure...
-opt.wrap = true
-
-opt.tabstop = 4 -- number of whitespace for \t char
-opt.shiftwidth = 4 -- width of indentation
-opt.softtabstop = 4 -- number of space added by pressing tab button
-opt.expandtab = true -- \t -> whitespace
-
-opt.breakindent = true -- wrapped lines will indent!
-opt.showbreak = string.rep(" ", 3) -- wrapped lines will have this appended to
-opt.linebreak = true -- wraps at word not character
-
-opt.foldmethod = "marker"
-opt.foldlevel = 0
-opt.modelines = 1
-
-opt.belloff = "all"
-
--- clipboard
-vim.opt.clipboard:prepend({ "unnamed", "unnamedplus" })
-
-opt.inccommand = "split" -- todo with cmd previews
-opt.swapfile = false
-opt.undofile = true -- save undo history!
-
--- shared data
--- ! = save and restore global variables
--- ' = max number of marked files remembered
--- < = max number of lines saved for each register
--- s = max size of item's content in KiB
-opt.shada = { "!", "'1000", "<50", "s10" }
-
-opt.mouse = "n"
-
-opt.formatoptions = opt.formatoptions
-  - "a" -- autoformatting of paragraphs NO
-  - "t" -- autowrap using textwidth NO
-  + "c" -- autowrap comments
-  + "q" -- allow formatting of comments with "gq"
-  - "o" -- automatically insert comment leader after "o" NO
-  + "r" -- automatically continue comment with <enter> tho
-  + "n" -- formats numbered lists with good indentation
-  + "j" -- auto-remove comments when joining lines
-  - "2" -- uses 2nd line of paragraph for indentation!?!?
-
-opt.joinspaces = false -- this option makes a . insert two spaces
-
-opt.diffopt = {
-  "internal",
-  "filler",
-  "closeoff",
-  "hiddenoff",
-  "algorithm:minimal",
-}
+-- Fix markdown indentation settings
+vim.g.markdown_recommended_style = 0
