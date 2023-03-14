@@ -31,11 +31,11 @@ if test -f ~/$GOPATH/bin
     fish_add_path $GOPATH/bin
 end
 
-# python setup
-set -gx MPLBACKEND "module://imgcat"
-
 # js stuff
 set -gx PRETTIERD_DEFAULT_CONFIG $XDG_CONFIG_HOME/nvim/lua/jedn/lsp/settings/.prettierrc.json
+
+# python to get mpl to work on wsl2
+export LIBGL_ALWAYS_INDIRECT=1
 
 # misc path stuff
 if test -f ~/.local/bin
@@ -47,8 +47,8 @@ source ~/.config/fish/kanagawa.fish
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f ~/home/jedn/miniconda3
-    eval /home/jedn/miniconda3/bin/conda "shell.fish" hook $argv | source
+if test -f /home/jedn/.asdf/installs/python/miniconda3-latest/bin/conda
+    eval /home/jedn/.asdf/installs/python/miniconda3-latest/bin/conda "shell.fish" hook $argv | source
 end
 # <<< conda initialize <<<
 
