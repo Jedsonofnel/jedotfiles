@@ -8,7 +8,13 @@ return {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     version = false,
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      },
+    },
     keys = {
       {
         "<leader>,",
@@ -17,17 +23,21 @@ return {
       },
       {
         "<leader>/",
-        utils.telescope("live_grep"),
+        function()
+          require("telescope.builtin").live_grep()
+        end,
         desc = "Find in Files (Grep)",
       },
       {
         "<leader>:",
-        "<cmd>Telescope command history<cr>",
+        "<cmd>Telescope command_history<cr>",
         desc = "Command history",
       },
       {
         "<leader><space>",
-        utils.telescope("files"),
+        function()
+          require("telescope.builtin").find_files()
+        end,
         desc = "Find files (root dir)",
       },
       {
@@ -37,18 +47,27 @@ return {
       },
       {
         "<leader>ff",
-        utils.telescope("files"),
+        function()
+          require("telescope.builtin").find_files()
+        end,
         desc = "Find files (root dir)",
-      },
-      {
-        "<leader>ff",
-        utils.telescope("files", { cwd = false }),
-        desc = "Find files (cwd)",
       },
       {
         "<leader>fr",
         "<cmd>Telescope oldfiles<cr>",
         desc = "Recent",
+      },
+      {
+        "<leader>fp",
+        function()
+          require("telescope").extensions.projects.projects({})
+        end,
+        desc = "Find projects",
+      },
+      {
+        "<c-p>",
+        "<cmd>Telescope git_files<cr>",
+        desc = "Git files",
       },
     },
     opts = {
@@ -70,7 +89,20 @@ return {
           "node_modules",
         },
       },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+      },
     },
+    config = function(_, opts)
+      require("telescope").setup(opts)
+      require("telescope").load_extension("projects")
+      require("telescope").load_extension("fzf")
+    end,
   },
 
   -- which key
@@ -88,10 +120,12 @@ return {
       local keymaps = {
         mode = { "n", "v" },
         ["g"] = { name = "+goto" },
-        ["c"] = { name = "+code" },
-        ["f"] = { name = "+file/find" },
-        ["u"] = { name = "+ui" },
-        ["w"] = { name = "+windows" },
+        ["<leader>b"] = { name = "+buffer" },
+        ["<leader>c"] = { name = "+code" },
+        ["<leader>f"] = { name = "+file/find" },
+        ["<leader>s"] = { name = "+search" },
+        ["<leader>u"] = { name = "+ui" },
+        ["<leader>w"] = { name = "+windows" },
       }
 
       if utils.has("noice.nvim") then
@@ -111,20 +145,10 @@ return {
         function()
           require("neo-tree.command").execute({
             toggle = true,
-            dir = require("jedn.utils").get_root(),
-          })
-        end,
-        desc = "Explorer NeoTree (root dir)",
-      },
-      {
-        "<leader>fE",
-        function()
-          require("neo-tree.command").execute({
-            toggle = true,
             dir = vim.loop.cwd(),
           })
         end,
-        desc = "Explorer NeoTree (cwd)",
+        desc = "Explorer NeoTree (root dir)",
       },
     },
 
@@ -144,7 +168,7 @@ return {
 
     opts = {
       filesystem = {
-        bind_to_cwd = false,
+        bind_to_cwd = true,
         follow_current_file = true,
       },
       window = {

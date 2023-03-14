@@ -10,7 +10,7 @@ local vnoremap = utils.nnoremap
 local tnoremap = utils.tnoremap
 
 -- netrw
-nnoremap("<leader>pv", "<cmd>Ex<CR>")
+nnoremap("<leader>wv", "<cmd>Ex<CR>")
 
 -- for wraps
 nnoremap("j", "gj")
@@ -35,9 +35,11 @@ nnoremap("<leader>ws", "<cmd>split<CR>")
 nnoremap("<leader>wq", "<cmd>close<CR>")
 
 -- buffer nav
-nnoremap("<leader>bn", ":bn<CR>")
-nnoremap("<leader>bp", ":bp<CR>")
+nnoremap("<leader>b]", ":bn<CR>")
+nnoremap("<leader>b[", ":bp<CR>")
 
 -- terminal stuff
 tnoremap("<Esc>", "<c-\\><c-n>")
-nnoremap("<leader>tb", ":term<CR>")
+
+-- search clear
+nnoremap("<leader>sc", ":nohl<CR>")

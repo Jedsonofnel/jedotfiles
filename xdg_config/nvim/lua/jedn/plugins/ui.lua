@@ -47,6 +47,34 @@ return {
     end,
   },
 
+  -- bufferline
+  {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
+      {
+        "<leader>bP",
+        "<Cmd>BufferLineGroupClose ungrouped<CR>",
+        desc = "Delete non-pinned buffers",
+      },
+    },
+    opts = {
+      options = {
+        diagnostics = "nvim_lsp",
+        always_show_bufferline = false,
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "Neo-tree",
+            highlight = "Directory",
+            text_align = "left",
+          },
+        },
+      },
+    },
+  },
+
   -- lualilne
   {
     "nvim-lualine/lualine.nvim",
@@ -150,7 +178,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = function()
       vim.opt.list = true
-      vim.opt.listchars = { eol = "↲" }
+      vim.opt.listchars = { eol = "↲", tab = "» " }
       vim.opt.fillchars = { eob = "~" }
 
       return {
@@ -223,7 +251,7 @@ return {
     opts = {
       lsp = {
         override = {
-          ["vim.lsp.util.conver_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true,
         },
@@ -292,15 +320,15 @@ return {
   },
 
   -- dashboard
-  {
-    "goolord/alpha-nvim",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-    },
-    config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
-    end,
-  },
+  -- {
+  --   "goolord/alpha-nvim",
+  --   dependencies = {
+  --     "kyazdani42/nvim-web-devicons",
+  --   },
+  --   config = function()
+  --     require("alpha").setup(require("alpha.themes.startify").config)
+  --   end,
+  -- },
 
   -- lsp symbol navigation
   {
