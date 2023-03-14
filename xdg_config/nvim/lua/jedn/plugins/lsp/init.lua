@@ -162,7 +162,7 @@ return {
           -- python
           nls.builtins.diagnostics.flake8,
           nls.builtins.formatting.black,
-          nls.builtins.diagnostics.pylint,
+          -- nls.builtins.diagnostics.pylint,
 
           -- js
           nls.builtins.code_actions.eslint_d,
