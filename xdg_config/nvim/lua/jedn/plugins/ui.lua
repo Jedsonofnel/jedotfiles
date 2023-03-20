@@ -61,6 +61,7 @@ return {
     },
     opts = {
       options = {
+        mode = "tabs",
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
         offsets = {
