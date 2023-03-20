@@ -120,4 +120,9 @@ return {
       require("mini.pairs").setup(opts)
     end,
   },
+
+  -- svelte plugin
+  {
+    "leafOftree/vim-svelte-plugin",
+  },
 }
