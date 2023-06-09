@@ -161,8 +161,11 @@ return {
 
           -- python
           nls.builtins.diagnostics.flake8,
-          nls.builtins.formatting.black,
-          -- nls.builtins.diagnostics.pylint,
+          nls.builtins.formatting.black.with({
+            extra_args = { "--line-length", "79" },
+          }),
+          -- comes from conda
+          nls.builtins.diagnostics.pylint,
 
           -- js
           nls.builtins.code_actions.eslint_d,
@@ -183,7 +186,7 @@ return {
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
-        "pylint",
+        -- pylint provided by conda so that it can see packages
         "stylua",
         "prettierd",
         "eslint_d",

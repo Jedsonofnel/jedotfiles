@@ -10,6 +10,14 @@ return {
       vim.cmd.colorscheme("tokyonight")
     end,
   },
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    -- config = function()
+    --   vim.cmd.colorscheme("gruvbox")
+    -- end,
+  },
 
   -- Treesitter for syntax highlighting goodness!
   {
@@ -24,7 +32,7 @@ return {
         enable = true,
         additional_vim_regex_highlighting = true,
       },
-      indent = { enable = true },
+      indent = { enable = false },
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = "all",
     },

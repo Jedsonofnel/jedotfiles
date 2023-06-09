@@ -35,18 +35,18 @@ nnoremap("<leader>ws", "<cmd>split<CR>")
 nnoremap("<leader>wq", "<cmd>close<CR>")
 
 -- buffer nav
-nnoremap("<leader>b]", ":bn<CR>")
-nnoremap("<leader>b[", ":bp<CR>")
-nnoremap("<leader>bd", ":bd<CR>")
+nnoremap("<leader>b]", "<cmd>bn<CR>")
+nnoremap("<leader>b[", "<cmd>bp<CR>")
+nnoremap("<leader>bd", "<cmd>bd<CR>")
 
 -- tab nav
-nnoremap("<leader>tn", ":tabnew<CR>")
-nnoremap("<leader>t]", ":tabN<CR>")
-nnoremap("<leader>t[", ":tabp<CR>")
-nnoremap("<leader>td", ":tabc<CR>")
+nnoremap("<leader>tn", "<cmd>tabnew<CR>")
+nnoremap("<leader>t]", "<cmd>tabN<CR>")
+nnoremap("<leader>t[", "<cmd>tabp<CR>")
+nnoremap("<leader>td", "<cmd>tabc<CR>")
 
 -- terminal stuff
 tnoremap("<Esc>", "<c-\\><c-n>")
 
 -- search clear
-nnoremap("<leader>sc", ":nohl<CR>")
+nnoremap("<leader>sc", "<cmd>nohl<CR>")
