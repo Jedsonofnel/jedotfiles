@@ -8,27 +8,6 @@ alias nvimrc "cd ~/jedotfiles/xdg_config/nvim"
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx XDG_DATA_HOME $HOME/.local/share
 
-# neovim switcher
-# function nvims
-#     set items default AstroNvim nyoom
-#     set config (printf "%s\n" $items | fzf --prompt=" Neovim Config >> " --height=~50% --layout=reverse --border --exit-0)
-#     if test -z $config
-#         echo "Nothing selected"
-#         return 0
-#     else if test $config = default
-#         set $config ""
-#     end
-#     NVIM_APPNAME=$config nvim $argv
-# end
-
-# Nyoom config file location:
-# set -gx NYOOM_APPNAME nyoom
-
-# Nyoom binaries
-if test -f $XDG_CONFIG_HOME/$NYOOM_APPNAME
-    fish_add_path $XDG_CONFIG_HOME/$NYOOM_APPNAME/bin
-end
-
 # tmuxinator stuff
 set -gx EDITOR nvim
 set -gx SHELL fish
