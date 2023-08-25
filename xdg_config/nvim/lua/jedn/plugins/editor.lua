@@ -1,4 +1,5 @@
 -- EDITOR RELATED PLUGINS
+-- kj
 -- ie for moving around files and stuff
 local utils = require("jedn.utils")
 
@@ -124,6 +125,7 @@ return {
         ["<leader>c"] = { name = "+code" },
         ["<leader>f"] = { name = "+file/find" },
         ["<leader>s"] = { name = "+search" },
+        ["<leader>t"] = { name = "+tabs" },
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
       }
