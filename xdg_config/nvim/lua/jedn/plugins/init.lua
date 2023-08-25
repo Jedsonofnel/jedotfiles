@@ -3,12 +3,20 @@
 return {
   -- Aesthetics
   {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1001,
+    config = function()
+      vim.cmd.colorscheme("kanagawa")
+    end,
+  },
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      vim.cmd.colorscheme("tokyonight")
-    end,
+    -- config = function()
+    --   vim.cmd.colorscheme("tokyonight")
+    -- end,
   },
   {
     "ellisonleao/gruvbox.nvim",
