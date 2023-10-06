@@ -42,5 +42,9 @@
         "/home/jedn/.config/nvim/after",
         "/home/jedn/.config/nyoom",
         "${3rd}/luv/library"
+    ],
+    "diagnostics.disable": [
+        "undefined-field",
+        "deprecated"
     ]
 }
