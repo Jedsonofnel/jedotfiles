@@ -15,5 +15,8 @@ return {
         "stylua.toml",
       },
     },
+    config = function(_, opts)
+      require("project_nvim").setup(opts)
+    end,
   },
 }
