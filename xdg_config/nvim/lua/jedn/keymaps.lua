@@ -5,48 +5,55 @@ if not ok then
   return
 end
 
+local ok2, wk = pcall(require, "which-key")
+if not ok2 then
+  return
+end
+
 local nnoremap = utils.nnoremap
 local vnoremap = utils.nnoremap
 local tnoremap = utils.tnoremap
 
--- netrw
-nnoremap("<leader>fv", "<cmd>Ex<CR>")
-
+-- basic stuff that don't need to be which-keyed
 -- for wraps
 nnoremap("j", "gj")
 nnoremap("k", "gk")
 vnoremap("j", "gj")
 vnoremap("k", "gk")
 
--- do not yank with x
-nnoremap("x", '"_x')
-
--- window navigation (ok to be used in terminals as well)
-nnoremap("<leader>wj", "<c-w>j")
-nnoremap("<leader>wl", "<c-w>l")
-nnoremap("<leader>wk", "<c-w>k")
-nnoremap("<leader>wh", "<c-w>h")
-
--- go to last window:
-nnoremap("<leader>wp", "<c-w>p")
-
-nnoremap("<leader>wv", "<cmd>vsplit<CR>")
-nnoremap("<leader>ws", "<cmd>split<CR>")
-nnoremap("<leader>wq", "<cmd>close<CR>")
-
--- buffer nav
-nnoremap("<leader>b]", "<cmd>bn<CR>")
-nnoremap("<leader>b[", "<cmd>bp<CR>")
-nnoremap("<leader>bd", "<cmd>bd<CR>")
-
--- tab nav
-nnoremap("<leader>tn", "<cmd>tabnew<CR>")
-nnoremap("<leader>t]", "<cmd>tabN<CR>")
-nnoremap("<leader>t[", "<cmd>tabp<CR>")
-nnoremap("<leader>td", "<cmd>tabc<CR>")
-
 -- terminal stuff
 tnoremap("<Esc>", "<c-\\><c-n>")
 
--- search clear
-nnoremap("<leader>sc", "<cmd>nohl<CR>")
+-- do not yank with x
+nnoremap("x", '"_x')
+
+-- which-key stuff
+wk.register({
+  f = {
+    v = { "<cmd>Ex<CR>", "Open Netrw" },
+  },
+  w = {
+    j = { "<c-w>j", "Window Below" },
+    k = { "<c-w>k", "Window Above" },
+    h = { "<c-w>h", "Window to the Left" },
+    l = { "<c-w>l", "Window to the Right" },
+    p = { "<c-w>p", "Previous Window" },
+    v = { "<cmd>vsplit<CR>", "Vertical Split" },
+    s = { "<cmd>split<CR>", "Horizontal Split" },
+    q = { "<cmd>close<CR>", "Close Window" },
+  },
+  b = {
+    ["]"] = { "<cmd>bn<CR>", "Next Buffer" },
+    ["["] = { "<cmd>bp<CR>", "Previous Buffer" },
+    d = { "<cmd>bd<CR>", "Close Buffer" },
+  },
+  t = {
+    n = { "<cmd>tabnew<CR>", "New Tab" },
+    ["]"] = { "<cmd>tabN<CR>", "Next Tab" },
+    ["["] = { "<cmd>tabp<CR>", "Previous Tab" },
+    d = { "<cmd>tabclose<CR>", "Close Tab" },
+  },
+  s = {
+    c = { "<cmd>nohl<CR>", "Clear Search" },
+  },
+}, { prefix = "<leader>" })

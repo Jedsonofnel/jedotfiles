@@ -6,9 +6,6 @@ vim.g.mapleader = " "
 -- global options
 require("jedn.options")
 
--- keymaps
-require("jedn.keymaps")
-
 -- lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -32,3 +29,6 @@ require("lazy").setup("jedn.plugins", {
     notify = false,
   },
 })
+
+-- keymaps (last because we are using which-key)
+require("jedn.keymaps")
