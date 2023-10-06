@@ -1,10 +1,4 @@
--- EDITOR RELATED PLUGINS
--- kj
--- ie for moving around files and stuff
-local utils = require("jedn.utils")
-
 return {
-  -- telescope
   {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
@@ -103,37 +97,6 @@ return {
       require("telescope").setup(opts)
       require("telescope").load_extension("projects")
       require("telescope").load_extension("fzf")
-    end,
-  },
-
-  -- which key
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    opts = {
-      plugins = { spelling = true },
-    },
-
-    config = function(_, opts)
-      local wk = require("which-key")
-      wk.setup(opts)
-
-      local keymaps = {
-        mode = { "n", "v" },
-        ["g"] = { name = "+goto" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>f"] = { name = "+file/find" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>t"] = { name = "+tabs" },
-        ["<leader>u"] = { name = "+ui" },
-        ["<leader>w"] = { name = "+windows" },
-      }
-
-      if utils.has("noice.nvim") then
-        keymaps["<leader>sn"] = { name = "+noice" }
-      end
-      wk.register(keymaps)
     end,
   },
 }
