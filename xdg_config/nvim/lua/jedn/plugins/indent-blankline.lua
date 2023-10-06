@@ -18,6 +18,7 @@ return {
           "lazy",
           "alpha",
           "neo-tree",
+          "NvimTree",
           "checkhealth",
           "dashboard",
           "help",
