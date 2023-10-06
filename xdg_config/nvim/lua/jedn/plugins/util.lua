@@ -9,8 +9,4 @@ return {
       require("project_nvim").setup(opts)
     end,
   },
-  {
-    "nvim-lua/plenary.nvim",
-    lazy = true,
-  },
 }
