@@ -4,7 +4,7 @@ return {
   opts = {
     view = {
       width = 35,
-      relativenumber = true,
+      number = false,
     },
     renderer = {
       indent_markers = {
@@ -45,6 +45,21 @@ return {
       "<leader>ee",
       "<cmd>NvimTreeToggle<CR>",
       desc = "Toggle file explorer",
+    },
+    {
+      "<leader>ef",
+      "<cmd>NvimTreeFindFileToggle<CR>",
+      desc = "Toggle file explorer on current file",
+    },
+    {
+      "<leader>ec",
+      "<cmd>NvimTreeCollapse<CR>",
+      desc = "Collapse file explorer",
+    },
+    {
+      "<leader>er",
+      "<cmd>NvimTreeRefresh<CR>",
+      desc = "Refresh file explorer",
     },
   },
 }
