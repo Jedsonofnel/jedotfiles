@@ -26,7 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 -- plugins
 require("lazy").setup("jedn.plugins", {
   install = {
-    colorscheme = { "tokyonight" },
+    colorscheme = { "kanagawa" },
   },
   change_detection = {
     notify = false,
