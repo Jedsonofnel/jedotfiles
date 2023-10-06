@@ -1,6 +1,7 @@
 {
   "bufferline.nvim": { "branch": "main", "commit": "357cc8f8eeb64702e6fcf2995e3b9becee99a5d3" },
   "conform.nvim": { "branch": "master", "commit": "e5ed0635d9aa66c6c2f7eac3235e6a8eb2de0653" },
+  "dressing.nvim": { "branch": "master", "commit": "8f4d62b7817455896a3c73cab642002072c114bc" },
   "gruvbox.nvim": { "branch": "main", "commit": "fb03688892b2282cfa1b4181178b7ad4d9da6198" },
   "indent-blankline.nvim": { "branch": "master", "commit": "877c1db2bf957300097dd5348a665666a4d900cb" },
   "kanagawa.nvim": { "branch": "master", "commit": "c19b9023842697ec92caf72cd3599f7dd7be4456" },
