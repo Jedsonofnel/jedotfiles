@@ -6,27 +6,27 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettier" },
-        typescript = { "prettier" },
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
+        javascript = { "prettierd" },
+        typescript = { "prettierd" },
+        javascriptreact = { "prettierd" },
+        typescriptreact = { "prettierd" },
+        svelte = { "prettierd" },
+        css = { "prettierd" },
+        html = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        markdown = { "prettierd" },
+        graphql = { "prettierd" },
 
         lua = { "stylua" },
-        python = { "pylint", "flake8" },
+        python = { "black", "isort" },
       },
 
       format_on_save = {
         lsp_fallback = false,
         async = false,
-        async = false,
         timeout_ms = 1000,
+        quiet = true,
       },
     })
   end,
@@ -38,6 +38,7 @@ return {
           lsp_fallback = true,
           async = false,
           timeout_ms = 500,
+          quiet = true,
         })
       end,
       { "n", "v" },

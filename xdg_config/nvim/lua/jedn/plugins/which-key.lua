@@ -3,7 +3,12 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
-      plugins = { spelling = true },
+      plugins = {
+        presets = {
+          operators = true,
+          motions = true,
+        },
+      },
     },
 
     config = function(_, opts)
@@ -11,7 +16,6 @@ return {
       wk.setup(opts)
 
       local keymaps = {
-        mode = { "n", "v" },
         ["g"] = { name = "+goto" },
         ["<leader>b"] = {
           name = "+buffer",
