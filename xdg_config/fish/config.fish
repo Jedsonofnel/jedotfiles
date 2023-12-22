@@ -42,8 +42,8 @@ end
 pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
-# starship (prompt)
-starship init fish | source
+# prompt stuff (hydro)
+set --global hydro_multiline false
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -57,4 +57,3 @@ else
     end
 end
 # <<< conda initialize <<<
-
