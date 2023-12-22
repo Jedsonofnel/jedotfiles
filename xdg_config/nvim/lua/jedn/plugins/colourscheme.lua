@@ -1,8 +1,8 @@
 return {
   {
     "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
+    -- priority = 1000,
     -- transparent floating windows (nicked from kanagawa repo)
     opts = {
       colors = {
@@ -15,10 +15,10 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa")
-    end,
+    -- config = function(_, opts)
+    --  require("kanagawa").setup(opts)
+    --  vim.cmd.colorscheme("kanagawa")
+    -- end,
   },
 
   {
@@ -29,5 +29,16 @@ return {
   {
     "ellisonleao/gruvbox.nvim",
     lazy = true,
+  },
+
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+
+    config = function(_, opts)
+      require("dracula").setup(opts)
+      vim.cmd.colorscheme("dracula")
+    end,
   },
 }

@@ -11,6 +11,7 @@ return {
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
   },
+
   config = function()
     vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
