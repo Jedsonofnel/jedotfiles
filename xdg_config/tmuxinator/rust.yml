@@ -1,7 +1,0 @@
-# /home/jedn/.config/tmuxinator/rust.yml
-
-name: rust
-root: ~/Jedcave/rust_projects/
-
-windows:
-  - terminal: fish

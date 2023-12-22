@@ -1,8 +1,0 @@
-# /home/jedn/.config/tmuxinator/kasanje-website.yml
-
-name: kasanje-website
-root: ~/Jedcave/kasanje-cycling-website/
-
-windows:
-  - editor: nvim
-  - server: cd frontend && npm run dev
