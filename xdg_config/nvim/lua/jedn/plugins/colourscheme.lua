@@ -49,6 +49,12 @@ return {
 
     opts = {
       flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        treesitter = true,
+        bufferline = true,
+      },
     },
 
     config = function(_, opts)
