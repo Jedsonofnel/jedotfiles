@@ -38,17 +38,23 @@ if test -f ~/.local/bin
     fish_add_path ~/.local/bin
 end
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /home/jedn/.asdf/installs/python/miniconda3-latest/bin/conda
-    eval /home/jedn/.asdf/installs/python/miniconda3-latest/bin/conda "shell.fish" hook $argv | source
-end
-# <<< conda initialize <<<
-#
-# asdf (version manager for ruby and js)
-if test -f ~/.asdf/asdf.fish
-    source ~/.asdf/asdf.fish
-end
+# pyenv stuff
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
 # starship (prompt)
 starship init fish | source
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/jedn/miniconda3/bin/conda
+    eval /home/jedn/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+else
+    if test -f "/home/jedn/miniconda3/etc/fish/conf.d/conda.fish"
+        . "/home/jedn/miniconda3/etc/fish/conf.d/conda.fish"
+    else
+        set -x PATH "/home/jedn/miniconda3/bin" $PATH
+    end
+end
+# <<< conda initialize <<<
+
