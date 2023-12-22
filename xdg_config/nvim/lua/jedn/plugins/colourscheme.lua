@@ -33,12 +33,27 @@ return {
 
   {
     "Mofiqul/dracula.nvim",
-    lazy = false,
+    lazy = true,
+    -- priority = 1000,
+
+    -- config = function(_, opts)
+    --   require("dracula").setup(opts)
+    --   vim.cmd.colorscheme("dracula")
+    -- end,
+  },
+
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
 
+    opts = {
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+    },
+
     config = function(_, opts)
-      require("dracula").setup(opts)
-      vim.cmd.colorscheme("dracula")
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }
