@@ -4,6 +4,7 @@ set fish_greeting ""
 alias la "ls -a"
 alias nvimrc "cd ~/jedotfiles/xdg_config/nvim"
 alias uni "cd /mnt/c/Users/jed/OneDrive\ -\ Imperial\ College\ London/"
+alias comp "cd /mnt/c/Users/jed/OneDrive\ -\ Imperial\ College\ London/ME2/ME2MCP/Computing\ Bollocks/"
 
 # misc env variables
 set -gx XDG_CONFIG_HOME $HOME/.config
@@ -41,6 +42,8 @@ end
 # pyenv stuff
 pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
+
+set -gx PYENV_VIRTUALENV_DISABLE_PROMPT 1
 
 # prompt stuff (hydro)
 set --global hydro_multiline false
