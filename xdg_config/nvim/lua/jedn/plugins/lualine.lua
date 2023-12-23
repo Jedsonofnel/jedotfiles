@@ -4,6 +4,8 @@ return {
 
   opts = {
     theme = "catppuccin",
+
+    extensions = { "nvim-tree" },
   },
 
   config = function(_, options)
