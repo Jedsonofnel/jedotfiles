@@ -48,7 +48,7 @@ return {
     priority = 1000,
 
     opts = {
-      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      flavour = "mocha", -- latte, frappe, macchiato, mocha
       integrations = {
         cmp = true,
         gitsigns = true,
