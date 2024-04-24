@@ -72,7 +72,12 @@ return {
     end
 
     -- enables autocomplete (assign to all lsp servers)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      cmp_nvim_lsp.default_capabilities()
+    )
+    capabilities.workspace.didChangeWatchedFiles.dynamicRegistration = false
 
     local signs =
       { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
