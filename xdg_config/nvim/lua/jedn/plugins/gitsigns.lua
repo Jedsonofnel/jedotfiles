@@ -22,6 +22,7 @@ return {
   end,
 
   opts = {
+    signcolumn = false,
     signs = {
       add = { text = "│" },
       change = { text = "│" },

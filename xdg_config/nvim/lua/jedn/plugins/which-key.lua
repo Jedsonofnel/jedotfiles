@@ -24,7 +24,9 @@ return {
           d = { "<cmd>bd<CR>", "Close Buffer" },
         },
         ["<leader>c"] = { name = "+code" },
+        ["<leader>e"] = { name = "+explorer" },
         ["<leader>f"] = { name = "+file/find" },
+        ["<leader>l"] = { name = "+lsp" },
         ["<leader>p"] = {
           name = "+misc",
           v = { "<cmd>Ex<CR>", "Open Netrw" },

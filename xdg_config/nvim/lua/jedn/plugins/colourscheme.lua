@@ -55,6 +55,12 @@ return {
         treesitter = true,
         bufferline = true,
       },
+      custom_highlights = function(colors)
+        return {
+          IblIndent = { fg = colors.surface0 },
+          netrwTreeBar = { fg = colors.surface1 },
+        }
+      end,
     },
 
     config = function(_, opts)
