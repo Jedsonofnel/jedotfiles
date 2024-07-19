@@ -7,7 +7,7 @@ return {
       "nvim-lua/plenary.nvim",
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        build = "make",
       },
     },
     keys = {
@@ -60,6 +60,12 @@ return {
         desc = "Find projects",
       },
       {
+        "<leader>fc",
+        function()
+          require("telescope.builtin").colorscheme()
+        end,
+      },
+      {
         "<c-p>",
         "<cmd>Telescope git_files<cr>",
         desc = "Git files",
@@ -90,6 +96,11 @@ return {
           override_generic_sorter = true,
           override_file_sorter = true,
           case_mode = "smart_case",
+        },
+      },
+      pickers = {
+        find_files = {
+          hidden = true,
         },
       },
     },
