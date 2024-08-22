@@ -24,6 +24,7 @@ nnoremap("<leader>wp", "<c-w>p", { desc = "Previous Window" })
 nnoremap("<leader>wv", "<cmd>vsplit<CR>", { desc = "Vertical Split" })
 nnoremap("<leader>ws", "<cmd>split<CR>", { desc = "Horizontal Split" })
 nnoremap("<leader>wq", "<cmd>close<CR>", { desc = "Close Window" })
+nnoremap("<leader>w=", "<c-w>=", { desc = "Equalise Windows" })
 
 -- tabs
 nnoremap("<leader>tn", "<cmd>tabnew<CR>", { desc = "New Tab" })

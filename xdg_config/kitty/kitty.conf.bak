@@ -4,18 +4,21 @@
 
 # fonts
 
-font_family       FantasqueSansMono Nerd Font
+font_family       monospace
 bold_font         auto
 italic_font       auto
 bold_italic_font  auto
 
-font_size 14.0
+font_size 12.0
 disable_ligatures never
+
+# stop having to confirm when I want to leave
+confirm_os_window_close 0
 
 # border
 window_padding_width 5
 
 # BEGIN_KITTY_THEME
-# Doom One
+# Material Dark
 include current-theme.conf
 # END_KITTY_THEME
