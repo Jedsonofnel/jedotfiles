@@ -12,7 +12,7 @@ return {
         typescriptreact = { "prettierd" },
         svelte = { "prettierd" },
         css = { "prettierd" },
-        html = { "prettierd" },
+        -- html = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
         markdown = { "prettierd" },
@@ -20,6 +20,7 @@ return {
 
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format" },
+        go = { "gofmt" },
       },
 
       format_on_save = {

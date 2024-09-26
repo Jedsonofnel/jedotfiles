@@ -100,12 +100,29 @@ return {
       },
     })
 
-    lspconfig["html"].setup({
+    lspconfig["gopls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
 
-    lspconfig["tsserver"].setup({
+    lspconfig["templ"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["html"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "templ" },
+    })
+
+    lspconfig["htmx"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "html", "templ" },
+    })
+
+    lspconfig["ts_ls"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
@@ -132,6 +149,16 @@ return {
     })
 
     lspconfig["pyright"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["dockerls"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+
+    lspconfig["docker_compose_language_service"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
     })
