@@ -49,6 +49,7 @@ alias ls="ls --color"
 alias la="ls -a"
 alias nvimrc="cd ~/.config/nvim"
 alias gl="git log --oneline -n 10"
+alias s="kitten ssh"
 
 # pyenv is lazy loaded by a plugin (see zsh_plugins.txt)
 
@@ -64,5 +65,5 @@ FNM_PATH="/home/jedn/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/home/jedn/.local/share/fnm:$PATH"
   eval "`fnm env`"
+  eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
