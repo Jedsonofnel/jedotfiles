@@ -162,5 +162,10 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     })
+
+    lspconfig["digestif"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
   end,
 }

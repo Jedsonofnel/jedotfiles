@@ -9,7 +9,7 @@ return {
 
     local eslint_d = lint.linters.eslint_d
     eslint_d.args = {
-      "--no-warn-ignored", -- <-- this is the key argument
+      --- "--no-warn-ignored", -- <-- this was the key argument
       "--format",
       "json",
       "--stdin",
