@@ -46,3 +46,6 @@ tnoremap("<Esc>", "<c-\\><c-n>")
 
 -- do not yank with x
 nnoremap("x", '"_x')
+
+-- zenmode
+nnoremap("<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode" })
