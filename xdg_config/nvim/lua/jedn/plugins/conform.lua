@@ -21,6 +21,7 @@ return {
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format" },
         go = { "gofmt" },
+        eruby = { "erb_format" },
       },
 
       format_on_save = {

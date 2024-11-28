@@ -113,7 +113,7 @@ return {
     lspconfig["html"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
-      filetypes = { "html", "templ" },
+      filetypes = { "html", "templ", "eruby" },
     })
 
     lspconfig["htmx"].setup({
@@ -166,6 +166,15 @@ return {
     lspconfig["digestif"].setup({
       capabilities = capabilities,
       on_attach = on_attach,
+    })
+
+    lspconfig["ruby_lsp"].setup({
+      capabilities = capabilities,
+      on_attach = on_attach,
+      init_options = {
+        formatter = "standard",
+        linters = { "standard" },
+      },
     })
   end,
 }

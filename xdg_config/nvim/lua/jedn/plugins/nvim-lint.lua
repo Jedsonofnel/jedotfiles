@@ -25,10 +25,14 @@ return {
       javscriptreact = { "eslint_d" },
       typescriptreact = { "eslint_d" },
       svelte = { "eslint_d" },
+      ruby = { "rubocop" },
 
       python = {
         "ruff",
         "mypy",
+      },
+      eruby = {
+        "erb_lint",
       },
     }
 

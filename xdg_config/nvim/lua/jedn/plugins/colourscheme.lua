@@ -36,7 +36,7 @@ return {
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa")
+      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
 
@@ -55,7 +55,7 @@ return {
     name = "catppuccin",
 
     opts = {
-      flavour = "frappe", -- latte, frappe, macchiato, mocha
+      flavour = "latte", -- latte, frappe, macchiato, mocha
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -72,7 +72,7 @@ return {
 
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      -- vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
