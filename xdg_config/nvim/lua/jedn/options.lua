@@ -47,10 +47,13 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 
 -- wrap stuff
 opt.winminwidth = 5 -- Minimum window width
-opt.wrap = true -- Disable line wrap
-opt.breakindent = true
-opt.breakindentopt = { "shift:0" }
-opt.showbreak = "> "
+opt.wrap = false
+
+-- wrap
+-- opt.wrap = true -- Disable line wrap
+-- opt.breakindent = true
+-- opt.breakindentopt = { "shift:0" }
+-- opt.showbreak = "> "
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

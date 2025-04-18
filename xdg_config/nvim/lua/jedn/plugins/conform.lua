@@ -22,6 +22,7 @@ return {
         python = { "ruff_fix", "ruff_format" },
         go = { "gofmt" },
         eruby = { "erb_format" },
+        ruby = { "rubocop" },
       },
 
       format_on_save = {

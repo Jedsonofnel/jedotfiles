@@ -16,15 +16,7 @@ return {
     local mason_tool_installer = require("mason-tool-installer")
 
     -- enable mason and configure icons
-    mason.setup({
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    })
+    mason.setup()
 
     mason_lspconfig.setup({
       -- list of servers for mason to install

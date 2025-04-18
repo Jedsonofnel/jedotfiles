@@ -53,13 +53,6 @@ return {
         desc = "Recent",
       },
       {
-        "<leader>fp",
-        function()
-          require("telescope").extensions.projects.projects({})
-        end,
-        desc = "Find projects",
-      },
-      {
         "<leader>fc",
         function()
           require("telescope.builtin").colorscheme()
@@ -106,7 +99,6 @@ return {
     },
     config = function(_, opts)
       require("telescope").setup(opts)
-      require("telescope").load_extension("projects")
       require("telescope").load_extension("fzf")
     end,
   },

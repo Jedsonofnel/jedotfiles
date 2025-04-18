@@ -36,7 +36,6 @@ return {
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
-      -- vim.cmd.colorscheme("kanagawa")
     end,
   },
 
@@ -47,7 +46,11 @@ return {
 
   {
     "ellisonleao/gruvbox.nvim",
-    lazy = true,
+    lazy = false,
+    priority = 1000,
+    config = function(_, opts)
+      require("gruvbox").setup(opts)
+    end,
   },
 
   {
@@ -55,7 +58,7 @@ return {
     name = "catppuccin",
 
     opts = {
-      flavour = "latte", -- latte, frappe, macchiato, mocha
+      flavour = "frappe", -- latte, frappe, macchiato, mocha
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -72,7 +75,6 @@ return {
 
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin")
     end,
   },
   {
@@ -147,4 +149,5 @@ return {
       require("material").setup(opts)
     end,
   },
+  { "EdenEast/nightfox.nvim" },
 }
