@@ -28,7 +28,7 @@ nnoremap("<leader>w=", "<c-w>=", { desc = "Equalise Windows" })
 
 -- tabs
 nnoremap("<leader>tn", "<cmd>tabnew<CR>", { desc = "New Tab" })
-nnoremap("<leader>t]", "<cmd>tabNext<CR>", { desc = "Next Tab" })
+nnoremap("<leader>t]", "<cmd>tabnext<CR>", { desc = "Next Tab" })
 nnoremap("<leader>t[", "<cmd>tabprevious<CR>", { desc = "Previous Tab" })
 nnoremap("<leader>td", "<cmd>tabclose<CR>", { desc = "Close Tab" })
 nnoremap("<leader>t1", "<cmd>1tabnext<CR>", { desc = "Go to Tab 1" })

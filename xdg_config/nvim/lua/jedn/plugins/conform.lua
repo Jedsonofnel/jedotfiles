@@ -6,17 +6,17 @@ return {
 
     conform.setup({
       formatters_by_ft = {
-        javascript = { "prettierd" },
-        typescript = { "prettierd" },
-        javascriptreact = { "prettierd" },
-        typescriptreact = { "prettierd" },
-        svelte = { "prettierd" },
-        css = { "prettierd" },
-        -- html = { "prettierd" },
-        json = { "prettierd" },
-        yaml = { "prettierd" },
-        markdown = { "prettierd" },
-        graphql = { "prettierd" },
+        javascript = { "biome" },
+        typescript = { "biome" },
+        javascriptreact = { "biome" },
+        typescriptreact = { "biome" },
+        svelte = { "biome" },
+        css = { "bioime" },
+        html = { "biome" },
+        json = { "biome" },
+        yaml = { "yamlfmt" },
+        markdown = { "biome" },
+        graphql = { "biome" },
 
         lua = { "stylua" },
         python = { "ruff_fix", "ruff_format" },
@@ -38,7 +38,7 @@ return {
       "<leader>cf",
       function()
         require("conform").format({
-          lsp_fallback = true,
+          lsp_fallback = false,
           async = false,
           timeout_ms = 500,
           quiet = true,

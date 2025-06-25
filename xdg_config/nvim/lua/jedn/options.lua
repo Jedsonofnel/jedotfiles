@@ -48,6 +48,7 @@ opt.updatetime = 200 -- Save swap file and trigger CursorHold
 -- wrap stuff
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false
+opt.textwidth = 80
 
 -- wrap
 -- opt.wrap = true -- Disable line wrap
