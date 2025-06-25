@@ -73,3 +73,5 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
+
+. "$HOME/.local/share/../bin/env"
