@@ -35,10 +35,12 @@ if [ -d "$HOME/.cargo" ]; then
 fi
 
 # ruby
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+if [ -d "$HOME/.local/bin" ]; then
+  source /usr/local/share/chruby/chruby.sh
+  source /usr/local/share/chruby/auto.sh
 
-chruby ruby-3.3.6
+  chruby ruby-3.3.6
+fi
 
 # add ~/.local/bin to PATH
 if [ -d "$HOME/.local/bin" ]; then
@@ -64,7 +66,6 @@ if ! type "$starship" > /dev/null; then
   eval "$(starship init zsh)"
 fi
 
-
 # fnm
 # completions put in /usr/share/zsh/site-functions
 FNM_PATH="/home/jedn/.local/share/fnm"
@@ -73,5 +74,3 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
-
-. "$HOME/.local/share/../bin/env"
