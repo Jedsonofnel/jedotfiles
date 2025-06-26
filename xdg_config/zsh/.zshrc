@@ -14,14 +14,6 @@ export VIMRUNTIME="/usr/share/nvim/runtime"
 export NVM_DIR="$HOME/.nvim"
 export PYENV_ROOT="$HOME/.pyenv"
 
-# automatically export .env env variables
-if [ -f .env ]
-then
-  set -a
-  source .env
-  set +a
-fi
-
 # golang
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
