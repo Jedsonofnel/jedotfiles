@@ -9,6 +9,7 @@ return {
         char = "▏",
       },
       scope = { enabled = false },
+      exclude = { filetypes = { "markdown" } },
     },
   },
 }

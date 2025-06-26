@@ -3,6 +3,11 @@ return {
   version = "*",
   dependencies = { "rafamadriz/friendly-snippets" },
   opts = {
+    -- disables for markdown
+    enabled = function()
+      return not vim.tbl_contains({ "markdown" }, vim.bo.filetype)
+    end,
+
     sources = {
       default = { "lazydev", "lsp", "path", "snippets", "buffer" },
       providers = {
