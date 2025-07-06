@@ -7,6 +7,11 @@ disabled = false
 
 palette = "moonfly"
 
+[gcloud]
+disabled = false
+# format = "[$symbol$account(@$project)]($style) "
+detect_env_vars = ["GOOGLE_CLOUD_PROJECT"]
+
 [c]
 style = "green"
 

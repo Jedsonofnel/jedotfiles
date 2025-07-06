@@ -29,7 +29,8 @@ fi
 # ruby
 if [ -d "/usr/local/share/chruby" ]; then
   source /usr/local/share/chruby/chruby.sh
-  source /usr/local/share/chruby/auto.sh
+  # I'm using direnv use ruby instead
+  # source /usr/local/share/chruby/auto.sh
 fi
 
 # add ~/.local/bin to PATH
@@ -49,7 +50,7 @@ alias nvimrc="cd ~/.config/nvim"
 alias gl="git log --oneline -n 10"
 alias s="kitten ssh"
 
-# pyenv is lazy loaded by a plugin (see zsh_plugins.txt)
+eval "$(direnv hook zsh)"
 
 # prompt
 if ! type "$starship" > /dev/null; then
