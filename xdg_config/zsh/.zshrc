@@ -27,11 +27,9 @@ if [ -d "$HOME/.cargo" ]; then
 fi
 
 # ruby
-if [ -d "$HOME/.local/bin" ]; then
+if [ -d "/usr/local/share/chruby" ]; then
   source /usr/local/share/chruby/chruby.sh
   source /usr/local/share/chruby/auto.sh
-
-  chruby ruby-3.3.6
 fi
 
 # add ~/.local/bin to PATH
