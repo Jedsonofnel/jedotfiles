@@ -1,0 +1,10 @@
+source /usr/local/share/chruby/chruby.sh
+
+# Usage: use ruby <version>
+#
+# Loads the specified ruby version into the environment
+#
+use_ruby() {
+  chruby "$1"
+}
+
