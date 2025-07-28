@@ -1,0 +1,7 @@
+# /home/jedn/.config/tmuxinator/jnl.yml
+name: jnl
+root: ~/Documents/JEDN LABS/
+windows:
+  - main:
+      panes:
+        - clear

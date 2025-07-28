@@ -11,7 +11,7 @@ return {
         javascriptreact = { "biome" },
         typescriptreact = { "biome" },
         svelte = { "biome" },
-        css = { "bioime" },
+        css = { "biome" },
         html = { "biome" },
         json = { "biome" },
         yaml = { "yamlfmt" },

@@ -12,6 +12,7 @@ return {
       javscriptreact = { "biomejs" },
       typescriptreact = { "biomejs" },
       svelte = { "biomejs" },
+      html = { "biomejs" },
       ruby = { "rubocop" },
 
       python = {

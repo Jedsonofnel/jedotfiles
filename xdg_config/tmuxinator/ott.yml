@@ -1,0 +1,15 @@
+name: ott
+root: ~/Documents/Coding/otterkin-web
+windows:
+  - editor:
+      panes:
+        - nvim .
+  - server:
+      panes:
+        - bin/dev
+  - test:
+      panes:
+        - rails test
+  - shell:
+      panes:
+        - git status
