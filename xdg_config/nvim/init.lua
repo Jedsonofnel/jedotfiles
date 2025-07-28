@@ -38,16 +38,6 @@ require "nvim-treesitter.configs".setup({
 vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>")
 
-vim.lsp.config.lua_ls = {
-	settings = {
-		Lua = {
-			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
-	}
-}
-
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lf", vim.lsp.buf.format)
 
