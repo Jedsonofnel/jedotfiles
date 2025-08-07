@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# ruby-install wrapper to enforce XDG compliance
+RUBIES_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/rubies"
+SRC_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/ruby-install"
+
+# Create directories if they don't exist
+mkdir -p "$RUBIES_DIR" "$SRC_DIR"
+
+# Call real ruby-install with XDG paths
+exec /usr/local/bin/ruby-install --rubies-dir "$RUBIES_DIR" --src-dir "$SRC_DIR" "$@"
