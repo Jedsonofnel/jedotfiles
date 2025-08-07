@@ -1,5 +1,5 @@
 name: ott
-root: ~/Documents/Coding/otterkin-web
+root: ~/Documents/JEDN-Codes/otterkin-web
 windows:
   - editor:
       panes:
