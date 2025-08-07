@@ -42,9 +42,3 @@ style = "red"
 
 [terraform]
 style = "purple"
-
-[palettes.moonfly]
-fern = "#87d787"
-lavender = "#adadf3"
-orange = "#f09479"
-red = "#f07496"
