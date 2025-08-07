@@ -1,5 +1,6 @@
 -- JEDN neovim config
 vim.g.mapleader = " "
+vim.opt.winborder = "none"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
@@ -32,11 +33,24 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/conform.nvim" },
 })
 
-require "mini.pick".setup()
+require "mini.pick".setup({
+	window = {
+		config = {
+			border = "rounded",
+		}
+	}
+}
+)
 require "mini.statusline".setup()
 require "mini.icons".setup()
 require "mini.pairs".setup()
-require "oil".setup()
+
+require "oil".setup({
+	view_options = {
+		show_hidden = true
+	}
+})
+
 require "nvim-treesitter.configs".setup({
 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
 		"make", "go" },
@@ -47,8 +61,9 @@ require "nvim-treesitter.configs".setup({
 	highlight = { enable = true }
 })
 
-vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+local pickers = require('pickers')
+vim.keymap.set("n", "<c-p>", pickers.files_with_hidden)
+vim.keymap.set("n", "<leader>f", pickers.files_with_hidden)
 vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
