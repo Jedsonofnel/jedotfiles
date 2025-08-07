@@ -5,8 +5,6 @@ add_newline = true
 [line_break]
 disabled = false
 
-palette = "moonfly"
-
 [gcloud]
 disabled = false
 # format = "[$symbol$account(@$project)]($style) "
@@ -26,19 +24,3 @@ error_symbol = "[❯](red)"
 [directory]
 truncation_length = 4
 truncation_symbol = "…/"
-style = "fern"
-
-[git_branch]
-style = "lavender"
-
-[package]
-style = "orange"
-
-[perl]
-style = "green"
-
-[swift]
-style = "red"
-
-[terraform]
-style = "purple"
