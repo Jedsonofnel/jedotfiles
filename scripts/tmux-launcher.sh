@@ -13,14 +13,14 @@ done
 
 # Get available configs
 get_configs() {
-	find "$TMUXINATOR_CONFIG_DIR" -name "*.yml" -type f -exec basename {} .yml \; 2>/dev/null | sort
+	find -L "$TMUXINATOR_CONFIG_DIR" -name "*.yml" -type f -exec basename {} .yml \; 2>/dev/null | sort
 }
 
 # Launch specific config
 launch_config() {
 	local config="$1"
 	[ -f "$TMUXINATOR_CONFIG_DIR/$config.yml" ] || { echo "Config '$config' not found"; exit 1; }
-	exec ghostty --fullscreen --command="tmuxinator" --command="start" --command="$config"
+	exec ghostty --fullscreen --command="tmuxinator start $config"
 }
 
 # Main
