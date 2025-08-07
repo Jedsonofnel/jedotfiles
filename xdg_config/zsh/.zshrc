@@ -29,8 +29,7 @@ fi
 # ruby
 if [ -d "/usr/local/share/chruby" ]; then
   source /usr/local/share/chruby/chruby.sh
-  # I'm using direnv use ruby instead
-  # source /usr/local/share/chruby/auto.sh
+  chruby 3.3.6
 fi
 
 # add ~/.local/bin to PATH
@@ -65,3 +64,5 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
+
+. "$HOME/.local/share/../bin/env"

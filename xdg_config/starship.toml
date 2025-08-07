@@ -12,6 +12,10 @@ disabled = false
 # format = "[$symbol$account(@$project)]($style) "
 detect_env_vars = ["GOOGLE_CLOUD_PROJECT"]
 
+[ruby]
+detect_files = [".ruby-version", "Gemfile", "Gemfile.lock", ".rbenv-version"]
+detect_variables = []
+
 [c]
 style = "green"
 
