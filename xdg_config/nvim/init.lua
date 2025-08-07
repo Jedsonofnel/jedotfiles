@@ -16,12 +16,15 @@ vim.opt.expandtab = false
 vim.opt.shiftwidth = 0
 vim.opt.softtabstop = 0
 vim.opt.list = true
+vim.opt.listchars = {
+	tab = "> ",
+	leadmultispace = ". ",
+}
 
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
 
 vim.pack.add({
-	{ src = "https://github.com/bluz71/vim-moonfly-colors" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/echasnovski/mini.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
@@ -34,15 +37,15 @@ require "mini.statusline".setup()
 require "mini.icons".setup()
 require "mini.pairs".setup()
 require "oil".setup()
-require "nvim-treesitter.configs".setup({
-	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
-		"make", "go" },
-	sync_install = false,
-	auto_install = true,
-	ignore_install = {},
-	modules = {},
-	highlight = { enable = true }
-})
+-- require "nvim-treesitter.configs".setup({
+-- 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
+-- 		"make", "go" },
+-- 	sync_install = false,
+-- 	auto_install = true,
+-- 	ignore_install = {},
+-- 	modules = {},
+-- 	highlight = { enable = true }
+-- })
 
 vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
@@ -72,10 +75,8 @@ require("lspconfig").ruby_lsp.setup({
 require("conform").setup({
 	formatters_by_ft = {
 		ruby = { "rubocop" },
-		eruby = { "htmlbeautifier" }
+		eruby = { "erb_format" }
 	},
 })
 
-vim.cmd.colorscheme("moonfly")
-vim.cmd(":hi statusline guibg=NONE")
-vim.cmd(":hi link MiniPickNormal Normal")
+vim.cmd.colorscheme("atelier-forest-dark")
