@@ -1,0 +1,6 @@
+# JEDN ghostty 
+font-family = "Iosevka Nerd Font"
+
+confirm-close-surface = false
+
+theme = dark:atelier-forest-dark,light:atelier-forest-light

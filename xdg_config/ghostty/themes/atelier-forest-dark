@@ -1,0 +1,26 @@
+# Standard ANSI color mapping
+palette = 0=#1b1918
+palette = 1=#f22c40
+palette = 2=#7b9726
+palette = 3=#c38418
+palette = 4=#407ee7
+palette = 5=#6666ea
+palette = 6=#3d97b8
+palette = 7=#a8a19f
+
+# Bright colors (8-15)
+palette = 8=#766e6b
+palette = 9=#f22c40
+palette = 10=#7b9726
+palette = 11=#c38418
+palette = 12=#407ee7
+palette = 13=#6666ea
+palette = 14=#3d97b8
+palette = 15=#f1efee
+
+foreground = #a8a19f
+background = #1b1918
+cursor-color = #a8a19f
+cursor-text = #1b1918
+selection-background = #68615e
+selection-foreground = #a8a19f
