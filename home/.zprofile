@@ -29,3 +29,4 @@ export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
 
 # Application specific XDG compliance
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export STARSHIP_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/starship"
