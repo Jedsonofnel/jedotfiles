@@ -1,7 +1,6 @@
 # zsh plugins
 
 # these need to go first
-rupa/z
 mattmc3/ez-compinit
 
 # completions after ez-compinit
@@ -13,9 +12,6 @@ belak/zsh-utils path:history
 belak/zsh-utils path:prompt
 belak/zsh-utils path:utility
 # belak/zsh-utils path:completion
-
-# lazy loading
-davidparsson/zsh-pyenv-lazy
 
 zsh-users/zsh-autosuggestions
 zdharma-continuum/fast-syntax-highlighting kind:defer
