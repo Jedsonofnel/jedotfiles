@@ -37,15 +37,15 @@ require "mini.statusline".setup()
 require "mini.icons".setup()
 require "mini.pairs".setup()
 require "oil".setup()
--- require "nvim-treesitter.configs".setup({
--- 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
--- 		"make", "go" },
--- 	sync_install = false,
--- 	auto_install = true,
--- 	ignore_install = {},
--- 	modules = {},
--- 	highlight = { enable = true }
--- })
+require "nvim-treesitter.configs".setup({
+	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
+		"make", "go" },
+	sync_install = false,
+	auto_install = true,
+	ignore_install = {},
+	modules = {},
+	highlight = { enable = true }
+})
 
 vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
