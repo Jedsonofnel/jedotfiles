@@ -37,11 +37,6 @@ if [ -d "$HOME/.local/bin" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# context
-if [ -d "/home/jedn/Documents/context/tex/texmf-linux-64/bin" ]; then 
-  export PATH="/home/jedn/Documents/context/tex/texmf-linux-64/bin:$PATH"
-fi
-
 # aliases
 alias ls="ls --color"
 alias la="ls -a"
@@ -64,5 +59,3 @@ if [ -d "$FNM_PATH" ]; then
   eval "`fnm env`"
   eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
-
-. "$HOME/.local/share/../bin/env"
