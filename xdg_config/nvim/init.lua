@@ -39,9 +39,9 @@ require "mini.pick".setup({
 		config = {
 			border = "rounded",
 		}
-	}
-}
-)
+	},
+})
+
 require "mini.statusline".setup()
 require "mini.icons".setup()
 require "mini.pairs".setup()
