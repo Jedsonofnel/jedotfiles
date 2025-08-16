@@ -7,6 +7,7 @@ antidote load
 # some options
 unsetopt beep
 bindkey -v
+fpath=("$ZDOTDIR/completions" $fpath)
 
 # env variables (ZDOTDIR & XDG_CONFIG_HOME set in .zshenv)
 export EDITOR="nvim"
@@ -56,10 +57,7 @@ if ! type "$starship" > /dev/null; then
 fi
 
 # fnm
-# completions put in /usr/share/zsh/site-functions
-FNM_PATH="/home/jedn/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-	export PATH="/home/jedn/.local/share/fnm:$PATH"
-	eval "`fnm env`"
+if [ -f "$HOME/.local/bin/fnm" ]; then
+	export FNM_DIR="$HOME/.local/share/fnm"
 	eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
