@@ -1,5 +1,7 @@
 # JEDN ghostty 
-font-family = "Iosevka Nerd Font"
+font-family = "Iosevka NF"
+font-style = "Medium"
+font-style-bold = "Bold"
 
 confirm-close-surface = false
 
