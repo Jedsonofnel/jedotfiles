@@ -31,6 +31,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
+	{ src = "https://github.com/tpope/vim-rails" }
 })
 
 require "mini.pick".setup({
@@ -58,7 +59,10 @@ require "nvim-treesitter.configs".setup({
 	auto_install = true,
 	ignore_install = {},
 	modules = {},
-	highlight = { enable = true }
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	}
 })
 
 local pickers = require('pickers')
@@ -90,8 +94,22 @@ require("lspconfig").ruby_lsp.setup({
 require("conform").setup({
 	formatters_by_ft = {
 		ruby = { "rubocop" },
-		eruby = { "erb_format" }
+		eruby = { "erb_format" },
+		css = { "biome" },
 	},
 })
 
 vim.cmd.colorscheme("atelier-forest-dark")
+
+local function add_style_to_hl(group, styles)
+	local hl = vim.api.nvim_get_hl(0, { name = group })
+	for key, value in pairs(styles) do
+		hl[key] = value
+	end
+	vim.api.nvim_set_hl(0, group, hl)
+end
+
+add_style_to_hl('Comment', { italic = true })
+add_style_to_hl('@comment', { italic = true })
+add_style_to_hl('Keyword', { bold = true })
+add_style_to_hl('@keyword', { bold = true })
