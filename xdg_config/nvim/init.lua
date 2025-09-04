@@ -54,7 +54,7 @@ require "oil".setup({
 
 require "nvim-treesitter.configs".setup({
 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
-		"make", "go" },
+		"make", "go", "python" },
 	sync_install = false,
 	auto_install = true,
 	ignore_install = {},
@@ -71,7 +71,7 @@ vim.keymap.set("n", "<leader>f", pickers.files_with_hidden)
 vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
-vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp" })
+vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({
@@ -93,9 +93,10 @@ require("lspconfig").ruby_lsp.setup({
 
 require("conform").setup({
 	formatters_by_ft = {
-		ruby = { "rubocop" },
-		eruby = { "erb_format" },
-		css = { "biome" },
+		ruby   = { "rubocop" },
+		eruby  = { "erb_format" },
+		css    = { "biome" },
+		python = { "black" }
 	},
 })
 
