@@ -47,7 +47,6 @@ alias ls="ls --color"
 alias la="ls -a"
 alias nvimrc="cd ~/.config/nvim"
 alias gl="git log --oneline -n 10"
-alias s="kitten ssh"
 
 eval "$(direnv hook zsh)"
 
@@ -61,3 +60,5 @@ if [ -f "$HOME/.local/bin/fnm" ]; then
 	export FNM_DIR="$HOME/.local/share/fnm"
 	eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 fi
+
+. "$HOME/.local/share/../bin/env"
