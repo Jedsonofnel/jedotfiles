@@ -1,5 +1,6 @@
 -- JEDN neovim config
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 vim.opt.winborder = "none"
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -31,7 +32,8 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/tpope/vim-rails" }
+	{ src = "https://github.com/tpope/vim-rails" },
+	{ src = "https://github.com/jpalardy/vim-slime" },
 })
 
 require "mini.pick".setup({
@@ -54,7 +56,7 @@ require "oil".setup({
 
 require "nvim-treesitter.configs".setup({
 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
-		"make", "go", "python" },
+		"make", "go", "python", "janet_simple", "scheme" },
 	sync_install = false,
 	auto_install = true,
 	ignore_install = {},
@@ -66,13 +68,15 @@ require "nvim-treesitter.configs".setup({
 })
 
 local pickers = require('pickers')
-vim.keymap.set("n", "<c-p>", pickers.files_with_hidden)
-vim.keymap.set("n", "<leader>f", pickers.files_with_hidden)
+vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>fh", pickers.files_with_hidden)
 vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
 vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
-vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({
 		lsp_fallback = true,
@@ -99,6 +103,8 @@ require("conform").setup({
 		python = { "black" }
 	},
 })
+
+vim.g.slime_target = "tmux"
 
 vim.cmd.colorscheme("atelier-forest-dark")
 
