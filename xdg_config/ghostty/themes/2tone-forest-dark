@@ -1,20 +1,20 @@
-palette = 0=#2a2d2a
-palette = 1=#656b47
-palette = 2=#435643
-palette = 3=#7d816a
-palette = 4=#a1a58d
-palette = 5=#b1c44f
-palette = 6=#8fae8f
-palette = 7=#fbfbf8
+palette = 0=#b2b5a1
+palette = 1=#b2b5a1
+palette = 2=#b2b5a1
+palette = 3=#b2b5a1
+palette = 4=#b2b5a1
+palette = 5=#b2b5a1
+palette = 6=#b2b5a1
+palette = 7=#b2b5a1
 
-palette = 8=#353b35
-palette = 9=#cbe25a
-palette = 10=#c8e4c8
-palette = 11=#daf06a
-palette = 12=#eaecdf
-palette = 13=#f0fff0
-palette = 14=#e5fb79
-palette = 15=#fbfbf8
+palette = 8=#b2b5a1
+palette = 9=#b2b5a1
+palette = 10=#b2b5a1
+palette = 11=#b2b5a1
+palette = 12=#b2b5a1
+palette = 13=#b2b5a1
+palette = 14=#b2b5a1
+palette = 15=#b2b5a1
 
 foreground = #b2b5a1
 background = #2a2d2a
