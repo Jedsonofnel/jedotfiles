@@ -23,12 +23,15 @@ vim.opt.listchars = {
 	leadmultispace = ". ",
 }
 
+local scripts = require("scripts")
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
+vim.keymap.set("n", "<leader>d", scripts.open_do)
+vim.keymap.set("n", "<leader>rc", scripts.reload_colourscheme)
 
 vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/echasnovski/mini.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -56,7 +59,7 @@ require "oil".setup({
 
 require "nvim-treesitter.configs".setup({
 	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
-		"make", "go", "python", "janet_simple", "scheme" },
+		"make", "go", "python", "janet_simple", "scheme", "glimmer" },
 	sync_install = false,
 	auto_install = true,
 	ignore_install = {},
@@ -67,7 +70,11 @@ require "nvim-treesitter.configs".setup({
 	}
 })
 
-local pickers = require('pickers')
+vim.treesitter.language.register("glimmer", {
+	"mustache", "hbs", "html.mustache", "handlebars"
+})
+
+local pickers = require("pickers")
 vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>fh", pickers.files_with_hidden)
@@ -106,7 +113,7 @@ require("conform").setup({
 
 vim.g.slime_target = "tmux"
 
-vim.cmd.colorscheme("atelier-forest-dark")
+vim.cmd.colorscheme("2tone-forest-dark")
 
 local function add_style_to_hl(group, styles)
 	local hl = vim.api.nvim_get_hl(0, { name = group })

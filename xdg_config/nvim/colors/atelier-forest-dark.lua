@@ -18,20 +18,6 @@ local palette = {
 	base0F = '#c33ff3', -- magenta
 }
 
-require('mini.base16').setup({
-	palette = palette,
-	use_cterm = true,
-	plugins = { default = true },
-})
-
--- Override the psychedelic delimiters
-vim.api.nvim_set_hl(0, 'Delimiter', { fg = palette.base05 }) -- base05
-vim.api.nvim_set_hl(0, '@punctuation.delimiter', { fg = palette.base05 })
-vim.api.nvim_set_hl(0, '@punctuation.bracket', { fg = palette.base05 })
-
--- Set other defaults
-vim.api.nvim_set_hl(0, "@variable.member.ruby", { fg = palette.base08 })
-vim.api.nvim_set_hl(0, "@variable.builtin", { fg = palette.base08 })
-
--- Set the colorscheme name
+local base16 = require("base16")
+base16.from_palette(palette)
 vim.g.colors_name = 'atelier-forest-dark'

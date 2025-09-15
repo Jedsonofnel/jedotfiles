@@ -1,3 +1,5 @@
 [user]
 	email = jed@nelson.ac
 	name = Jed Nelson
+[init]
+	defaultBranch = main

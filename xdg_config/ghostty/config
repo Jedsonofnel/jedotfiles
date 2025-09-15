@@ -2,7 +2,9 @@
 font-family = "Iosevka NF"
 font-style = "Medium"
 font-style-bold = "Bold"
+font-style-italic = "Italic"
+font-size=14
 
 confirm-close-surface = false
 
-theme = dark:atelier-forest-dark,light:atelier-forest-light
+theme = dark:2tone-forest-dark,light:atelier-forest-light

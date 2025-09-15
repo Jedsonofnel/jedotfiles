@@ -26,6 +26,10 @@ if [ -d "$HOME/.cargo" ]; then
 	. "$HOME/.cargo/env"
 fi
 
+# janet
+export JANET_TREE="$HOME/.local/lib/janet"
+export JANET_PATH="$HOME/.local/lib/janet/lib"
+
 # ruby
 if [ -d "/usr/local/share/chruby" ]; then
 	source /usr/local/share/chruby/chruby.sh
