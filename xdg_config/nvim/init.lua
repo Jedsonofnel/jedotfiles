@@ -1,10 +1,11 @@
 -- JEDN neovim config
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
-vim.opt.winborder = "none"
+vim.opt.winborder = "single"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.wrap = false
 vim.opt.clipboard = "unnamedplus"
@@ -30,26 +31,21 @@ vim.keymap.set("n", "<leader>d", scripts.open_do)
 vim.keymap.set("n", "<leader>rc", scripts.reload_colourscheme)
 
 vim.pack.add({
-	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.nvim" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://codeberg.org/mfussenegger/nvim-fzy" },
+	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/tpope/vim-rails" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
+	{ src = "https://github.com/dundalek/parpar.nvim" },
+	{ src = "https://github.com/gpanders/nvim-parinfer" },
+	{ src = "https://github.com/julienvincent/nvim-paredit" },
 })
 
-require "mini.pick".setup({
-	window = {
-		config = {
-			border = "rounded",
-		}
-	},
-})
-
-require "mini.statusline".setup()
 require "mini.icons".setup()
 require "mini.pairs".setup()
+require "mini.statusline".setup()
 
 require "oil".setup({
 	view_options = {
@@ -70,15 +66,9 @@ require "nvim-treesitter.configs".setup({
 	}
 })
 
-vim.treesitter.language.register("glimmer", {
-	"mustache", "hbs", "html.mustache", "handlebars"
-})
-
-local pickers = require("pickers")
-vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>f", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>fh", pickers.files_with_hidden)
-vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>")
+local fzy = require("fzy")
+vim.keymap.set("n", "<c-p>", function() fzy.execute("fd", fzy.sinks.edit_file) end)
+vim.keymap.set("n", "<leader>ff", function() fzy.execute("fd", fzy.sinks.edit_file) end)
 vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
 vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
@@ -109,6 +99,15 @@ require("conform").setup({
 		css    = { "biome" },
 		python = { "black" }
 	},
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		if client then
+			client.server_capabilities.semanticTokensProvider = nil
+		end
+	end,
 })
 
 vim.g.slime_target = "tmux"

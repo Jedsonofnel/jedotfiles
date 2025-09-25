@@ -21,6 +21,10 @@ if [ -d "$GOPATH" ]; then
 	export PATH="$PATH:$GOBIN"
 fi
 
+if [ -d "/usr/local/go/bin" ]; then
+	export PATH="$PATH:/usr/local/go/bin"
+fi
+
 # rust
 if [ -d "$HOME/.cargo" ]; then
 	. "$HOME/.cargo/env"
@@ -54,11 +58,6 @@ alias gl="git log --oneline -n 10"
 
 eval "$(direnv hook zsh)"
 
-# prompt
-if ! type "$starship" > /dev/null; then
-	eval "$(starship init zsh)"
-fi
-
 # fnm
 if [ -f "$HOME/.local/bin/fnm" ]; then
 	export FNM_DIR="$HOME/.local/share/fnm"
@@ -66,3 +65,18 @@ if [ -f "$HOME/.local/bin/fnm" ]; then
 fi
 
 . "$HOME/.local/share/../bin/env"
+
+# prompt
+setopt PROMPT_SUBST
+
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Configure vcs_info to show a dot only for untracked files
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' unstagedstr '•'
+zstyle ':vcs_info:git:*' formats '%u'
+zstyle ':vcs_info:git:*' actionformats '%u'
+
+# Update your prompt
+PROMPT='%c ${vcs_info_msg_0_} %% '
