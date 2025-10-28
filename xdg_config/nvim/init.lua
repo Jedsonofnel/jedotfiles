@@ -24,6 +24,14 @@ vim.opt.listchars = {
 	leadmultispace = ". ",
 }
 
+-- netrw stuff
+vim.g.netrw_banner = 0    -- hidden
+vim.g.netrw_liststyle = 0 -- normal by default, treeview is 3
+vim.g.netrw_altv = 1      -- open splits to the right
+vim.g.netrw_winsize = 25  -- open splits at 25% width
+vim.keymap.set("n", "<leader>e", ":Explore<CR>")
+vim.keymap.set("n", "<leader>E", ":Vexplore<CR>")
+
 local scripts = require("scripts")
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
@@ -31,8 +39,6 @@ vim.keymap.set("n", "<leader>d", scripts.open_do)
 vim.keymap.set("n", "<leader>rc", scripts.reload_colourscheme)
 
 vim.pack.add({
-	{ src = "https://github.com/nvim-mini/mini.nvim" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://codeberg.org/mfussenegger/nvim-fzy" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
@@ -41,16 +47,6 @@ vim.pack.add({
 	{ src = "https://github.com/dundalek/parpar.nvim" },
 	{ src = "https://github.com/gpanders/nvim-parinfer" },
 	{ src = "https://github.com/julienvincent/nvim-paredit" },
-})
-
-require "mini.icons".setup()
-require "mini.pairs".setup()
-require "mini.statusline".setup()
-
-require "oil".setup({
-	view_options = {
-		show_hidden = true
-	}
 })
 
 require "nvim-treesitter.configs".setup({
@@ -69,7 +65,6 @@ require "nvim-treesitter.configs".setup({
 local fzy = require("fzy")
 vim.keymap.set("n", "<c-p>", function() fzy.execute("fd", fzy.sinks.edit_file) end)
 vim.keymap.set("n", "<leader>ff", function() fzy.execute("fd", fzy.sinks.edit_file) end)
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
 
 vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
@@ -97,9 +92,14 @@ require("conform").setup({
 		ruby   = { "rubocop" },
 		eruby  = { "erb_format" },
 		css    = { "biome" },
-		python = { "black" }
+		python = { "black" },
+		c      = { "indent" }
 	},
 })
+
+require("conform").formatters.indent = {
+	append_args = { "-kr", "-ts4" }
+}
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
