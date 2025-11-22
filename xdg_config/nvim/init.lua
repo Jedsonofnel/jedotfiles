@@ -18,7 +18,7 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = false
 vim.opt.shiftwidth = 0
 vim.opt.softtabstop = 0
-vim.opt.list = true
+vim.opt.list = false -- true to get the > for tab etc
 vim.opt.listchars = {
 	tab = "> ",
 	leadmultispace = ". ",
@@ -39,7 +39,8 @@ vim.keymap.set("n", "<leader>d", scripts.open_do)
 vim.keymap.set("n", "<leader>rc", scripts.reload_colourscheme)
 
 vim.pack.add({
-	{ src = "https://codeberg.org/mfussenegger/nvim-fzy" },
+	{ src = "https://github.com/nvim-mini/mini.pick" },
+	{ src = "https://github.com/miikanissi/modus-themes.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
@@ -62,9 +63,9 @@ require "nvim-treesitter.configs".setup({
 	}
 })
 
-local fzy = require("fzy")
-vim.keymap.set("n", "<c-p>", function() fzy.execute("fd", fzy.sinks.edit_file) end)
-vim.keymap.set("n", "<leader>ff", function() fzy.execute("fd", fzy.sinks.edit_file) end)
+require("mini.pick").setup()
+vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>ff", ":Pick files<CR>")
 
 vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
@@ -112,17 +113,4 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.g.slime_target = "tmux"
 
-vim.cmd.colorscheme("2tone-forest-dark")
-
-local function add_style_to_hl(group, styles)
-	local hl = vim.api.nvim_get_hl(0, { name = group })
-	for key, value in pairs(styles) do
-		hl[key] = value
-	end
-	vim.api.nvim_set_hl(0, group, hl)
-end
-
-add_style_to_hl('Comment', { italic = true })
-add_style_to_hl('@comment', { italic = true })
-add_style_to_hl('Keyword', { bold = true })
-add_style_to_hl('@keyword', { bold = true })
+vim.cmd.colorscheme("modus")

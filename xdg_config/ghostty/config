@@ -1,10 +1,10 @@
 # JEDN ghostty 
-font-family = "Iosevka NF"
-font-style = "Medium"
+font-family = "FiraMono NF"
+font-style = "Regular"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
-font-size=14
+font-size=12
 
 confirm-close-surface = false
 
-theme = dark:2tone-forest-dark,light:atelier-forest-light
+theme = dark:modus-vivendi,light:modus-operandi
