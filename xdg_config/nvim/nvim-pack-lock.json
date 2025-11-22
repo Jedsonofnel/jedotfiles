@@ -1,0 +1,72 @@
+{
+  "plugins": {
+    "artio.nvim": {
+      "rev": "d8baaee551755f0a7f0a5367aac61db1cc2d407b",
+      "src": "https://github.com/comfysage/artio.nvim"
+    },
+    "conform.nvim": {
+      "rev": "973f3cb73887d510321653044791d7937c7ec0fa",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "janet.vim": {
+      "rev": "67075b190a44310df356137e35cc1949782b20e0",
+      "src": "https://github.com/janet-lang/janet.vim"
+    },
+    "mini.nvim": {
+      "rev": "4035ef97407a6661ae9ff913ff980e271a658502",
+      "src": "https://github.com/echasnovski/mini.nvim"
+    },
+    "mini.pick": {
+      "rev": "b4351399db5043a781a32699a1bde60b747f711f",
+      "src": "https://github.com/nvim-mini/mini.pick"
+    },
+    "minibuffer.nvim": {
+      "rev": "0609649d6cbe6194123bed7681807e764e391969",
+      "src": "https://github.com/simifalaye/minibuffer.nvim.git"
+    },
+    "modus-themes.nvim": {
+      "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
+      "src": "https://github.com/miikanissi/modus-themes.nvim"
+    },
+    "nvim-fzy": {
+      "rev": "cc41ba47d2f82c05cbf3a05b24dee325f8a96e1a",
+      "src": "https://codeberg.org/mfussenegger/nvim-fzy"
+    },
+    "nvim-lspconfig": {
+      "rev": "9141be4c1332afc83bdf1b0278dbb030f75ff8e3",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-paredit": {
+      "rev": "b6ba636874a3115d944e35746444724240568aca",
+      "src": "https://github.com/julienvincent/nvim-paredit"
+    },
+    "nvim-parinfer": {
+      "rev": "5ca09287ab3f4144f78ff7977fabc27466f71044",
+      "src": "https://github.com/gpanders/nvim-parinfer"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "oil.nvim": {
+      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "parpar.nvim": {
+      "rev": "e99a88f0f0b1234f49a3efe9c49b712b58a5acfc",
+      "src": "https://github.com/dundalek/parpar.nvim"
+    },
+    "vim-moonfly-colors": {
+      "rev": "21d24c3e2b31386f14fadd8c114c5d0673b878c2",
+      "src": "https://github.com/bluz71/vim-moonfly-colors"
+    },
+    "vim-rails": {
+      "rev": "b0a5c76f86ea214ade36ab0b811e730c3f0add67",
+      "src": "https://github.com/tpope/vim-rails"
+    },
+    "vim-slime": {
+      "rev": "67b24bf93cff3ac39db94694a7aefcdb3f44b927",
+      "src": "https://github.com/jpalardy/vim-slime"
+    }
+  }
+}

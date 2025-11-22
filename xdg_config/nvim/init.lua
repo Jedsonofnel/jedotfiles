@@ -32,11 +32,8 @@ vim.g.netrw_winsize = 25  -- open splits at 25% width
 vim.keymap.set("n", "<leader>e", ":Explore<CR>")
 vim.keymap.set("n", "<leader>E", ":Vexplore<CR>")
 
-local scripts = require("scripts")
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
-vim.keymap.set("n", "<leader>d", scripts.open_do)
-vim.keymap.set("n", "<leader>rc", scripts.reload_colourscheme)
 
 vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.pick" },
