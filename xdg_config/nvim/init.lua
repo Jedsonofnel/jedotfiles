@@ -99,6 +99,12 @@ require("conform").formatters.indent = {
 	append_args = { "-kr", "-ts4" }
 }
 
+require("parpar").setup({
+	paredit = {
+		filetypes = { "clojure", "fennel", "scheme", "lisp", "janet", "jnlisp" },
+	}
+})
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
