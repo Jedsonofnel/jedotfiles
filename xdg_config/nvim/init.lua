@@ -116,4 +116,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 vim.g.slime_target = "tmux"
 
+require("modus-themes").setup({
+	style = "modus_operandi",
+	variant = "tinted",
+})
+
 vim.cmd.colorscheme("modus")
