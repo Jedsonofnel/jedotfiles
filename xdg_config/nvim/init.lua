@@ -96,7 +96,7 @@ require("conform").setup({
 })
 
 require("conform").formatters.indent = {
-	append_args = { "-kr", "-ts4" }
+	append_args = { "-kr", "-i8" }
 }
 
 require("parpar").setup({

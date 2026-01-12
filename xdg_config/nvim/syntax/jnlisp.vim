@@ -38,6 +38,16 @@ syntax match jnlispClose /)\+\ze\n\n/ contained containedin=jnlispForm
 syntax match jnlispClose /)\+\ze\%$/ contained containedin=jnlispForm
 hi def link jnlispClose clojureParen
 
+" j( until double newline
+syntax region jnlispForm 
+    \ matchgroup=jnlispDelimiter 
+    \ start=/>(/
+    \ end=/\n\s*\n/
+    \ end=/\%$/
+    \ contains=jnlispQuasiquote,jnlispClose,@clojure
+    \ containedin=ALL
+    \ keepend
+
 syntax sync fromstart
 hi def link jnlispDelimiter Special
 
