@@ -34,6 +34,11 @@ fi
 export JANET_TREE="$HOME/.local/lib/janet"
 export JANET_PATH="$HOME/.local/lib/janet/lib"
 
+# guile
+if [ -d "$HOME/.local/share/guile/site/3.0" ]; then
+	export GUILE_LOAD_PATH="$HOME/.local/share/guile/site/3.0${GUILE_LOAD_PATH:+:}$GUILE_LOAD_PATH"
+fi
+
 # ruby
 if [ -d "/usr/local/share/chruby" ]; then
 	source /usr/local/share/chruby/chruby.sh

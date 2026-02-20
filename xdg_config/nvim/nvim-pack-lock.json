@@ -20,6 +20,10 @@
       "rev": "b4351399db5043a781a32699a1bde60b747f711f",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
+    "mini.statusline": {
+      "rev": "f6917f4da995d64edf3728b1302dbd5d4561c912",
+      "src": "git@github.com:echasnovski/mini.statusline"
+    },
     "minibuffer.nvim": {
       "rev": "0609649d6cbe6194123bed7681807e764e391969",
       "src": "https://github.com/simifalaye/minibuffer.nvim.git"
@@ -31,6 +35,10 @@
     "nvim-fzy": {
       "rev": "cc41ba47d2f82c05cbf3a05b24dee325f8a96e1a",
       "src": "https://codeberg.org/mfussenegger/nvim-fzy"
+    },
+    "nvim-lint": {
+      "rev": "7ef127aaede2a4d5ad8df8321e2eb4e567f29594",
+      "src": "git@github.com:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
       "rev": "9141be4c1332afc83bdf1b0278dbb030f75ff8e3",
@@ -63,6 +71,14 @@
     "vim-rails": {
       "rev": "b0a5c76f86ea214ade36ab0b811e730c3f0add67",
       "src": "https://github.com/tpope/vim-rails"
+    },
+    "vim-sexp": {
+      "rev": "f5bd4cb2535969fe4741b24fa5f51690521dbaf0",
+      "src": "https://github.com/guns/vim-sexp"
+    },
+    "vim-sexp-mappings-for-regular-people": {
+      "rev": "4debb74b0a3e530f1b18e5b7dff98a40b2ad26f1",
+      "src": "https://github.com/tpope/vim-sexp-mappings-for-regular-people"
     },
     "vim-slime": {
       "rev": "67b24bf93cff3ac39db94694a7aefcdb3f44b927",

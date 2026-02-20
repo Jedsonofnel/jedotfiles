@@ -42,9 +42,8 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
-	{ src = "https://github.com/dundalek/parpar.nvim" },
-	{ src = "https://github.com/gpanders/nvim-parinfer" },
-	{ src = "https://github.com/julienvincent/nvim-paredit" },
+	{ src = "https://github.com/guns/vim-sexp" },
+	{ src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
 })
 
 require "nvim-treesitter.configs".setup({
@@ -99,12 +98,6 @@ require("conform").formatters.indent = {
 	append_args = { "-kr", "-i8" }
 }
 
-require("parpar").setup({
-	paredit = {
-		filetypes = { "clojure", "fennel", "scheme", "lisp", "janet", "jnlisp" },
-	}
-})
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -117,7 +110,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.g.slime_target = "tmux"
 
 require("modus-themes").setup({
-	style = "modus_operandi",
+	style = "auto",
 	variant = "tinted",
 })
 
