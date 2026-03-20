@@ -1,5 +1,5 @@
 # JEDN ghostty 
-font-family = "JetBrainsMono NF"
+font-family = "MartianMono NF"
 font-style = "Regular"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
@@ -7,4 +7,4 @@ font-size=14
 
 confirm-close-surface = false
 
-theme = dark:modus-vivendi-tinted,light:modus-operandi-tinted
+theme = dark:modus-vivendi,light:modus-operandi
