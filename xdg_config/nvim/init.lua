@@ -63,7 +63,7 @@ require("mini.pick").setup()
 vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>ff", ":Pick files<CR>")
 
-vim.lsp.enable({ "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
+vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
