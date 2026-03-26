@@ -37,6 +37,7 @@ vim.keymap.set("n", "<leader><leader>", "<c-6>")
 
 vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.pick" },
+	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/miikanissi/modus-themes.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
@@ -56,6 +57,14 @@ require "nvim-treesitter.configs".setup({
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
+	}
+})
+
+-- UI
+require("vim._core.ui2").enable({
+	enable = true,
+	msg = {
+		target = "msg",
 	}
 })
 

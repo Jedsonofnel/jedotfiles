@@ -12,6 +12,10 @@
       "rev": "67075b190a44310df356137e35cc1949782b20e0",
       "src": "https://github.com/janet-lang/janet.vim"
     },
+    "mini.icons": {
+      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
     "mini.nvim": {
       "rev": "4035ef97407a6661ae9ff913ff980e271a658502",
       "src": "https://github.com/echasnovski/mini.nvim"
