@@ -18,11 +18,20 @@ vim.opt.tabstop = 4
 vim.opt.expandtab = false
 vim.opt.shiftwidth = 0
 vim.opt.softtabstop = 0
-vim.opt.list = false -- true to get the > for tab etc
+vim.opt.list = true -- true to get the > for tab etc
 vim.opt.listchars = {
 	tab = "> ",
 	leadmultispace = ". ",
+	trail = "-",
+	-- eol = "$",
+	extends = ">",
+	precedes = "<",
 }
+
+-- wrapping
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = ">> "
 
 -- netrw stuff
 vim.g.netrw_banner = 0    -- hidden
@@ -99,13 +108,9 @@ require("conform").setup({
 		eruby  = { "erb_format" },
 		css    = { "biome" },
 		python = { "black" },
-		c      = { "indent" }
+		c      = { "clang_format" }
 	},
 })
-
-require("conform").formatters.indent = {
-	append_args = { "-kr", "-i8" }
-}
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
@@ -120,6 +125,9 @@ vim.g.slime_target = "tmux"
 
 require("modus-themes").setup({
 	style = "auto",
+	on_highlights = function(highlights, colors)
+		highlights.NonText = { fg = colors.border }
+	end,
 })
 
 vim.cmd.colorscheme("modus")
