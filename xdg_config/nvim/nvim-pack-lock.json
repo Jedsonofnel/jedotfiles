@@ -1,39 +1,39 @@
 {
   "plugins": {
     "artio.nvim": {
-      "rev": "d8baaee551755f0a7f0a5367aac61db1cc2d407b",
+      "rev": "045c5b33a6012bf79a77c7858553075ca5f0bc56",
       "src": "https://github.com/comfysage/artio.nvim"
     },
     "conform.nvim": {
-      "rev": "973f3cb73887d510321653044791d7937c7ec0fa",
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "janet.vim": {
-      "rev": "67075b190a44310df356137e35cc1949782b20e0",
+      "rev": "a13ab9faad0c1cb11b31bb7f5d528b8668b166bb",
       "src": "https://github.com/janet-lang/janet.vim"
     },
     "mini.icons": {
-      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
-      "rev": "4035ef97407a6661ae9ff913ff980e271a658502",
+      "rev": "2431902e78b76f435542d1e606f08475360068ca",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "mini.pick": {
-      "rev": "b4351399db5043a781a32699a1bde60b747f711f",
+      "rev": "fd7e7efadddcec3f3d7f3b363a99aa44e7286c65",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
-      "rev": "f6917f4da995d64edf3728b1302dbd5d4561c912",
+      "rev": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b",
       "src": "git@github.com:echasnovski/mini.statusline"
     },
     "minibuffer.nvim": {
-      "rev": "0609649d6cbe6194123bed7681807e764e391969",
+      "rev": "ecec4fa9c0c1cb767b5c83c5351e252725dd582a",
       "src": "https://github.com/simifalaye/minibuffer.nvim.git"
     },
     "modus-themes.nvim": {
-      "rev": "c57c2c56c9f0af04f3b609d11caa840880074784",
+      "rev": "17a64464c27c1be605adca13dbe48f2f402fe107",
       "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
     "nvim-fzy": {
@@ -41,11 +41,11 @@
       "src": "https://codeberg.org/mfussenegger/nvim-fzy"
     },
     "nvim-lint": {
-      "rev": "7ef127aaede2a4d5ad8df8321e2eb4e567f29594",
+      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
       "src": "git@github.com:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "9141be4c1332afc83bdf1b0278dbb030f75ff8e3",
+      "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-paredit": {
@@ -53,15 +53,16 @@
       "src": "https://github.com/julienvincent/nvim-paredit"
     },
     "nvim-parinfer": {
-      "rev": "5ca09287ab3f4144f78ff7977fabc27466f71044",
+      "rev": "3968e669d9f02589aa311d33cb475b16b27c5fbb",
       "src": "https://github.com/gpanders/nvim-parinfer"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
+      "version": "'main'"
     },
     "oil.nvim": {
-      "rev": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc",
+      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "parpar.nvim": {
@@ -69,7 +70,7 @@
       "src": "https://github.com/dundalek/parpar.nvim"
     },
     "vim-moonfly-colors": {
-      "rev": "21d24c3e2b31386f14fadd8c114c5d0673b878c2",
+      "rev": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c",
       "src": "https://github.com/bluz71/vim-moonfly-colors"
     },
     "vim-rails": {
@@ -77,7 +78,7 @@
       "src": "https://github.com/tpope/vim-rails"
     },
     "vim-sexp": {
-      "rev": "f5bd4cb2535969fe4741b24fa5f51690521dbaf0",
+      "rev": "2fc0a7c7e44fe94e48156d6a5b5fea28538430eb",
       "src": "https://github.com/guns/vim-sexp"
     },
     "vim-sexp-mappings-for-regular-people": {
@@ -85,7 +86,7 @@
       "src": "https://github.com/tpope/vim-sexp-mappings-for-regular-people"
     },
     "vim-slime": {
-      "rev": "67b24bf93cff3ac39db94694a7aefcdb3f44b927",
+      "rev": "2cfdc3b24e7ebaa64f5a1a04b00555600c622b79",
       "src": "https://github.com/jpalardy/vim-slime"
     }
   }

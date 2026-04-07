@@ -44,7 +44,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/miikanissi/modus-themes.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter",           version = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
 	{ src = "https://github.com/guns/vim-sexp" },
@@ -85,17 +85,6 @@ vim.keymap.set("n", "<leader>lf", function()
 		timeout_ms = 1000,
 	})
 end, { desc = "Format buffer" })
-
-require("lspconfig").html.setup({
-	filetypes = { "html", "liquid" }
-})
-
-require("lspconfig").ruby_lsp.setup({
-	init_options = {
-		formatter = "rubocop",
-		linters = { "rubocop" }
-	}
-})
 
 require("conform").setup({
 	formatters_by_ft = {
