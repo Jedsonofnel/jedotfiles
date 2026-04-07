@@ -28,11 +28,6 @@ vim.opt.listchars = {
 	precedes = "<",
 }
 
--- wrapping
-vim.opt.wrap = true
-vim.opt.linebreak = true
-vim.opt.showbreak = ">> "
-
 -- netrw stuff
 vim.g.netrw_banner = 0    -- hidden
 vim.g.netrw_liststyle = 0 -- normal by default, treeview is 3
