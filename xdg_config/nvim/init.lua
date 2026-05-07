@@ -44,24 +44,10 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.icons" },
 	{ src = "https://github.com/miikanissi/modus-themes.nvim" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter",           version = "main" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
 	{ src = "https://github.com/guns/vim-sexp" },
 	{ src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
-})
-
-require "nvim-treesitter.configs".setup({
-	ensure_installed = { "ruby", "yaml", "lua", "html", "css", "javascript", "liquid",
-		"make", "go", "python", "janet_simple", "scheme", "glimmer" },
-	sync_install = false,
-	auto_install = true,
-	ignore_install = {},
-	modules = {},
-	highlight = {
-		enable = true,
-		additional_vim_regex_highlighting = false,
-	}
 })
 
 -- UI
@@ -78,7 +64,7 @@ vim.keymap.set("n", "<leader>ff", ":Pick files<CR>")
 
 vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
-vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>")
+vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
 	require("conform").format({
 		lsp_fallback = true,
@@ -111,6 +97,7 @@ require("modus-themes").setup({
 	style = "auto",
 	on_highlights = function(highlights, colors)
 		highlights.NonText = { fg = colors.border }
+		highlights.DiagnosticUnnecessary = {}
 	end,
 })
 
