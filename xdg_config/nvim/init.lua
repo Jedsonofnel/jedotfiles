@@ -13,20 +13,17 @@ vim.opt.scrolloff = 8
 vim.opt.incsearch = true
 vim.opt.smartcase = true
 
--- team tabs these days
+-- team spaces these days
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 0
 vim.opt.list = false
 
--- netrw stuff
-vim.g.netrw_banner = 0 -- hidden
-vim.g.netrw_altv = 1 -- open splits to the right
-vim.g.netrw_winsize = 25 -- open splits at 25% width
-vim.g.netrw_browse_split = 4 -- open buffer in previous window
+-- netrw
+vim.g.netrw_banner = 0
 vim.keymap.set("n", "<leader>e", ":Explore %:p:h<CR>")
-vim.keymap.set("n", "<leader>E", ":Vexplore %:p:h<CR>")
 
+-- Misc keybinds
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
 
