@@ -15,18 +15,10 @@ vim.opt.smartcase = true
 
 -- team tabs these days
 vim.opt.tabstop = 4
-vim.opt.expandtab = false
+vim.opt.expandtab = true
 vim.opt.shiftwidth = 0
 vim.opt.softtabstop = 0
-vim.opt.list = true -- true to get the > for tab etc
-vim.opt.listchars = {
-	tab = "> ",
-	leadmultispace = ". ",
-	trail = "-",
-	-- eol = "$",
-	extends = ">",
-	precedes = "<",
-}
+vim.opt.list = false
 
 -- netrw stuff
 vim.g.netrw_banner = 0    -- hidden
@@ -40,22 +32,23 @@ vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
 
 vim.pack.add({
-	{ src = "https://github.com/nvim-mini/mini.pick" },
-	{ src = "https://github.com/nvim-mini/mini.icons" },
-	{ src = "https://github.com/miikanissi/modus-themes.nvim" },
-	{ src = "https://github.com/stevearc/conform.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/jpalardy/vim-slime" },
-	{ src = "https://github.com/guns/vim-sexp" },
-	{ src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
+    { src = "https://github.com/nvim-mini/mini.pick" },
+    { src = "https://github.com/nvim-mini/mini.icons" },
+    { src = "https://github.com/nvim-mini/mini.base16" },
+    { src = "https://github.com/miikanissi/modus-themes.nvim" },
+    { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    -- lisp exploration
+    { src = "https://github.com/jpalardy/vim-slime" },
+    { src = "https://github.com/guns/vim-sexp" },
+    { src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
 })
 
 -- UI
 require("vim._core.ui2").enable({
-	enable = true,
-	msg = {
-		target = "msg",
-	}
+    enable = true,
+    msg = { target = "msg",
+    }
 })
 
 require("mini.pick").setup()
@@ -66,39 +59,30 @@ vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyri
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
-	require("conform").format({
-		lsp_fallback = true,
-		timeout_ms = 1000,
-	})
+    require("conform").format({
+        lsp_fallback = true,
+        timeout_ms = 1000,
+    })
 end, { desc = "Format buffer" })
 
 require("conform").setup({
-	formatters_by_ft = {
-		ruby   = { "rubocop" },
-		eruby  = { "erb_format" },
-		css    = { "biome" },
-		python = { "black" },
-		c      = { "clang_format" }
-	},
-})
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		if client then
-			client.server_capabilities.semanticTokensProvider = nil
-		end
-	end,
+    formatters_by_ft = {
+        ruby   = { "rubocop" },
+        eruby  = { "erb_format" },
+        css    = { "biome" },
+        python = { "black" },
+        c      = { "clang_format" }
+    },
 })
 
 vim.g.slime_target = "tmux"
 
-require("modus-themes").setup({
-	style = "auto",
-	on_highlights = function(highlights, colors)
-		highlights.NonText = { fg = colors.border }
-		highlights.DiagnosticUnnecessary = {}
-	end,
-})
+-- require("modus-themes").setup({
+--     style = "auto",
+--     on_highlights = function(highlights, colors)
+--         highlights.NonText = { fg = colors.border }
+--         highlights.DiagnosticUnnecessary = {}
+--     end,
+-- })
 
-vim.cmd.colorscheme("modus")
+vim.cmd.colorscheme("onedark16")
