@@ -11,4 +11,4 @@ font-feature = -calt
 
 confirm-close-surface = false
 
-theme = jn_dracula
+theme = jn_nord
