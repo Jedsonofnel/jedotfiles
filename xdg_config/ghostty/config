@@ -11,4 +11,4 @@ font-feature = -calt
 
 confirm-close-surface = false
 
-theme = dark:modus-vivendi,light:modus-operandi
+theme = jn_dracula

@@ -85,4 +85,4 @@ vim.g.slime_target = "tmux"
 --     end,
 -- })
 
-vim.cmd.colorscheme("onedark16")
+vim.cmd.colorscheme("jn_dracula")
