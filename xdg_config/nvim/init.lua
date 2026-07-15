@@ -114,4 +114,4 @@ require("tree-sitter-manager").setup({
 vim.g.slime_target = "tmux"
 
 -- Colourscheme (managed by a script)
-vim.cmd.colorscheme("jn_nord")
+vim.cmd.colorscheme("jn_onedark")
