@@ -73,6 +73,10 @@
       "rev": "e99a88f0f0b1234f49a3efe9c49b712b58a5acfc",
       "src": "https://github.com/dundalek/parpar.nvim"
     },
+    "tree-sitter-manager.nvim": {
+      "rev": "09e3a321eea8100cacd2e759c3a6c9d350295fab",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
+    },
     "vim-moonfly-colors": {
       "rev": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c",
       "src": "https://github.com/bluz71/vim-moonfly-colors"

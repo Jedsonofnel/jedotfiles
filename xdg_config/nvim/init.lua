@@ -17,27 +17,25 @@ vim.opt.smartcase = true
 vim.opt.tabstop = 4
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 0
-vim.opt.softtabstop = 0
 vim.opt.list = false
 
 -- netrw stuff
-vim.g.netrw_banner = 0    -- hidden
-vim.g.netrw_liststyle = 0 -- normal by default, treeview is 3
-vim.g.netrw_altv = 1      -- open splits to the right
-vim.g.netrw_winsize = 25  -- open splits at 25% width
-vim.keymap.set("n", "<leader>e", ":Explore<CR>")
-vim.keymap.set("n", "<leader>E", ":Vexplore<CR>")
+vim.g.netrw_banner = 0   -- hidden
+vim.g.netrw_altv = 1     -- open splits to the right
+vim.g.netrw_winsize = 25 -- open splits at 25% width
+vim.keymap.set("n", "<leader>e", ":Explore %:p:h<CR>")
+vim.keymap.set("n", "<leader>E", ":Vexplore %:p:h<CR>")
 
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
 vim.keymap.set("n", "<leader><leader>", "<c-6>")
 
 vim.pack.add({
-    { src = "https://github.com/nvim-mini/mini.pick" },
+    { src = "https://codeberg.org/comfysage/artio.nvim" },
     { src = "https://github.com/nvim-mini/mini.icons" },
     { src = "https://github.com/nvim-mini/mini.base16" },
-    { src = "https://github.com/miikanissi/modus-themes.nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     -- lisp exploration
     { src = "https://github.com/jpalardy/vim-slime" },
     { src = "https://github.com/guns/vim-sexp" },
@@ -51,10 +49,34 @@ require("vim._core.ui2").enable({
     }
 })
 
-require("mini.pick").setup()
-vim.keymap.set("n", "<c-p>", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>ff", ":Pick files<CR>")
+-- FZF
+require("artio").setup({
+    win = {
+        height = 10,
+    },
+    mappings = {
+        ["<down>"] = "down",
+        ["<up>"]   = "up",
+        ["<c-n>"]  = "down",
+        ["<c-p>"]  = "up",
+        ["<cr>"]   = "accept",
+        ["<esc>"]  = "cancel",
+        ["<tab>"]  = "mark",
+        ["<c-g>"]  = "togglelive",
+        ["<c-l>"]  = "togglepreview",
+        ["<c-q>"]  = "setqflist",
+        ["<m-q>"]  = "setqflistmark",
+    },
+})
+vim.ui.select = require("artio").select
 
+vim.keymap.set("n", "<c-p>", "<Plug>(artio-files)")
+vim.keymap.set("n", "<leader>ff", "<Plug>(artio-smart)")
+vim.keymap.set("n", "<leader>fg", "<Plug>(artio-grep)")
+vim.keymap.set("n", "<leader>fb", "<Plug>(artio-buffers)")
+vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
+
+-- LSP
 vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
@@ -65,6 +87,7 @@ vim.keymap.set("n", "<leader>lf", function()
     })
 end, { desc = "Format buffer" })
 
+-- Formatting
 require("conform").setup({
     formatters_by_ft = {
         ruby   = { "rubocop" },
@@ -75,14 +98,13 @@ require("conform").setup({
     },
 })
 
+-- Treesitter
+require("tree-sitter-manager").setup({
+    ensure_installed = { "c", "lua", "go", "python", "ruby" },
+    highlight = true,
+})
+
 vim.g.slime_target = "tmux"
 
--- require("modus-themes").setup({
---     style = "auto",
---     on_highlights = function(highlights, colors)
---         highlights.NonText = { fg = colors.border }
---         highlights.DiagnosticUnnecessary = {}
---     end,
--- })
-
+-- Colourscheme (managed by a script)
 vim.cmd.colorscheme("jn_dracula")
