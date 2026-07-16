@@ -1,9 +1,9 @@
 # JEDN ghostty 
-font-family = "MartianMono NF"
+font-family = "BlexMono NF"
 font-style = "Regular"
 font-style-bold = "Bold"
 font-style-italic = "Italic"
-font-size=14
+font-size=16
 
 font-feature = -dlig
 font-feature = -liga

@@ -19,9 +19,10 @@ vim.opt.expandtab = true
 vim.opt.shiftwidth = 0
 vim.opt.list = false
 
--- netrw
-vim.g.netrw_banner = 0
-vim.keymap.set("n", "<leader>e", ":Explore %:p:h<CR>")
+-- Directory exploration
+vim.keymap.set("n", "<leader>e", function()
+	vim.cmd.edit(vim.fn.expand("%:p:h"))
+end)
 
 -- Misc keybinds
 vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
