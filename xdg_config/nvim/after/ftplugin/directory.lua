@@ -1,12 +1,5 @@
 -- little dir.lua keybind plugin
 
-vim.api.nvim_create_autocmd("BufEnter", {
-	buffer = 0,
-	callback = function()
-		vim.cmd.edit(vim.api.nvim_buf_get_name(0))
-	end,
-})
-
 local function bufdir()
 	return vim.api.nvim_buf_get_name(0)
 end

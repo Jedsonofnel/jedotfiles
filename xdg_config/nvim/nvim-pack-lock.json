@@ -8,6 +8,10 @@
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "indent-blankline.nvim": {
+      "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
     "janet.vim": {
       "rev": "a13ab9faad0c1cb11b31bb7f5d528b8668b166bb",
       "src": "https://github.com/janet-lang/janet.vim"
