@@ -49,9 +49,8 @@ require("vim._core.ui2").enable({
 
 -- FZF
 require("artio").setup({
-    win = {
-        height = 10,
-    },
+    opts = { promptprefix = ">", pointer = ">" },
+    win = { height = 10 },
     mappings = {
         ["<down>"] = "down",
         ["<up>"] = "up",
