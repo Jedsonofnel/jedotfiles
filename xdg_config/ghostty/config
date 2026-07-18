@@ -11,4 +11,4 @@ font-feature = -calt
 
 confirm-close-surface = false
 
-theme = jn_onedark
+theme = jn_nord

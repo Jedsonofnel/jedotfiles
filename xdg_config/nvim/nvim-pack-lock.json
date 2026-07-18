@@ -2,7 +2,7 @@
   "plugins": {
     "artio.nvim": {
       "rev": "045c5b33a6012bf79a77c7858553075ca5f0bc56",
-      "src": "https://github.com/comfysage/artio.nvim"
+      "src": "https://codeberg.org/comfysage/artio.nvim"
     },
     "conform.nvim": {
       "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
