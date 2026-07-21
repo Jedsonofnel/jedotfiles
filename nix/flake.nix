@@ -13,6 +13,10 @@
     packages.${system}.default = pkgs.buildEnv {
       name = "jed-tools";
       paths = with pkgs; [
+        # main tools
+        neovim
+        tmux
+
         # LSPs
         clang-tools # clangd + clang_format
         lua-language-server 
@@ -27,6 +31,7 @@
         stylua
         fnlfmt
         python313Packages.black
+        alejandra # opinionated nix formatter
 
         # Dev tools
         direnv

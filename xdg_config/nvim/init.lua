@@ -104,6 +104,7 @@ require("conform").setup({
         c = { "clang_format" },
         lua = { "stylua" },
         fennel = { "fnlfmt" },
+        nix = { "alejandra" },
     },
 })
 
