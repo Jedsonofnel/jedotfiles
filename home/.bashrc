@@ -87,7 +87,7 @@ _git_state() {
 
     local ahead behind
     read -r ahead behind < <(git rev-list --left-right --count 'origin/main...HEAD' 2>/dev/null | awk '{print $2, $1}')
-    [ "${ahead:-0}" -gt 0 ]  && marks+="\\"   # HEAD is ahead of origin -> need to push
+    [ "${ahead:-0}" -gt 0 ]  && marks+="^"   # HEAD is ahead of origin -> need to push
     [ "${behind:-0}" -gt 0 ] && marks+="/"  # HEAD is behind origin -> need to pull
 
     printf '%s' "$marks"
