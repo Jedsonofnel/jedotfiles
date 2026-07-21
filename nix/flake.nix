@@ -23,7 +23,6 @@
 
         # Programming languages
         (luajit.withPackages (ps: [ps.fennel]))
-        luajitPackages.fennel
 
         # LSPs
         clang-tools # clangd + clang_format
