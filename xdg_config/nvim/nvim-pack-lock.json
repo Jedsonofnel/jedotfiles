@@ -48,6 +48,10 @@
       "rev": "17a64464c27c1be605adca13dbe48f2f402fe107",
       "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
+    "nfnl": {
+      "rev": "ac0177c5549df7abba7a19554c18a7765386c894",
+      "src": "https://github.com/olical/nfnl"
+    },
     "nvim-fzy": {
       "rev": "cc41ba47d2f82c05cbf3a05b24dee325f8a96e1a",
       "src": "https://codeberg.org/mfussenegger/nvim-fzy"

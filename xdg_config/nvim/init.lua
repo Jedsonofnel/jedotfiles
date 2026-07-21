@@ -40,6 +40,7 @@ vim.pack.add({
     { src = "https://github.com/guns/vim-sexp" },
     { src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
     { src = "https://github.com/olical/conjure" },
+    { src = "https://github.com/olical/nfnl" },
 })
 
 -- UI
@@ -149,6 +150,22 @@ require("ibl").setup({
 vim.g.slime_target = "tmux"
 vim.g.sexp_enable_insert_mode_mappings = 1
 vim.g["conjure#mapping#doc_word"] = "gk"
+vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
+vim.g["conjure#client#fennel#stdio#command"] = "fennel --metadata"
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "conjure-log-*",
+    callback = function(ev)
+        vim.bo[ev.buf].buftype = "nofile"
+        vim.bo[ev.buf].swapfile = false
+        vim.bo[ev.buf].buflisted = false
+    end,
+})
+
+local cmd = os.getenv("CONJURE_FENNEL_CMD")
+if cmd then
+    vim.g["conjure#client#fennel#stdio#command"] = cmd
+end
 
 -- Colourscheme (managed by a script)
 vim.cmd.colorscheme("jn_gruvbox-dark-hard")
