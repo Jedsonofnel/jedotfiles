@@ -2,6 +2,7 @@
 -- TODO: Try port to fennel (ooo)
 -- TODO: fix directory.lua space-e that doesn't refresh (so can be stale)
 -- TODO: fix artio picking up .git and vendor/ files etc
+-- TODO: indent-blankline isn't active for fennel files
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -24,7 +25,8 @@ vim.opt.shiftwidth = 0
 
 -- Directory exploration
 vim.keymap.set("n", "<leader>e", function()
-    vim.cmd.edit(vim.fn.expand("%:p:h"))
+    local dir = vim.fn.expand("%:p:h")
+    vim.cmd.edit(dir)
 end)
 
 -- Misc keybinds
@@ -147,6 +149,7 @@ hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
 require("ibl").setup({
     indent = { char = "▏" },
     scope = { enabled = false },
+    exclude = { filetypes = { "fennel" } },
 })
 
 -- Lisp stuff

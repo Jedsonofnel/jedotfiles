@@ -14,7 +14,7 @@ local function full_path(entry)
 end
 
 local function refresh()
-    vim.cmd.edit(bufdir())
+    vim.cmd("edit!")
 end
 
 -- % create new file (netrw default)
