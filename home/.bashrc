@@ -53,6 +53,12 @@ shopt -s histappend   # don't clobber on exit
 shopt -s cmdhist      # fold multi-line commands to one history entry
 shopt -s checkwinsize # update LINES/COLS after each command
 
+# Other bits and pieces
+shopt -s globstar
+shopt -s cdspell
+shopt -s autocd
+bind 'set completion-ignore-case on'
+
 # History substring search on up/down
 bind -m vi-insert '"\e[A": history-search-backward'
 bind -m vi-insert '"\e[B": history-search-forward'
@@ -81,8 +87,8 @@ _git_state() {
 
     local ahead behind
     read -r ahead behind < <(git rev-list --left-right --count 'origin/main...HEAD' 2>/dev/null | awk '{print $2, $1}')
-    [ "${ahead:-0}" -gt 0 ]  && marks+="/"   # HEAD is ahead of origin -> need to push
-    [ "${behind:-0}" -gt 0 ] && marks+="\\"  # HEAD is behind origin -> need to pull
+    [ "${ahead:-0}" -gt 0 ]  && marks+="\\"   # HEAD is ahead of origin -> need to push
+    [ "${behind:-0}" -gt 0 ] && marks+="/"  # HEAD is behind origin -> need to pull
 
     printf '%s' "$marks"
 }
