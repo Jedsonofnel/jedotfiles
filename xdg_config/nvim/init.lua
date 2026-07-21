@@ -1,4 +1,8 @@
 -- JEDN neovim config
+-- TODO: Try port to fennel (ooo)
+-- TODO: fix directory.lua space-e that doesn't refresh (so can be stale)
+-- TODO: fix artio picking up .git and vendor/ files etc
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 vim.opt.winborder = "single"
@@ -37,8 +41,7 @@ vim.pack.add({
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     -- lisp exploration
     { src = "https://github.com/jpalardy/vim-slime" },
-    { src = "https://github.com/guns/vim-sexp" },
-    { src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
+    { src = "https://github.com/julienvincent/nvim-paredit" },
     { src = "https://github.com/olical/conjure" },
     { src = "https://github.com/olical/nfnl" },
 })
