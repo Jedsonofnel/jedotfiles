@@ -2,3 +2,4 @@ fnlfmt
 stylua
 lua-language-server
 fennel-ls
+nix

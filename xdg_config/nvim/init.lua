@@ -75,7 +75,7 @@ vim.keymap.set("n", "<leader>fb", "<Plug>(artio-buffers)")
 vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
 
 -- LSP
-vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright" })
+vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls" })
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
