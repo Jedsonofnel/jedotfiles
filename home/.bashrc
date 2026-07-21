@@ -87,18 +87,19 @@ _git_state() {
 
     local ahead behind
     read -r ahead behind < <(git rev-list --left-right --count 'origin/main...HEAD' 2>/dev/null | awk '{print $2, $1}')
-    [ "${ahead:-0}" -gt 0 ]  && marks+="^"   # HEAD is ahead of origin -> need to push
+    [ "${ahead:-0}" -gt 0 ]  && marks+="^"  # HEAD is ahead of origin -> need to push
     [ "${behind:-0}" -gt 0 ] && marks+="/"  # HEAD is behind origin -> need to pull
 
     printf '%s' "$marks"
 }
 
 _set_prompt() {
-    local mark mode
+    local mark pwd_clean
     mark=$(_git_state)
-    PS1="\[\e[36m\](jnl)\[\e[0m\] \W ${mark:+$mark }$ "
+    pwd_clean="${PWD%/}"
+    [ -z "$pwd_clean" ] && pwd_clean="/"
+    PS1="\[\e[36m\](jnl)\[\e[0m\] $(basename "$pwd_clean") ${mark:+$mark }$ "
 }
-PROMPT_COMMAND='_set_prompt'
 
 # Integrations
 
@@ -108,3 +109,5 @@ if [ -f "$HOME/.local/bin/fnm" ]; then
     export FNM_DIR="$HOME/.local/share/fnm"
     eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell bash)"
 fi
+
+PROMPT_COMMAND+=('_set_prompt')
