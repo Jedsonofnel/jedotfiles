@@ -1,16 +1,18 @@
 {
   description = "Jed's global dev tools";
 
-inputs = {
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs, neovim-nightly }:
-    let
+  outputs = {
+    self,
+    nixpkgs,
+    neovim-nightly,
+  }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-
   in {
     packages.${system}.default = pkgs.buildEnv {
       name = "jed-tools";
@@ -38,6 +40,7 @@ inputs = {
         # Dev tools
         direnv
         devenv
+        nix-direnv
         gnumake
         cmake
 
