@@ -1,30 +1,32 @@
 {
   description = "Jed's global dev tools";
 
-  inputs = {
+inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    neovim-nightly.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { self, nixpkgs }:
-  let
+  outputs = { self, nixpkgs, neovim-nightly }:
+    let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+
   in {
     packages.${system}.default = pkgs.buildEnv {
       name = "jed-tools";
       paths = with pkgs; [
         # main tools
-        neovim
+        neovim-nightly.packages.${system}.default
         tmux
 
         # LSPs
         clang-tools # clangd + clang_format
-        lua-language-server 
+        lua-language-server
         gopls
-        biome               
+        biome
         pyright
-        nil                
-        vscode-langservers-extracted  # html LSP
+        nil
+        vscode-langservers-extracted # html LSP
         fennel-ls
 
         # Formatters

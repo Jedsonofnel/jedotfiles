@@ -6,7 +6,6 @@
 # Environment
 
 export EDITOR="nvim"
-export VIMRUNTIME="/usr/share/nvim/runtime"
 
 # Go
 export GOPATH="$HOME/go"
