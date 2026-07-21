@@ -39,6 +39,7 @@ vim.pack.add({
     { src = "https://github.com/jpalardy/vim-slime" },
     { src = "https://github.com/guns/vim-sexp" },
     { src = "https://github.com/tpope/vim-sexp-mappings-for-regular-people" },
+    { src = "https://github.com/olical/conjure" },
 })
 
 -- UI
@@ -102,12 +103,13 @@ require("conform").setup({
         python = { "black" },
         c = { "clang_format" },
         lua = { "stylua" },
+        fennel = { "fnlfmt" },
     },
 })
 
 -- Treesitter
 require("tree-sitter-manager").setup({
-    ensure_installed = { "c", "lua", "go", "python", "ruby" },
+    ensure_installed = { "c", "lua", "go", "python", "ruby", "fennel" },
     highlight = true,
 })
 
@@ -144,6 +146,8 @@ require("ibl").setup({
 
 -- Lisp stuff
 vim.g.slime_target = "tmux"
+vim.g.sexp_enable_insert_mode_mappings = 1
+vim.g["conjure#mapping#doc_word"] = "gk"
 
 -- Colourscheme (managed by a script)
 vim.cmd.colorscheme("jn_gruvbox-dark-hard")

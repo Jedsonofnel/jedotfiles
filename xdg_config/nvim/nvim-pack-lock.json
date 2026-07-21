@@ -1,19 +1,23 @@
 {
   "plugins": {
     "artio.nvim": {
-      "rev": "045c5b33a6012bf79a77c7858553075ca5f0bc56",
+      "rev": "7f5ff3293c02def403ae820b752fa61d8ff92c76",
       "src": "https://codeberg.org/comfysage/artio.nvim"
     },
     "conform.nvim": {
-      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
       "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "conjure": {
+      "rev": "16b436c0124dae26250986fd4e660529d6bb14f0",
+      "src": "https://github.com/olical/conjure"
     },
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "janet.vim": {
-      "rev": "a13ab9faad0c1cb11b31bb7f5d528b8668b166bb",
+      "rev": "28135b2418d7da0fa4bea48db5ec112cf3fbf58d",
       "src": "https://github.com/janet-lang/janet.vim"
     },
     "mini.base16": {
@@ -21,19 +25,19 @@
       "src": "https://github.com/nvim-mini/mini.base16"
     },
     "mini.icons": {
-      "rev": "7fdae2443a0e2910015ca39ad74b50524ee682d3",
+      "rev": "98faae31e9be1cc054ae63485e58ceb185efcad0",
       "src": "https://github.com/nvim-mini/mini.icons"
     },
     "mini.nvim": {
-      "rev": "2431902e78b76f435542d1e606f08475360068ca",
+      "rev": "a35f08f63b73f0ffac045cd175fb2a22e167c39c",
       "src": "https://github.com/echasnovski/mini.nvim"
     },
     "mini.pick": {
-      "rev": "fd7e7efadddcec3f3d7f3b363a99aa44e7286c65",
+      "rev": "04e73ab07222508361095bb6e27621b315e6b9f1",
       "src": "https://github.com/nvim-mini/mini.pick"
     },
     "mini.statusline": {
-      "rev": "b456bfe845e475e9cec065b7a9a1ef657ad2f41b",
+      "rev": "127997ebef7ef632161203b960c5ef9d158f4810",
       "src": "git@github.com:echasnovski/mini.statusline"
     },
     "minibuffer.nvim": {
@@ -49,11 +53,11 @@
       "src": "https://codeberg.org/mfussenegger/nvim-fzy"
     },
     "nvim-lint": {
-      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
+      "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
       "src": "git@github.com:mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "bedca8b426b2fee0ccac596d167d71bbe971253f",
+      "rev": "98b0b8a52742afc9e2e2078e2e451f91beef1717",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-paredit": {
@@ -65,12 +69,12 @@
       "src": "https://github.com/gpanders/nvim-parinfer"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "oil.nvim": {
-      "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
+      "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "parpar.nvim": {
@@ -82,7 +86,7 @@
       "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     },
     "vim-moonfly-colors": {
-      "rev": "43d8eb9dd2a1154dd8259ee3ce37cbbdb28c405c",
+      "rev": "261664f92ed51cf0c077555b2d4b2530307eac17",
       "src": "https://github.com/bluz71/vim-moonfly-colors"
     },
     "vim-rails": {
@@ -90,7 +94,7 @@
       "src": "https://github.com/tpope/vim-rails"
     },
     "vim-sexp": {
-      "rev": "2fc0a7c7e44fe94e48156d6a5b5fea28538430eb",
+      "rev": "1bf50921308f0188d1c1ecf8a712cc72ab2775e5",
       "src": "https://github.com/guns/vim-sexp"
     },
     "vim-sexp-mappings-for-regular-people": {
