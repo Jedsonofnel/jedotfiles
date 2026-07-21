@@ -54,9 +54,9 @@ shopt -s cmdhist      # fold multi-line commands to one history entry
 shopt -s checkwinsize # update LINES/COLS after each command
 
 # History substring search on up/down
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
-bind '"\C-l": clear-screen'
+bind -m vi-insert '"\e[A": history-search-backward'
+bind -m vi-insert '"\e[B": history-search-forward'
+bind -m vi-insert '"\C-l": clear-screen'
 
 # Completion
 
@@ -72,20 +72,26 @@ alias nvimrc='cd ~/.config/nvim'
 alias gl='git log --oneline -n 10'
 
 # Prompt
-# Replicates: %c ${vcs_info_msg_0_} %%
-# Shows basename of cwd + • if unstaged changes exist + $
 
-_git_unstaged() {
-    git diff --quiet 2>/dev/null || printf '*'
+_git_state() {
+    git rev-parse --is-inside-work-tree &>/dev/null || return
+    local marks=""
+    git diff --quiet 2>/dev/null          || marks+="*"
+    git diff --cached --quiet 2>/dev/null || marks+="+"
+
+    local ahead behind
+    read -r ahead behind < <(git rev-list --left-right --count 'origin/main...HEAD' 2>/dev/null | awk '{print $2, $1}')
+    [ "${ahead:-0}" -gt 0 ]  && marks+="/"   # HEAD is ahead of origin -> need to push
+    [ "${behind:-0}" -gt 0 ] && marks+="\\"  # HEAD is behind origin -> need to pull
+
+    printf '%s' "$marks"
 }
 
 _set_prompt() {
-    local mark
-    mark=$(_git_unstaged)
-    # ${mark:+$mark } adds a space only when mark is non-empty
-    PS1="\W ${mark:+$mark }$ "
+    local mark mode
+    mark=$(_git_state)
+    PS1="\[\e[36m\](jnl)\[\e[0m\] \W ${mark:+$mark }$ "
 }
-
 PROMPT_COMMAND='_set_prompt'
 
 # Integrations
