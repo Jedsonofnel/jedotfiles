@@ -71,15 +71,6 @@ alias la='ls -a'
 alias nvimrc='cd ~/.config/nvim'
 alias gl='git log --oneline -n 10'
 
-# Integrations
-
-eval "$(direnv hook bash)"
-
-if [ -f "$HOME/.local/bin/fnm" ]; then
-    export FNM_DIR="$HOME/.local/share/fnm"
-    eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell bash)"
-fi
-
 # Prompt
 # Replicates: %c ${vcs_info_msg_0_} %%
 # Shows basename of cwd + • if unstaged changes exist + $
@@ -96,3 +87,12 @@ _set_prompt() {
 }
 
 PROMPT_COMMAND='_set_prompt'
+
+# Integrations
+
+eval "$(direnv hook bash)"
+
+if [ -f "$HOME/.local/bin/fnm" ]; then
+    export FNM_DIR="$HOME/.local/share/fnm"
+    eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell bash)"
+fi

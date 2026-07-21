@@ -2,11 +2,3 @@ source /usr/local/share/chruby/chruby.sh
 use_ruby() {
   chruby "$1"
 }
-
-# nix-direnv - provides use_flake, use_nix
-source "${HOME}/.nix-profile/share/nix-direnv/direnvrc"
-
-# devenv - provides use_devenv
-use_devenv() {
-  eval "$(devenv direnv)"
-}

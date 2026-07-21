@@ -1,5 +1,5 @@
 {
-  description = "Jed's global dev tools";
+  description = "JNL global tools";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -17,9 +17,13 @@
     packages.${system}.default = pkgs.buildEnv {
       name = "jed-tools";
       paths = with pkgs; [
-        # main tools
+        # Main tools
         neovim-nightly.packages.${system}.default
         tmux
+
+        # Programming languages
+        (luajit.withPackages (ps: [ps.fennel]))
+        luajitPackages.fennel
 
         # LSPs
         clang-tools # clangd + clang_format
