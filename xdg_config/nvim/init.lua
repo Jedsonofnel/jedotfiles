@@ -121,8 +121,16 @@ require("tree-sitter-manager").setup({
 })
 
 -- Autopairs
-require("nvim-autopairs").setup({
-    check_ts = true,
+local npairs = require("nvim-autopairs")
+local rule = require("nvim-autopairs.rule")
+
+npairs.setup({ check_ts = true })
+
+local lisp_fts = { "fennel", "clojure", "scheme", "lisp", "janet" }
+npairs.add_rules({
+    rule("(", ")", lisp_fts),
+    rule("[", "]", lisp_fts),
+    rule("{", "}", lisp_fts),
 })
 
 -- Indentblankline
@@ -179,4 +187,4 @@ if cmd then
 end
 
 -- Colourscheme (managed by a script)
-vim.cmd.colorscheme("jn_oxocarbon-dark")
+vim.cmd.colorscheme("jn_onedark")
