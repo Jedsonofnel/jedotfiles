@@ -2,7 +2,6 @@
 -- TODO: Try port to fennel (ooo)
 -- TODO: fix directory.lua space-e that doesn't refresh (so can be stale)
 -- TODO: fix artio picking up .git and vendor/ files etc
--- TODO: indent-blankline isn't active for fennel files
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
@@ -41,6 +40,7 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
+    { src = "https://github.com/windwp/nvim-autopairs" },
     -- lisp exploration
     { src = "https://github.com/jpalardy/vim-slime" },
     { src = "https://github.com/julienvincent/nvim-paredit" },
@@ -120,6 +120,11 @@ require("tree-sitter-manager").setup({
     highlight = true,
 })
 
+-- Autopairs
+require("nvim-autopairs").setup({
+    check_ts = true,
+})
+
 -- Indentblankline
 local hooks = require("ibl.hooks")
 
@@ -174,4 +179,4 @@ if cmd then
 end
 
 -- Colourscheme (managed by a script)
-vim.cmd.colorscheme("jn_gruvbox-dark-hard")
+vim.cmd.colorscheme("jn_oxocarbon-dark")

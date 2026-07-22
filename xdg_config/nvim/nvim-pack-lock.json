@@ -52,6 +52,10 @@
       "rev": "ac0177c5549df7abba7a19554c18a7765386c894",
       "src": "https://github.com/olical/nfnl"
     },
+    "nvim-autopairs": {
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
     "nvim-fzy": {
       "rev": "cc41ba47d2f82c05cbf3a05b24dee325f8a96e1a",
       "src": "https://codeberg.org/mfussenegger/nvim-fzy"
