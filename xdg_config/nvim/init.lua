@@ -82,6 +82,25 @@ vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
 
 -- LSP
 vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls" })
+vim.lsp.config("lua_ls", {
+    root_markers = {
+        ".nfnl.fnl",
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        ".git",
+    },
+    settings = {
+        Lua = {
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+                checkThirdParty = false,
+                library = { vim.env.VIMRUNTIME },
+            },
+        },
+    },
+})
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
 vim.keymap.set("n", "<leader>lf", function()
@@ -169,8 +188,6 @@ require("ibl").setup({
 vim.g.slime_target = "tmux"
 vim.g.sexp_enable_insert_mode_mappings = 1
 vim.g["conjure#mapping#doc_word"] = "gk"
-vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
-vim.g["conjure#client#fennel#stdio#command"] = "fennel --metadata"
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "conjure-log-*",
@@ -183,6 +200,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 local cmd = os.getenv("CONJURE_FENNEL_CMD")
 if cmd then
+    vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
     vim.g["conjure#client#fennel#stdio#command"] = cmd
 end
 

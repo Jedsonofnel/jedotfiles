@@ -1,3 +1,3 @@
-;; nfnl config - nothing so far!
-
-{:source-file-patterns [:after/**/*.fnl]}
+;; .nfnl.fnl
+(local config (require :nfnl.config))
+(config.default {:source-file-patterns [:fnl/**/*.fnl :after/**/*.fnl :init.fnl]})
