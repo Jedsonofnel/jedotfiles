@@ -116,6 +116,9 @@
     "vim-slime": {
       "rev": "2cfdc3b24e7ebaa64f5a1a04b00555600c622b79",
       "src": "https://github.com/jpalardy/vim-slime"
+    },
+    "zig.vim": {
+      "src": "https://codeberg.org/ziglang/zig.vim"
     }
   }
 }

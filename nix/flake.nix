@@ -23,6 +23,7 @@
 
         # Programming languages
         (luajit.withPackages (ps: [ps.fennel]))
+        zig
 
         # LSPs
         clang-tools # clangd + clang_format
@@ -33,6 +34,7 @@
         nil
         vscode-langservers-extracted # html LSP
         fennel-ls
+        zls # zig language server
 
         # Formatters
         stylua

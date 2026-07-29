@@ -6,4 +6,4 @@ all:
 	stow --verbose --target=$$HOME --restow home
 
 nix:
-	nix profile upgrade nix 2>/dev/null || nix profile add $(CURDIR)/nix#default
+	nix profile add $(CURDIR)/nix#default 2>/dev/null || nix profile upgrade '.*'

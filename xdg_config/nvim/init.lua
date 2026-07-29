@@ -41,6 +41,7 @@ vim.pack.add({
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/morhetz/gruvbox" },
+    { src = "https://codeberg.org/ziglang/zig.vim" },
     -- lisp exploration
     { src = "https://github.com/julienvincent/nvim-paredit" },
     { src = "https://github.com/olical/conjure" },
