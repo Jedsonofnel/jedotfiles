@@ -42,7 +42,6 @@ vim.pack.add({
     { src = "https://github.com/windwp/nvim-autopairs" },
     { src = "https://github.com/morhetz/gruvbox" },
     -- lisp exploration
-    { src = "https://github.com/jpalardy/vim-slime" },
     { src = "https://github.com/julienvincent/nvim-paredit" },
     { src = "https://github.com/olical/conjure" },
     { src = "https://github.com/olical/nfnl" },
@@ -136,7 +135,7 @@ require("conform").setup({
 
 -- Treesitter
 require("tree-sitter-manager").setup({
-    ensure_installed = { "c", "cpp", "lua", "go", "python", "ruby", "fennel" },
+    ensure_installed = { "c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig" },
     highlight = true,
 })
 
@@ -156,26 +155,6 @@ npairs.add_rules({
 -- Indentblankline
 local hooks = require("ibl.hooks")
 
-local function blend(fg, bg, ratio)
-    local function chan(c, i)
-        return math.floor(c / (256 ^ i)) % 256
-    end
-    local r = math.floor(chan(fg, 2) * ratio + chan(bg, 2) * (1 - ratio))
-    local g = math.floor(chan(fg, 1) * ratio + chan(bg, 1) * (1 - ratio))
-    local b = math.floor(chan(fg, 0) * ratio + chan(bg, 0) * (1 - ratio))
-    return r * 65536 + g * 256 + b
-end
-
-local bg_comment_ratio = 0.3
-
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-    local comment = vim.api.nvim_get_hl(0, { name = "Comment" })
-
-    vim.api.nvim_set_hl(0, "IblIndent", { fg = blend(comment.fg, normal.bg, bg_comment_ratio) })
-    vim.api.nvim_set_hl(0, "Whitespace", { fg = blend(comment.fg, normal.bg, bg_comment_ratio) })
-end)
-
 hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
 hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
 
@@ -186,8 +165,6 @@ require("ibl").setup({
 })
 
 -- Lisp stuff
-vim.g.slime_target = "tmux"
-vim.g.sexp_enable_insert_mode_mappings = 1
 vim.g["conjure#mapping#doc_word"] = "gk"
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -206,5 +183,5 @@ if cmd then
 end
 
 -- Colourscheme stuff
-vim.g.gruvbox_contrast_dark = "hard"
+vim.g.gruvbox_contrast_dark = "normal"
 vim.cmd.colorscheme("gruvbox")
