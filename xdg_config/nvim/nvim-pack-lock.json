@@ -12,6 +12,10 @@
       "rev": "16b436c0124dae26250986fd4e660529d6bb14f0",
       "src": "https://github.com/olical/conjure"
     },
+    "gruvbox": {
+      "rev": "5d15b2765f59754d7ac263c88a0f6e3e58124951",
+      "src": "https://github.com/morhetz/gruvbox"
+    },
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"

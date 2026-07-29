@@ -35,12 +35,12 @@ vim.keymap.set("n", "<leader><leader>", "<c-6>")
 vim.pack.add({
     { src = "https://codeberg.org/comfysage/artio.nvim" },
     { src = "https://github.com/nvim-mini/mini.icons" },
-    { src = "https://github.com/nvim-mini/mini.base16" },
     { src = "https://github.com/stevearc/conform.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
+    { src = "https://github.com/morhetz/gruvbox" },
     -- lisp exploration
     { src = "https://github.com/jpalardy/vim-slime" },
     { src = "https://github.com/julienvincent/nvim-paredit" },
@@ -127,6 +127,7 @@ require("conform").setup({
         css = { "biome" },
         python = { "black" },
         c = { "clang_format" },
+        cpp = { "clang_format" },
         lua = { "stylua" },
         fennel = { "fnlfmt" },
         nix = { "alejandra" },
@@ -135,7 +136,7 @@ require("conform").setup({
 
 -- Treesitter
 require("tree-sitter-manager").setup({
-    ensure_installed = { "c", "lua", "go", "python", "ruby", "fennel" },
+    ensure_installed = { "c", "cpp", "lua", "go", "python", "ruby", "fennel" },
     highlight = true,
 })
 
@@ -204,5 +205,6 @@ if cmd then
     vim.g["conjure#client#fennel#stdio#command"] = cmd
 end
 
--- Colourscheme (managed by a script)
-vim.cmd.colorscheme("jn_onedark")
+-- Colourscheme stuff
+vim.g.gruvbox_contrast_dark = "hard"
+vim.cmd.colorscheme("gruvbox")
