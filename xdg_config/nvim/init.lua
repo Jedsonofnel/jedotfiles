@@ -52,7 +52,7 @@ setkmap_n("<leader>ff", "<Plug>(artio-smart)")
 setkmap_n("<leader>fg", "<Plug>(artio-grep)")
 setkmap_n("<leader>fb", "<Plug>(artio-buffers)")
 setkmap_n("<leader>fo", "<Plug>(artio-oldfiles)")
-vim.lsp.enable({"clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls", "zig"})
+vim.lsp.enable({"clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls", "zls"})
 vim.lsp.config("lua_ls", {root_markers = {".nfnl.fnl", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", ".git"}, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = {vim.env.VIMRUNTIME}, checkThirdParty = false}}}})
 setkmap_n("<leader>d", vim.diagnostic.open_float)
 setkmap_n("<leader>lr", ":lsp restart<CR>")
@@ -61,6 +61,20 @@ local function _2_()
   return conform.format({timeout_ms = 1000})
 end
 setkmap_n("<leader>lf", _2_)
+local function _3_(args)
+  local client = vim.lsp.get_client_by_id(args.data.clien_id)
+  if (client and (client.name == "lua_ls")) then
+    client.server_capabilities.semanticTokensProvider = nil
+    return nil
+  else
+    return nil
+  end
+end
+vim.api.nvim_create_autocmd("LspAttach", {callback = _3_})
+do
+  local conform = require("conform")
+  conform.setup({formatters_by_ft = {ruby = {"rubocop"}, eruby = {"erb_format"}, css = {"biome"}, python = {"black"}, c = {"clang_format"}, cpp = {"clang_format"}, lua = {"stylua"}, fennel = {"fnlfmt"}, nix = {"alejandra"}, zig = {"zigfmt"}}})
+end
 do
   local ts_manager = require("tree-sitter-manager")
   ts_manager.setup({["ensure-installed"] = {"c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig"}, highlight = true})
@@ -80,13 +94,13 @@ do
   ibl.setup({indent = {char = "\226\150\143"}, scope = {enabled = false}, exclude = {filetypes = {"fennel"}}})
 end
 vim.g["conjure#mapping#doc_word"] = "gk"
-local function _3_(ev)
+local function _5_(ev)
   vim.bo[ev.buf]["buftype"] = "nofile"
   vim.bo[ev.buf]["swapfile"] = false
   vim.bo[ev.buf]["buflisted"] = false
   return nil
 end
-vim.api.nvim_create_autocmd("BufWinEnter", {pattern = "conjure-log-*", callback = _3_})
+vim.api.nvim_create_autocmd("BufWinEnter", {pattern = "conjure-log-*", callback = _5_})
 do
   local cmd = os.getenv("CONJURE_FENNEL_CMD")
   if cmd then
