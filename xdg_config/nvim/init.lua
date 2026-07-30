@@ -40,7 +40,7 @@ vim.pack.add({
     { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
     { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
     { src = "https://github.com/windwp/nvim-autopairs" },
-    { src = "https://github.com/morhetz/gruvbox" },
+    { src = "https://github.com/sainnhe/gruvbox-material" },
     { src = "https://codeberg.org/ziglang/zig.vim" },
     -- lisp exploration
     { src = "https://github.com/julienvincent/nvim-paredit" },
@@ -81,7 +81,18 @@ vim.keymap.set("n", "<leader>fb", "<Plug>(artio-buffers)")
 vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
 
 -- LSP
-vim.lsp.enable({ "clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls" })
+vim.lsp.enable({
+    "clangd",
+    "lua_ls",
+    "biome",
+    "gopls",
+    "html",
+    "ruby_lsp",
+    "pyright",
+    "fennel_ls",
+    "zls",
+})
+
 vim.lsp.config("lua_ls", {
     root_markers = {
         ".nfnl.fnl",
@@ -131,6 +142,7 @@ require("conform").setup({
         lua = { "stylua" },
         fennel = { "fnlfmt" },
         nix = { "alejandra" },
+        zig = { "zigfmt" },
     },
 })
 
@@ -183,6 +195,8 @@ if cmd then
     vim.g["conjure#client#fennel#stdio#command"] = cmd
 end
 
+-- Zig stuff
+vim.g.zig_fmt_autosave = 0
+
 -- Colourscheme stuff
-vim.g.gruvbox_contrast_dark = "normal"
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("gruvbox-material")

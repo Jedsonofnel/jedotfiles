@@ -11,4 +11,4 @@ font-feature = -calt
 
 confirm-close-surface = false
 
-theme = Gruvbox Dark
+theme = Gruvbox Material Dark

@@ -16,6 +16,10 @@
       "rev": "5d15b2765f59754d7ac263c88a0f6e3e58124951",
       "src": "https://github.com/morhetz/gruvbox"
     },
+    "gruvbox-material": {
+      "rev": "11d779b26a9ab2b3db8c22c6ac9fb6e8ed4fea79",
+      "src": "https://github.com/sainnhe/gruvbox-material"
+    },
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -118,6 +122,7 @@
       "src": "https://github.com/jpalardy/vim-slime"
     },
     "zig.vim": {
+      "rev": "61109e5166f2bdb7578493a0220a92c43627fc82",
       "src": "https://codeberg.org/ziglang/zig.vim"
     }
   }
