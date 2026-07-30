@@ -1,0 +1,202 @@
+-- JEDN neovim config
+-- TODO: Try port to fennel (ooo)
+-- TODO: fix directory.lua space-e that doesn't refresh (so can be stale)
+-- TODO: fix artio picking up .git and vendor/ files etc
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = ","
+vim.opt.winborder = "single"
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.wrap = false
+vim.opt.clipboard = "unnamedplus"
+vim.opt.scrolloff = 8
+vim.opt.incsearch = true
+vim.opt.smartcase = true
+
+-- team spaces these days
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 0
+
+-- Directory exploration
+vim.keymap.set("n", "<leader>e", function()
+    local dir = vim.fn.expand("%:p:h")
+    vim.cmd.edit(dir)
+end)
+
+-- Misc keybinds
+vim.keymap.set("n", "<leader>sc", ":nohl<CR>")
+vim.keymap.set("n", "<leader><leader>", "<c-6>")
+
+vim.pack.add({
+    { src = "https://codeberg.org/comfysage/artio.nvim" },
+    { src = "https://github.com/nvim-mini/mini.icons" },
+    { src = "https://github.com/stevearc/conform.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/romus204/tree-sitter-manager.nvim" },
+    { src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
+    { src = "https://github.com/windwp/nvim-autopairs" },
+    { src = "https://github.com/sainnhe/gruvbox-material" },
+    { src = "https://codeberg.org/ziglang/zig.vim" },
+    -- lisp exploration
+    { src = "https://github.com/julienvincent/nvim-paredit" },
+    { src = "https://github.com/olical/conjure" },
+    { src = "https://github.com/olical/nfnl" },
+})
+
+-- UI
+require("vim._core.ui2").enable({
+    enable = true,
+    msg = { target = "msg" },
+})
+
+-- FZF
+require("artio").setup({
+    opts = { promptprefix = ">", pointer = ">" },
+    win = { height = 10 },
+    mappings = {
+        ["<down>"] = "down",
+        ["<up>"] = "up",
+        ["<c-n>"] = "down",
+        ["<c-p>"] = "up",
+        ["<cr>"] = "accept",
+        ["<esc>"] = "cancel",
+        ["<tab>"] = "mark",
+        ["<c-g>"] = "togglelive",
+        ["<c-l>"] = "togglepreview",
+        ["<c-q>"] = "setqflist",
+        ["<m-q>"] = "setqflistmark",
+    },
+})
+vim.ui.select = require("artio").select
+
+vim.keymap.set("n", "<c-p>", "<Plug>(artio-files)")
+vim.keymap.set("n", "<leader>ff", "<Plug>(artio-smart)")
+vim.keymap.set("n", "<leader>fg", "<Plug>(artio-grep)")
+vim.keymap.set("n", "<leader>fb", "<Plug>(artio-buffers)")
+vim.keymap.set("n", "<leader>fo", "<Plug>(artio-oldfiles)")
+
+-- LSP
+vim.lsp.enable({
+    "clangd",
+    "lua_ls",
+    "biome",
+    "gopls",
+    "html",
+    "ruby_lsp",
+    "pyright",
+    "fennel_ls",
+    "zls",
+})
+
+vim.lsp.config("lua_ls", {
+    root_markers = {
+        ".nfnl.fnl",
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        ".git",
+    },
+    settings = {
+        Lua = {
+            diagnostics = { globals = { "vim" } },
+            workspace = {
+                checkThirdParty = false,
+                library = { vim.env.VIMRUNTIME },
+            },
+        },
+    },
+})
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>")
+vim.keymap.set("n", "<leader>lf", function()
+    require("conform").format({
+        timeout_ms = 1000,
+    })
+end, { desc = "Format buffer" })
+
+-- Disable Lua semantic highlighting
+vim.api.nvim_create_autocmd("LspAttach", {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.name == "lua_ls" then
+            client.server_capabilities.semanticTokensProvider = nil
+        end
+    end,
+})
+
+-- Formatting
+require("conform").setup({
+    formatters_by_ft = {
+        ruby = { "rubocop" },
+        eruby = { "erb_format" },
+        css = { "biome" },
+        python = { "black" },
+        c = { "clang_format" },
+        cpp = { "clang_format" },
+        lua = { "stylua" },
+        fennel = { "fnlfmt" },
+        nix = { "alejandra" },
+        zig = { "zigfmt" },
+    },
+})
+
+-- Treesitter
+require("tree-sitter-manager").setup({
+    ensure_installed = { "c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig" },
+    highlight = true,
+})
+
+-- Autopairs
+local npairs = require("nvim-autopairs")
+local rule = require("nvim-autopairs.rule")
+
+npairs.setup({ check_ts = true })
+
+local lisp_fts = { "fennel", "clojure", "scheme", "lisp", "janet" }
+npairs.add_rules({
+    rule("(", ")", lisp_fts),
+    rule("[", "]", lisp_fts),
+    rule("{", "}", lisp_fts),
+})
+
+-- Indentblankline
+local hooks = require("ibl.hooks")
+
+hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
+hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
+
+require("ibl").setup({
+    indent = { char = "▏" },
+    scope = { enabled = false },
+    exclude = { filetypes = { "fennel" } },
+})
+
+-- Lisp stuff
+vim.g["conjure#mapping#doc_word"] = "gk"
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "conjure-log-*",
+    callback = function(ev)
+        vim.bo[ev.buf].buftype = "nofile"
+        vim.bo[ev.buf].swapfile = false
+        vim.bo[ev.buf].buflisted = false
+    end,
+})
+
+local cmd = os.getenv("CONJURE_FENNEL_CMD")
+if cmd then
+    vim.g["conjure#filetype#fennel"] = "conjure.client.fennel.stdio"
+    vim.g["conjure#client#fennel#stdio#command"] = cmd
+end
+
+-- Zig stuff
+vim.g.zig_fmt_autosave = 0
+
+-- Colourscheme stuff
+vim.cmd.colorscheme("gruvbox-material")

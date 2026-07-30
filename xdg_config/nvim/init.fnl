@@ -1,4 +1,4 @@
-;;; JEDN nvim config in fennel!
+;;; JNL NVIM CONFIG
 
 ;; Helpers
 (fn setopt [optname val]
@@ -29,7 +29,7 @@
 (setopt :termguicolors true)
 (setopt :wrap false)
 (setopt :clipboard :unnamedplus)
-(setopt :scrollof 8)
+(setopt :scrolloff 8)
 (setopt :incsearch true)
 (setopt :smartcase true)
 
@@ -51,8 +51,8 @@
                (github :romus204/tree-sitter-manager.nvim)
                (github :lukas-reineke/indent-blankline.nvim)
                (github :windwp/nvim-autopairs)
+               (github :sainnhe/gruvbox-material)
                ;; lisp stuff
-               (github :jpalardy/vim-slime)
                (github :julienvincent/nvim-paredit)
                (github :olical/conjure)
                (github :olical/nfnl)])
@@ -68,7 +68,7 @@
                 :mappings {:<down> :down
                            :<up> :up
                            :<c-n> :up
-                           :<c-p> :up
+                           :<c-p> :down
                            :<cr> :accept
                            :<esc> :cancel
                            :<tab> :mark
@@ -96,16 +96,16 @@
                  :fennel_ls
                  :zig])
 
-(vim.config :lua_ls
-            {:root_markers [:.nfnl.fnl
-                            :.luarc.json
-                            :.luarc.jsonc
-                            :.luacheckrc
-                            :.stylua.toml
-                            :.git]
-             :settings {:Lua {:diagnostics {:globals [:vim]}
-                              :workspace {:checkThirdParty false
-                                          :library [vim.env.VIMRUNTIME]}}}})
+(vim.lsp.config :lua_ls
+                {:root_markers [:.nfnl.fnl
+                                :.luarc.json
+                                :.luarc.jsonc
+                                :.luacheckrc
+                                :.stylua.toml
+                                :.git]
+                 :settings {:Lua {:diagnostics {:globals [:vim]}
+                                  :workspace {:checkThirdParty false
+                                              :library [vim.env.VIMRUNTIME]}}}})
 
 (setkmap-n :<leader>d vim.diagnostic.open_float)
 (setkmap-n :<leader>lr ":lsp restart<CR>")
@@ -113,3 +113,59 @@
            (fn []
              (let [conform (require :conform)]
                (conform.format {:timeout_ms 1000}))))
+
+;; Treesitter
+(let [ts-manager (require :tree-sitter-manager)]
+  (ts-manager.setup {:ensure-installed [:c
+                                        :cpp
+                                        :lua
+                                        :go
+                                        :python
+                                        :ruby
+                                        :fennel
+                                        :zig]
+                     :highlight true}))
+
+;; Autopairs
+(let [npairs (require :nvim-autopairs)
+      rule (require :nvim-autopairs.rule)
+      lisp-fts [:fennel :clojure :scheme :lisp :janet]]
+  (npairs.setup {:check_ts true})
+  (npairs.add_rules [(rule "(" ")" lisp-fts)
+                     (rule "[" "]" lisp-fts)
+                     (rule "{" "}" lisp-fts)]))
+
+;; Indent blankline
+(let [hooks (require :ibl.hooks)
+      ibl (require :ibl)]
+  (hooks.register hooks.type.WHITESPACE
+                  hooks.builtin.hide_first_space_indent_level)
+  (hooks.register hooks.type.WHITESPACE
+                  hooks.builtin.hide_first_tab_indent_level)
+  (ibl.setup {:indent {:char "▏"}
+              :scope {:enabled false}
+              :exclude {:filetypes [:fennel]}}))
+
+;; Lisp config
+(set vim.g.conjure#mapping#doc_word :gk)
+
+(vim.api.nvim_create_autocmd :BufWinEnter
+                             {:pattern :conjure-log-*
+                              :callback (fn [ev]
+                                          (set (. vim.bo ev.buf :buftype)
+                                               :nofile)
+                                          (set (. vim.bo ev.buf :swapfile)
+                                               false)
+                                          (set (. vim.bo ev.buf :buflisted)
+                                               false))})
+
+(let [cmd (os.getenv :CONJURE_FENNEL_CMD)]
+  (when cmd
+    (set vim.g.conjure#filetype#fennel :conjure.client.fennel.stdio)
+    (set vim.g.conjure#client#fennel#stdio#command cmd)))
+
+;; Zig
+(set vim.g.zig_fmt_autosave 0)
+
+;; Colourscheme
+(vim.cmd.colorscheme :gruvbox-material)
