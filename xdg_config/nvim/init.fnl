@@ -67,8 +67,8 @@
                 :win {:height 10}
                 :mappings {:<down> :down
                            :<up> :up
-                           :<c-n> :up
-                           :<c-p> :down
+                           :<c-n> :down
+                           :<c-p> :up
                            :<cr> :accept
                            :<esc> :cancel
                            :<tab> :mark
@@ -165,7 +165,7 @@
                   hooks.builtin.hide_first_tab_indent_level)
   (ibl.setup {:indent {:char "▏"}
               :scope {:enabled false}
-              :exclude {:filetypes [:fennel]}}))
+              :exclude {:filetypes [:fennel :text]}}))
 
 ;; Lisp config
 (set vim.g.conjure#mapping#doc_word :gk)

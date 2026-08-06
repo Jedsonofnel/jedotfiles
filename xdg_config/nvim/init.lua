@@ -44,7 +44,7 @@ do
 end
 do
   local artio = require("artio")
-  artio.setup({opts = {promptprefix = ">", pointer = ">"}, win = {height = 10}, mappings = {["<down>"] = "down", ["<up>"] = "up", ["<c-n>"] = "up", ["<c-p>"] = "down", ["<cr>"] = "accept", ["<esc>"] = "cancel", ["<tab>"] = "mark", ["<c-g>"] = "togglelive", ["<c-l>"] = "togglepreview", ["<c-q>"] = "setqflist", ["<m-q>"] = "setqflistmark"}})
+  artio.setup({opts = {promptprefix = ">", pointer = ">"}, win = {height = 10}, mappings = {["<down>"] = "down", ["<up>"] = "up", ["<c-n>"] = "down", ["<c-p>"] = "up", ["<cr>"] = "accept", ["<esc>"] = "cancel", ["<tab>"] = "mark", ["<c-g>"] = "togglelive", ["<c-l>"] = "togglepreview", ["<c-q>"] = "setqflist", ["<m-q>"] = "setqflistmark"}})
   vim.ui.select = artio.select
 end
 setkmap_n("<c-p>", "<Plug>(artio-files)")
@@ -91,7 +91,7 @@ do
   local ibl = require("ibl")
   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_space_indent_level)
   hooks.register(hooks.type.WHITESPACE, hooks.builtin.hide_first_tab_indent_level)
-  ibl.setup({indent = {char = "\226\150\143"}, scope = {enabled = false}, exclude = {filetypes = {"fennel"}}})
+  ibl.setup({indent = {char = "\226\150\143"}, scope = {enabled = false}, exclude = {filetypes = {"fennel", "text"}}})
 end
 vim.g["conjure#mapping#doc_word"] = "gk"
 local function _5_(ev)
