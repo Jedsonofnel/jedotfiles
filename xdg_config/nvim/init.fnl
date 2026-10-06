@@ -94,7 +94,8 @@
                  :ruby_lsp
                  :pyright
                  :fennel_ls
-                 :zls])
+                 :zls
+                 :fortls])
 
 (vim.lsp.config :lua_ls
                 {:root_markers [:.nfnl.fnl
@@ -117,7 +118,7 @@
 ;; Disable Lua semantic highlighting
 (vim.api.nvim_create_autocmd :LspAttach
                              {:callback (fn [args]
-                                          (let [client (vim.lsp.get_client_by_id args.data.clien_id)]
+                                          (let [client (vim.lsp.get_client_by_id args.data.client_id)]
                                             (when (and client
                                                        (= client.name :lua_ls))
                                               (set client.server_capabilities.semanticTokensProvider
@@ -133,7 +134,8 @@
                                      :lua [:stylua]
                                      :fennel [:fnlfmt]
                                      :nix [:alejandra]
-                                     :zig [:zigfmt]}}))
+                                     :zig [:zigfmt]
+                                     :fortran [:fprettify]}}))
 
 ;; Treesitter
 (let [ts-manager (require :tree-sitter-manager)]
@@ -144,7 +146,8 @@
                                         :python
                                         :ruby
                                         :fennel
-                                        :zig]
+                                        :zig
+                                        :fortran]
                      :highlight true}))
 
 ;; Autopairs

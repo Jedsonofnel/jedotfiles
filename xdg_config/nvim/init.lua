@@ -52,7 +52,7 @@ setkmap_n("<leader>ff", "<Plug>(artio-smart)")
 setkmap_n("<leader>fg", "<Plug>(artio-grep)")
 setkmap_n("<leader>fb", "<Plug>(artio-buffers)")
 setkmap_n("<leader>fo", "<Plug>(artio-oldfiles)")
-vim.lsp.enable({"clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls", "zls"})
+vim.lsp.enable({"clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls", "zls", "fortls"})
 vim.lsp.config("lua_ls", {root_markers = {".nfnl.fnl", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", ".git"}, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = {vim.env.VIMRUNTIME}, checkThirdParty = false}}}})
 setkmap_n("<leader>d", vim.diagnostic.open_float)
 setkmap_n("<leader>lr", ":lsp restart<CR>")
@@ -62,7 +62,7 @@ local function _2_()
 end
 setkmap_n("<leader>lf", _2_)
 local function _3_(args)
-  local client = vim.lsp.get_client_by_id(args.data.clien_id)
+  local client = vim.lsp.get_client_by_id(args.data.client_id)
   if (client and (client.name == "lua_ls")) then
     client.server_capabilities.semanticTokensProvider = nil
     return nil
@@ -73,11 +73,11 @@ end
 vim.api.nvim_create_autocmd("LspAttach", {callback = _3_})
 do
   local conform = require("conform")
-  conform.setup({formatters_by_ft = {ruby = {"rubocop"}, eruby = {"erb_format"}, css = {"biome"}, python = {"black"}, c = {"clang_format"}, cpp = {"clang_format"}, lua = {"stylua"}, fennel = {"fnlfmt"}, nix = {"alejandra"}, zig = {"zigfmt"}}})
+  conform.setup({formatters_by_ft = {ruby = {"rubocop"}, eruby = {"erb_format"}, css = {"biome"}, python = {"black"}, c = {"clang_format"}, cpp = {"clang_format"}, lua = {"stylua"}, fennel = {"fnlfmt"}, nix = {"alejandra"}, zig = {"zigfmt"}, fortran = {"fprettify"}}})
 end
 do
   local ts_manager = require("tree-sitter-manager")
-  ts_manager.setup({["ensure-installed"] = {"c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig"}, highlight = true})
+  ts_manager.setup({["ensure-installed"] = {"c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig", "fortran"}, highlight = true})
 end
 do
   local npairs = require("nvim-autopairs")

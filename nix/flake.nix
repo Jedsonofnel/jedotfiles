@@ -24,6 +24,8 @@
         # Programming languages
         (luajit.withPackages (ps: [ps.fennel]))
         zig
+        gfortran
+        fpm
 
         # LSPs
         clang-tools # clangd + clang_format
@@ -35,12 +37,15 @@
         vscode-langservers-extracted # html LSP
         fennel-ls
         zls # zig language server
+        fortls
+        fortitude
 
         # Formatters
         stylua
         fnlfmt
         python313Packages.black
         alejandra # opinionated nix formatter
+        fprettify
 
         # Dev tools
         direnv
