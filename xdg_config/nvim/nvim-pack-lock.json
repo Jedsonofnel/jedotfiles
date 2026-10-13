@@ -28,6 +28,10 @@
       "rev": "28135b2418d7da0fa4bea48db5ec112cf3fbf58d",
       "src": "https://github.com/janet-lang/janet.vim"
     },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "mini.base16": {
       "rev": "d5f7b0db4559eb14c1c6c9e88aae95b9a79df408",
       "src": "https://github.com/nvim-mini/mini.base16"

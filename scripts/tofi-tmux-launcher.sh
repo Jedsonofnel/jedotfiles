@@ -3,11 +3,13 @@
 # Base directories to search for projects (will search inside these)
 SEARCH_DIRS=(
 	"$HOME/Documents/JEDN-Codes"
+    "$HOME/Projects"
 )
 
 # Specific directories to include directly (won't search inside these)
 DIRECT_DIRS=(
 	"$HOME/Documents/jedotfiles"
+	"$HOME/phd"
 )
 
 search_results=""

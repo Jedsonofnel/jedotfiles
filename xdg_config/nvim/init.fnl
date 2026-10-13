@@ -52,6 +52,7 @@
                (github :lukas-reineke/indent-blankline.nvim)
                (github :windwp/nvim-autopairs)
                (github :sainnhe/gruvbox-material)
+               (github :rebelot/kanagawa.nvim)
                ;; lisp stuff
                (github :julienvincent/nvim-paredit)
                (github :olical/conjure)
@@ -146,8 +147,7 @@
                                         :python
                                         :ruby
                                         :fennel
-                                        :zig
-                                        :fortran]
+                                        :zig]
                      :highlight true}))
 
 ;; Autopairs
@@ -192,4 +192,4 @@
 (set vim.g.zig_fmt_autosave 0)
 
 ;; Colourscheme
-(vim.cmd.colorscheme :gruvbox-material)
+(vim.cmd.colorscheme :kanagawa)

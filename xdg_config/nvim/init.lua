@@ -37,7 +37,7 @@ end
 setkmap_n("<leader>e", _1_)
 setkmap_n("<leader>sc", ":nohl<CR>")
 setkmap_n("<leader><leader>", "<c-6>")
-vim.pack.add({codeberg("comfysage/artio.nvim"), github("nvim-mini/mini.icons"), github("nvim-mini/mini.base16"), github("stevearc/conform.nvim"), github("neovim/nvim-lspconfig"), github("romus204/tree-sitter-manager.nvim"), github("lukas-reineke/indent-blankline.nvim"), github("windwp/nvim-autopairs"), github("sainnhe/gruvbox-material"), github("julienvincent/nvim-paredit"), github("olical/conjure"), github("olical/nfnl")})
+vim.pack.add({codeberg("comfysage/artio.nvim"), github("nvim-mini/mini.icons"), github("nvim-mini/mini.base16"), github("stevearc/conform.nvim"), github("neovim/nvim-lspconfig"), github("romus204/tree-sitter-manager.nvim"), github("lukas-reineke/indent-blankline.nvim"), github("windwp/nvim-autopairs"), github("sainnhe/gruvbox-material"), github("rebelot/kanagawa.nvim"), github("julienvincent/nvim-paredit"), github("olical/conjure"), github("olical/nfnl")})
 do
   local ui2 = require("vim._core.ui2")
   ui2.enable({enable = true, msg = {target = "msg"}})
@@ -77,7 +77,7 @@ do
 end
 do
   local ts_manager = require("tree-sitter-manager")
-  ts_manager.setup({["ensure-installed"] = {"c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig", "fortran"}, highlight = true})
+  ts_manager.setup({["ensure-installed"] = {"c", "cpp", "lua", "go", "python", "ruby", "fennel", "zig"}, highlight = true})
 end
 do
   local npairs = require("nvim-autopairs")
@@ -110,4 +110,4 @@ do
   end
 end
 vim.g.zig_fmt_autosave = 0
-return vim.cmd.colorscheme("gruvbox-material")
+return vim.cmd.colorscheme("kanagawa")
