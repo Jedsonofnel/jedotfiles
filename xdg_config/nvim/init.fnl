@@ -110,7 +110,8 @@
                                                    nil))))})
 
 (let [conform (require :conform)]
-  (conform.setup {:formatters_by_ft {:ruby [:rubocop]
+  (conform.setup {:formatters {:fprettify {:append_args [:-i :4]}}
+                  :formatters_by_ft {:ruby [:rubocop]
                                      :eruby [:erb_format]
                                      :css [:biome]
                                      :python [:black]

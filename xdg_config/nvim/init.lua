@@ -71,7 +71,7 @@ end
 vim.api.nvim_create_autocmd("LspAttach", {callback = _3_})
 do
   local conform = require("conform")
-  conform.setup({formatters_by_ft = {ruby = {"rubocop"}, eruby = {"erb_format"}, css = {"biome"}, python = {"black"}, c = {"clang_format"}, cpp = {"clang_format"}, lua = {"stylua"}, fennel = {"fnlfmt"}, nix = {"alejandra"}, zig = {"zigfmt"}, fortran = {"fprettify"}}})
+  conform.setup({formatters = {fprettify = {append_args = {"-i", "4"}}}, formatters_by_ft = {ruby = {"rubocop"}, eruby = {"erb_format"}, css = {"biome"}, python = {"black"}, c = {"clang_format"}, cpp = {"clang_format"}, lua = {"stylua"}, fennel = {"fnlfmt"}, nix = {"alejandra"}, zig = {"zigfmt"}, fortran = {"fprettify"}}})
 end
 do
   local ts_manager = require("tree-sitter-manager")

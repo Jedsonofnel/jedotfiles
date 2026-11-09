@@ -4,12 +4,13 @@
 SEARCH_DIRS=(
 	"$HOME/Documents/JEDN-Codes"
     "$HOME/Projects"
+    "/home/jedn/phd/01_codes/"
 )
 
 # Specific directories to include directly (won't search inside these)
 DIRECT_DIRS=(
 	"$HOME/Documents/jedotfiles"
-	"$HOME/phd"
+	"/home/jedn/phd/00_notes/"
 )
 
 search_results=""

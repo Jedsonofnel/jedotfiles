@@ -25,7 +25,7 @@
         (luajit.withPackages (ps: [ps.fennel]))
         zig
         gfortran
-        fpm
+        fortran-fpm
 
         # LSPs
         clang-tools # clangd + clang_format
@@ -48,6 +48,7 @@
         fprettify
 
         # Dev tools
+        uv
         direnv
         devenv
         nix-direnv

@@ -10,7 +10,7 @@ export EDITOR="nvim"
 # Go
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-[ -d "$GOPATH" ]           && export PATH="$PATH:$GOBIN"
+[ -d "$GOPATH" ]            && export PATH="$PATH:$GOBIN"
 [ -d "/usr/local/go/bin" ] && export PATH="$PATH:/usr/local/go/bin"
 
 # Rust
@@ -36,6 +36,7 @@ fi
 
 # Local bin
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+[ -d "$HOME/.local/lib" ] && export LD_LIBRARY_PATH="$HOME/.local/lib:$LD_LIBRARY_PATH"
 
 # uv env shim
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
@@ -46,7 +47,7 @@ set -o vi
 bind 'set bell-style none'
 
 # History
-export HISTFILE="$XDG_DATA_HOME/bash_history"
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/bash_history"
 export HISTSIZE=10000
 export HISTFILESIZE=20000
 shopt -s histappend   # don't clobber on exit
@@ -76,19 +77,21 @@ alias ls='ls --color'
 alias la='ls -a'
 alias nvimrc='cd ~/.config/nvim'
 alias gl='git log --oneline -n 10'
+alias pyenv='source ~/.venv/bin/activate'
 
-# Prompt
+# Nuclear data
+export NUCLEAR_DATA_DIR="$HOME/.local/share/nuclear_data"
+
+# Fast Prompt (No expensive branch counting)
 
 _git_state() {
-    git rev-parse --is-inside-work-tree &>/dev/null || return
-    local marks=""
-    git diff --quiet 2>/dev/null          || marks+="*"
-    git diff --cached --quiet 2>/dev/null || marks+="+"
+    # Fast check: bail immediately if not in a git repo
+    [ -d .git ] || git rev-parse --is-inside-work-tree &>/dev/null || return
 
-    local ahead behind
-    read -r ahead behind < <(git rev-list --left-right --count 'origin/main...HEAD' 2>/dev/null | awk '{print $2, $1}')
-    [ "${ahead:-0}" -gt 0 ]  && marks+="^"  # HEAD is ahead of origin -> need to push
-    [ "${behind:-0}" -gt 0 ] && marks+="/"  # HEAD is behind origin -> need to pull
+    local marks=""
+    # Quick index check for modified files
+    git diff --quiet --no-ext-diff 2>/dev/null          || marks+="*"
+    git diff --cached --quiet --no-ext-diff 2>/dev/null || marks="+"
 
     printf '%s' "$marks"
 }
@@ -98,7 +101,7 @@ _set_prompt() {
     mark=$(_git_state)
     pwd_clean="${PWD%/}"
     [ -z "$pwd_clean" ] && pwd_clean="/"
-    PS1="\[\e[36m\](jnl)\[\e[0m\] $(basename "$pwd_clean") ${mark:+$mark }$ "
+    PS1="\[\e[36m\](jnl)\[\e[0m\] $(basename "$pwd_clean")${mark:+ \[\e[33m\]$mark\[\e[0m\]} $ "
 }
 
 # Integrations
