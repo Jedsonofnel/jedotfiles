@@ -37,21 +37,19 @@ end
 setkmap_n("<leader>e", _1_)
 setkmap_n("<leader>sc", ":nohl<CR>")
 setkmap_n("<leader><leader>", "<c-6>")
-vim.pack.add({codeberg("comfysage/artio.nvim"), github("nvim-mini/mini.icons"), github("nvim-mini/mini.base16"), github("stevearc/conform.nvim"), github("neovim/nvim-lspconfig"), github("romus204/tree-sitter-manager.nvim"), github("lukas-reineke/indent-blankline.nvim"), github("windwp/nvim-autopairs"), github("sainnhe/gruvbox-material"), github("rebelot/kanagawa.nvim"), github("julienvincent/nvim-paredit"), github("olical/conjure"), github("olical/nfnl")})
+vim.pack.add({github("nvim-mini/mini.icons"), github("nvim-mini/mini.base16"), github("nvim-mini/mini.pick"), github("stevearc/conform.nvim"), github("neovim/nvim-lspconfig"), github("romus204/tree-sitter-manager.nvim"), github("lukas-reineke/indent-blankline.nvim"), github("windwp/nvim-autopairs"), github("sainnhe/gruvbox-material"), github("rebelot/kanagawa.nvim"), github("julienvincent/nvim-paredit"), github("olical/conjure"), github("olical/nfnl")})
 do
   local ui2 = require("vim._core.ui2")
   ui2.enable({enable = true, msg = {target = "msg"}})
 end
 do
-  local artio = require("artio")
-  artio.setup({opts = {promptprefix = ">", pointer = ">"}, win = {height = 10}, mappings = {["<down>"] = "down", ["<up>"] = "up", ["<c-n>"] = "down", ["<c-p>"] = "up", ["<cr>"] = "accept", ["<esc>"] = "cancel", ["<tab>"] = "mark", ["<c-g>"] = "togglelive", ["<c-l>"] = "togglepreview", ["<c-q>"] = "setqflist", ["<m-q>"] = "setqflistmark"}})
-  vim.ui.select = artio.select
+  local pick = require("mini.pick")
+  pick.setup({})
+  setkmap_n("<c-p>", pick.builtin.files)
+  setkmap_n("<leader>ff", pick.builtin.files)
+  setkmap_n("<leader>fg", pick.builtin.grep_live)
+  setkmap_n("<leader>fb", pick.builtin.buffers)
 end
-setkmap_n("<c-p>", "<Plug>(artio-files)")
-setkmap_n("<leader>ff", "<Plug>(artio-smart)")
-setkmap_n("<leader>fg", "<Plug>(artio-grep)")
-setkmap_n("<leader>fb", "<Plug>(artio-buffers)")
-setkmap_n("<leader>fo", "<Plug>(artio-oldfiles)")
 vim.lsp.enable({"clangd", "lua_ls", "biome", "gopls", "html", "ruby_lsp", "pyright", "fennel_ls", "zls", "fortls"})
 vim.lsp.config("lua_ls", {root_markers = {".nfnl.fnl", ".luarc.json", ".luarc.jsonc", ".luacheckrc", ".stylua.toml", ".git"}, settings = {Lua = {diagnostics = {globals = {"vim"}}, workspace = {library = {vim.env.VIMRUNTIME}, checkThirdParty = false}}}})
 setkmap_n("<leader>d", vim.diagnostic.open_float)

@@ -43,9 +43,9 @@
 (setkmap-n :<leader><leader> :<c-6>)
 
 ;; package addition
-(vim.pack.add [(codeberg :comfysage/artio.nvim)
-               (github :nvim-mini/mini.icons)
+(vim.pack.add [(github :nvim-mini/mini.icons)
                (github :nvim-mini/mini.base16)
+               (github :nvim-mini/mini.pick)
                (github :stevearc/conform.nvim)
                (github :neovim/nvim-lspconfig)
                (github :romus204/tree-sitter-manager.nvim)
@@ -63,30 +63,14 @@
   (ui2.enable {:enable true :msg {:target :msg}}))
 
 ;; artio config
-(let [artio (require :artio)]
-  (artio.setup {:opts {:promptprefix ">" :pointer ">"}
-                :win {:height 10}
-                :mappings {:<down> :down
-                           :<up> :up
-                           :<c-n> :down
-                           :<c-p> :up
-                           :<cr> :accept
-                           :<esc> :cancel
-                           :<tab> :mark
-                           :<c-g> :togglelive
-                           :<c-l> :togglepreview
-                           :<c-q> :setqflist
-                           :<m-q> :setqflistmark}})
-  (set vim.ui.select artio.select))
-
-(setkmap-n :<c-p> "<Plug>(artio-files)")
-(setkmap-n :<leader>ff "<Plug>(artio-smart)")
-(setkmap-n :<leader>fg "<Plug>(artio-grep)")
-(setkmap-n :<leader>fb "<Plug>(artio-buffers)")
-(setkmap-n :<leader>fo "<Plug>(artio-oldfiles)")
+(let [pick (require :mini.pick)]
+  (pick.setup {})
+  (setkmap-n :<c-p> pick.builtin.files)
+  (setkmap-n :<leader>ff pick.builtin.files)
+  (setkmap-n :<leader>fg pick.builtin.grep_live)
+  (setkmap-n :<leader>fb pick.builtin.buffers))
 
 ;; LSP
-
 (vim.lsp.enable [:clangd
                  :lua_ls
                  :biome
